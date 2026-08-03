@@ -8,9 +8,9 @@ const cursor = document.querySelector(".custom-cursor");
 document.addEventListener("mousemove", (e)=>{
 
 
-cursor.style.left = e.clientX + "px";
+    cursor.style.left = e.clientX + "px";
 
-cursor.style.top = e.clientY + "px";
+    cursor.style.top = e.clientY + "px";
 
 
 });
@@ -25,6 +25,10 @@ document.getElementById("startButton");
 
 const continueButton =
 document.getElementById("continueButton");
+
+
+const backButton =
+document.getElementById("backButton");
 
 
 
@@ -42,20 +46,40 @@ document.getElementById("saveScene");
 startButton.addEventListener("click", ()=>{
 
 
-console.log("Loading save data...");
+    console.log("Loading save data...");
 
 
-startScene.classList.remove("active");
+    startScene.classList.remove("active");
 
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
 
-saveScene.classList.add("active");
+        saveScene.classList.add("active");
 
 
-},1000);
+    },800);
 
+
+});
+
+
+
+
+
+backButton.addEventListener("click", ()=>{
+
+
+    saveScene.classList.remove("active");
+
+
+    setTimeout(()=>{
+
+
+        startScene.classList.add("active");
+
+
+    },500);
 
 
 });
@@ -67,7 +91,7 @@ saveScene.classList.add("active");
 continueButton.addEventListener("click", ()=>{
 
 
-console.log("Continue selected 🎮");
+    console.log("Continue selected 🎮");
 
 
 });
