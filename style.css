@@ -3,11 +3,13 @@
 }
 
 
+
 body {
 
     margin:0;
 
     height:100vh;
+
 
     background:
     radial-gradient(
@@ -20,7 +22,9 @@ body {
 
     color:white;
 
+
     font-family:"Inter", Arial, sans-serif;
+
 
     overflow:hidden;
 
@@ -32,19 +36,27 @@ body {
 
 .boot-screen {
 
+
     height:100vh;
+
 
     display:flex;
 
+
     flex-direction:column;
+
 
     justify-content:center;
 
+
     align-items:center;
+
 
     position:relative;
 
+
 }
+
 
 
 
@@ -57,6 +69,7 @@ body {
 
 
     width:700px;
+
 
     height:700px;
 
@@ -74,6 +87,8 @@ body {
 
 
 }
+
+
 
 
 
@@ -102,9 +117,13 @@ body {
 
 .ps-logo span {
 
+
     font-size:45px;
 
+
 }
+
+
 
 
 
@@ -142,7 +161,6 @@ body {
 
 
 
-
 .system-text h1 {
 
 
@@ -156,7 +174,6 @@ body {
 
 
 
-
 .system-text span {
 
 
@@ -164,6 +181,8 @@ body {
 
 
 }
+
+
 
 
 
@@ -188,6 +207,7 @@ body {
 
 
 }
+
 
 
 
@@ -219,6 +239,7 @@ body {
 
 
 
+
 .player-select {
 
 
@@ -228,7 +249,7 @@ body {
     transform:translateY(40px);
 
 
-    animation:showPlayers 1.5s cubic-bezier(.16,1,.3,1) forwards;
+    animation:showPlayers 1s forwards;
 
 
     animation-delay:8.2s;
@@ -244,6 +265,7 @@ body {
 
 
 }
+
 
 
 
@@ -282,6 +304,7 @@ body {
 
 
 }
+
 
 
 
@@ -317,566 +340,184 @@ body {
     0 0 40px rgba(0,194,255,.12);
 
 
-    animation:floatCard 4s ease-in-out infinite;
-
-
 }
 
 
 
 
+.player-one {
 
-
-.number {
-
-
-    color:#00c2ff;
-
-
-    font-size:12px;
-
-
-    letter-spacing:4px;
-
-
-}
-
-
-
-
-
-.player-card h3 {
-
-
-    font-size:32px;
-
-
-    margin:20px 0 10px;
-
-
-}
-
-
-
-
-
-.player-card p {
-
-
-    color:#ddd;
-
-
-}
-
-
-
-
-.player-card small {
-
-
-    color:#777;
-
-
-}
-
-
-
-
-
-
-
-.connection {
-
-
-    color:#00c2ff;
-
-
-    font-size:45px;
-
-
-}
-
-
-
-
-
-.connection span {
-
-
-    display:block;
-
-
-    font-size:11px;
-
-
-    letter-spacing:4px;
-
-
-}
-
-
-
-
-
-
-.connected {
-
-
-    margin-top:35px;
-
-
-    color:#00c2ff;
-
-
-    letter-spacing:5px;
-
-
-    font-size:13px;
-
-
-}
-
-
-
-
-
-
-@keyframes loading {
-
-
-    to {
-
-
-        width:100%;
-
-
-    }
-
-
-}
-
-
-
-
-
-
-@keyframes showPlayers {
-
-
-    from {
-
-
-        opacity:0;
-
-
-        transform:translateY(40px);
-
-
-    }
-
-
-
-    to {
-
-
-        opacity:1;
-
-
-        transform:translateY(0);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-@keyframes floatCard {
-
-
-    0%,100% {
-
-
-        transform:translateY(0);
-
-
-    }
-
-
-
-    50% {
-
-
-        transform:translateY(-8px);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-@keyframes ambient {
-
-
-    from {
-
-
-        transform:scale(.8);
-
-
-    }
-
-
-    to {
-
-
-        transform:scale(1.2);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-@keyframes intro {
-
-
-    from {
-
-
-        opacity:0;
-
-
-        transform:scale(.8);
-
-
-        filter:blur(10px);
-
-
-    }
-
-
-
-    to {
-
-
-        opacity:1;
-
-
-        transform:scale(1);
-
-
-        filter:blur(0);
-
-
-    }
-
-
-}}
-
-
-
-/* BLUE PREMIUM LIGHT */
-
-.ambient-glow {
-
-    position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    background: #00c2ff;
-
-    filter: blur(180px);
-
-    opacity: 0.12;
-
-    animation: ambient 6s infinite alternate;
-
-}
-
-
-
-/* LOGO */
-
-.ps-logo {
-
-    z-index: 2;
-
-    font-size: 90px;
-
-    font-weight: 700;
-
-    letter-spacing: 18px;
-
-    animation: intro 2s ease forwards;
-
-}
-
-
-.ps-logo span {
-
-    font-size: 45px;
-
-}
-
-
-
-/* TEXT */
-
-.system-text {
-
-    text-align:center;
-
-    z-index:2;
-
-    margin-top:35px;
-
-    letter-spacing:4px;
-
-}
-
-
-.system-text p {
-
-    color:#00c2ff;
-
-    font-size:12px;
-
-}
-
-
-
-.system-text h1 {
-
-    font-size:28px;
-
-    font-weight:500;
-
-}
-
-
-
-/* LOADING */
-
-.loading-container {
-
-    width:420px;
-
-    height:3px;
-
-    background:#222;
-
-    margin-top:35px;
-
-    overflow:hidden;
-
-}
-
-
-
-.loading-line {
-
-    height:100%;
-
-    width:0%;
-
-    background:#00c2ff;
-
-    box-shadow:0 0 20px #00c2ff;
-
-    animation:loading 4s forwards;
-
-}
-
-
-
-/* PLAYERS */
-
-
-.player-select {
 
     opacity:0;
 
-    animation:showPlayers 1s forwards;
 
-    animation-delay:4.2s;
+    animation:playerOne 1s forwards;
 
-    z-index:2;
 
-    text-align:center;
+    animation-delay:9.2s;
 
-    margin-top:40px;
 
 }
 
 
 
-.player-select h2 {
 
-    font-size:14px;
 
-    font-weight:400;
+.player-two {
 
-    letter-spacing:6px;
 
-    color:#aaa;
+    opacity:0;
+
+
+    animation:playerTwo 1s forwards;
+
+
+    animation-delay:10.7s;
+
 
 }
 
 
 
-.players {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:35px;
-
-}
-
-
-
-.player-card {
-
-    width:280px;
-
-    padding:35px;
-
-    border-radius:24px;
-
-
-    background:
-    linear-gradient(
-    145deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02)
-    );
-
-
-    border:1px solid rgba(0,194,255,0.25);
-
-
-    backdrop-filter:blur(20px);
-
-
-    box-shadow:
-    0 0 40px rgba(0,194,255,0.12);
-
-
-    transition:.4s;
-
-}
-
-
-
-.player-card:hover {
-
-    transform:translateY(-10px);
-
-    box-shadow:
-    0 0 50px rgba(0,194,255,0.35);
-
-}
 
 
 
 .number {
 
+
     color:#00c2ff;
+
 
     font-size:12px;
 
+
     letter-spacing:4px;
 
+
 }
+
+
+
 
 
 
 .player-card h3 {
 
+
     font-size:32px;
+
 
     margin:20px 0 10px;
 
+
 }
+
 
 
 
 .player-card p {
 
+
     color:#ddd;
 
+
 }
+
+
 
 
 
 .player-card small {
 
+
     color:#777;
+
 
 }
 
 
 
-/* CONNECTION */
+
 
 
 .connection {
 
+
     color:#00c2ff;
+
 
     font-size:45px;
 
+
+    opacity:0;
+
+
+    animation:connection 1s forwards;
+
+
+    animation-delay:12s;
+
+
 }
+
+
+
 
 
 .connection span {
 
+
     display:block;
+
 
     font-size:11px;
 
+
     letter-spacing:4px;
 
+
 }
+
+
+
+
 
 
 
 .connected {
 
+
     margin-top:35px;
+
 
     color:#00c2ff;
 
+
     letter-spacing:5px;
 
+
     font-size:13px;
+
+
+    opacity:0;
+
+
+    animation:connected 1s forwards;
+
+
+    animation-delay:13s;
+
 
 }
 
 
 
-/* ANIMATIONS */
+
+
 
 
 @keyframes loading {
+
 
     to {
 
@@ -887,30 +528,175 @@ body {
 }
 
 
+
+
 @keyframes showPlayers {
+
 
     to {
 
+
         opacity:1;
+
+
+        transform:translateY(0);
+
 
     }
 
 }
+
+
+
+
+
+
+@keyframes playerOne {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateX(-100px);
+
+
+        filter:blur(10px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateX(0);
+
+
+        filter:blur(0);
+
+
+    }
+
+}
+
+
+
+
+
+
+@keyframes playerTwo {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateX(100px);
+
+
+        filter:blur(10px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateX(0);
+
+
+        filter:blur(0);
+
+
+    }
+
+}
+
+
+
+
+
+
+@keyframes connection {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:scale(.5);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:scale(1);
+
+
+    }
+
+}
+
+
+
+
+
+
+@keyframes connected {
+
+
+    to {
+
+
+        opacity:1;
+
+
+    }
+
+}
+
+
+
 
 
 
 @keyframes ambient {
 
+
     from {
 
+
         transform:scale(.8);
+
 
     }
 
 
     to {
 
+
         transform:scale(1.2);
+
 
     }
 
@@ -918,26 +704,38 @@ body {
 
 
 
+
+
+
 @keyframes intro {
+
 
     from {
 
+
         opacity:0;
+
 
         transform:scale(.8);
 
+
         filter:blur(10px);
+
 
     }
 
 
     to {
 
+
         opacity:1;
+
 
         transform:scale(1);
 
+
         filter:blur(0);
+
 
     }
 
