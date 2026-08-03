@@ -1,40 +1,593 @@
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 
 body {
-    margin: 0;
-    height: 100vh;
+
+    margin:0;
+
+    height:100vh;
 
     background:
-        radial-gradient(circle at center, #101820 0%, #050505 45%, #000 100%);
+    radial-gradient(
+    circle at center,
+    #101820 0%,
+    #050505 45%,
+    #000 100%
+    );
 
-    color: white;
 
-    font-family: "Inter", Arial, sans-serif;
+    color:white;
 
-    overflow: hidden;
+    font-family:"Inter", Arial, sans-serif;
+
+    overflow:hidden;
+
 }
 
 
-/* MAIN */
+
+
 
 .boot-screen {
 
-    height: 100vh;
+    height:100vh;
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    align-items: center;
+    justify-content:center;
 
-    justify-content: center;
+    align-items:center;
 
-    position: relative;
+    position:relative;
 
 }
+
+
+
+
+
+.ambient-glow {
+
+
+    position:absolute;
+
+
+    width:700px;
+
+    height:700px;
+
+
+    background:#00c2ff;
+
+
+    filter:blur(180px);
+
+
+    opacity:.12;
+
+
+    animation:ambient 6s infinite alternate;
+
+
+}
+
+
+
+
+.ps-logo {
+
+
+    z-index:2;
+
+
+    font-size:90px;
+
+
+    font-weight:700;
+
+
+    letter-spacing:18px;
+
+
+    animation:intro 2s ease forwards;
+
+
+}
+
+
+
+.ps-logo span {
+
+    font-size:45px;
+
+}
+
+
+
+
+
+.system-text {
+
+
+    z-index:2;
+
+
+    text-align:center;
+
+
+    margin-top:35px;
+
+
+    letter-spacing:4px;
+
+
+}
+
+
+
+.system-text p {
+
+
+    color:#00c2ff;
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+.system-text h1 {
+
+
+    font-size:28px;
+
+
+    font-weight:500;
+
+
+}
+
+
+
+
+.system-text span {
+
+
+    color:#888;
+
+
+}
+
+
+
+
+
+.loading-container {
+
+
+    width:420px;
+
+
+    height:3px;
+
+
+    background:#222;
+
+
+    margin-top:35px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+.loading-line {
+
+
+    height:100%;
+
+
+    width:0%;
+
+
+    background:#00c2ff;
+
+
+    box-shadow:0 0 20px #00c2ff;
+
+
+    animation:loading 8s cubic-bezier(.65,0,.35,1) forwards;
+
+
+}
+
+
+
+
+
+
+
+.player-select {
+
+
+    opacity:0;
+
+
+    transform:translateY(40px);
+
+
+    animation:showPlayers 1.5s cubic-bezier(.16,1,.3,1) forwards;
+
+
+    animation-delay:8.2s;
+
+
+    z-index:2;
+
+
+    text-align:center;
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+.player-select h2 {
+
+
+    font-size:14px;
+
+
+    font-weight:400;
+
+
+    letter-spacing:6px;
+
+
+    color:#aaa;
+
+
+}
+
+
+
+
+
+.players {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:35px;
+
+
+}
+
+
+
+
+
+.player-card {
+
+
+    width:280px;
+
+
+    padding:35px;
+
+
+    border-radius:24px;
+
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+    );
+
+
+    border:1px solid rgba(0,194,255,.25);
+
+
+    backdrop-filter:blur(20px);
+
+
+    box-shadow:
+    0 0 40px rgba(0,194,255,.12);
+
+
+    animation:floatCard 4s ease-in-out infinite;
+
+
+}
+
+
+
+
+
+
+.number {
+
+
+    color:#00c2ff;
+
+
+    font-size:12px;
+
+
+    letter-spacing:4px;
+
+
+}
+
+
+
+
+
+.player-card h3 {
+
+
+    font-size:32px;
+
+
+    margin:20px 0 10px;
+
+
+}
+
+
+
+
+
+.player-card p {
+
+
+    color:#ddd;
+
+
+}
+
+
+
+
+.player-card small {
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+
+
+.connection {
+
+
+    color:#00c2ff;
+
+
+    font-size:45px;
+
+
+}
+
+
+
+
+
+.connection span {
+
+
+    display:block;
+
+
+    font-size:11px;
+
+
+    letter-spacing:4px;
+
+
+}
+
+
+
+
+
+
+.connected {
+
+
+    margin-top:35px;
+
+
+    color:#00c2ff;
+
+
+    letter-spacing:5px;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+@keyframes loading {
+
+
+    to {
+
+
+        width:100%;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@keyframes showPlayers {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateY(40px);
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@keyframes floatCard {
+
+
+    0%,100% {
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+
+    50% {
+
+
+        transform:translateY(-8px);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes ambient {
+
+
+    from {
+
+
+        transform:scale(.8);
+
+
+    }
+
+
+    to {
+
+
+        transform:scale(1.2);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@keyframes intro {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:scale(.8);
+
+
+        filter:blur(10px);
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:scale(1);
+
+
+        filter:blur(0);
+
+
+    }
+
+
+}}
 
 
 
