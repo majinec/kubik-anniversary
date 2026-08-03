@@ -1266,3 +1266,119 @@ to {
     margin-bottom:40px;
 
 }
+/* ========================= */
+/* GTA V LOADING SCREEN */
+/* ========================= */
+
+
+#gtaScene {
+
+    background:black;
+
+    overflow:hidden;
+
+}
+
+
+
+#gtaVideo {
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    top:0;
+
+    left:0;
+
+}
+
+
+
+.gta-overlay {
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    z-index:2;
+
+}
+
+
+
+.gta-overlay h1 {
+
+    font-size:55px;
+
+    letter-spacing:8px;
+
+    margin:0;
+
+}
+
+
+
+.gta-overlay h2 {
+
+    margin-top:30px;
+
+    letter-spacing:6px;
+
+}
+
+
+
+.gta-overlay h3 {
+
+    margin-top:20px;
+
+    color:#aaa;
+
+}
+
+
+
+.quote {
+
+    margin-top:60px;
+
+    font-size:20px;
+
+    font-style:italic;
+
+}
+
+
+
+.status {
+
+    position:absolute;
+
+    bottom:50px;
+
+    letter-spacing:5px;
+
+}
+
+
+
+.status span {
+
+    color:#00c8ff;
+
+}
