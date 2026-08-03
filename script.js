@@ -1,6 +1,7 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
+
 // =========================
 // CURSOR
 // =========================
@@ -9,7 +10,7 @@ console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 const cursor = document.querySelector(".custom-cursor");
 
 
-document.addEventListener("mousemove", (e)=>{
+document.addEventListener("mousemove", e => {
 
     if(cursor){
 
@@ -23,20 +24,20 @@ document.addEventListener("mousemove", (e)=>{
 
 
 
+
+
 // =========================
 // BUTTONS
 // =========================
 
 
 const startButton = document.getElementById("startButton");
-
 const continueButton = document.getElementById("continueButton");
 
-const backButton = document.getElementById("backButton");
-
-const bootBackButton = document.getElementById("bootBackButton");
-
 const missionStartButton = document.getElementById("missionStartButton");
+
+const backButton = document.getElementById("backButton");
+const bootBackButton = document.getElementById("bootBackButton");
 
 
 
@@ -57,6 +58,8 @@ const bootScene = document.getElementById("bootScene");
 const gtaLoadingScene = document.getElementById("gtaLoadingScene");
 
 const gtaVideoScene = document.getElementById("gtaVideoScene");
+
+const missionScene = document.getElementById("missionScene");
 
 const chapterScene = document.getElementById("chapterScene");
 
@@ -80,32 +83,35 @@ const gtaVideo = document.getElementById("gtaVideo");
 
 
 // =========================
-// START → SAVE
+// START
 // =========================
 
 
-startButton.addEventListener("click", ()=>{
+if(startButton){
 
 
-console.log("Opening save file...");
+startButton.addEventListener("click",()=>{
 
 
-startScene.classList.remove("active");
+    startScene.classList.remove("active");
 
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
 
-saveScene.classList.add("active");
+        saveScene.classList.add("active");
 
 
-},800);
+    },800);
 
 
 
 });
 
 
+}
+
+
 
 
 
@@ -113,28 +119,33 @@ saveScene.classList.add("active");
 
 
 // =========================
-// SAVE → START
+// BACK SAVE
 // =========================
 
 
-backButton.addEventListener("click", ()=>{
+if(backButton){
 
 
-saveScene.classList.remove("active");
+backButton.addEventListener("click",()=>{
 
 
-setTimeout(()=>{
+    saveScene.classList.remove("active");
 
 
-startScene.classList.add("active");
+    setTimeout(()=>{
 
 
-},500);
+        startScene.classList.add("active");
+
+
+    },500);
 
 
 
 });
 
+
+}
 
 
 
@@ -148,7 +159,10 @@ startScene.classList.add("active");
 // =========================
 
 
-continueButton.addEventListener("click", ()=>{
+if(continueButton){
+
+
+continueButton.addEventListener("click",()=>{
 
 
 console.log("Starting PS5 Boot...");
@@ -161,11 +175,10 @@ saveScene.classList.remove("active");
 setTimeout(()=>{
 
 
-bootScene.classList.add("active");
+    bootScene.classList.add("active");
 
 
-startBootSequence();
-
+    startPS5();
 
 
 },800);
@@ -174,6 +187,8 @@ startBootSequence();
 
 });
 
+
+}
 
 
 
@@ -187,46 +202,33 @@ startBootSequence();
 // =========================
 
 
-function startBootSequence(){
+function startPS5(){
 
 
 console.log("PS5 BOOT ACTIVE");
 
 
+let counter = 0;
 
-setTimeout(()=>{
+
+let timer = setInterval(()=>{
+
+
+counter++;
+
+
+console.log("BOOT TIMER:",counter);
+
+
+
+if(counter >= 15){
+
+
+clearInterval(timer);
+
 
 
 console.log("PS5 BOOT FINISHED");
-
-
-launchGTA();
-
-
-},15000);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-// =========================
-// GTA LOADING SCREEN
-// =========================
-
-
-function launchGTA(){
-
-
-console.log("Launching GTA Loading Screen");
 
 
 
@@ -237,7 +239,19 @@ bootScene.classList.remove("active");
 setTimeout(()=>{
 
 
-gtaLoadingScene.classList.add("active");
+    gtaLoadingScene.classList.add("active");
+
+
+    startGTALoading();
+
+
+
+},1000);
+
+
+
+}
+
 
 
 },1000);
@@ -255,32 +269,76 @@ gtaLoadingScene.classList.add("active");
 
 
 // =========================
-// MISSION START BUTTON
+// GTA LOADING
 // =========================
 
 
-missionStartButton.addEventListener("click", ()=>{
+function startGTALoading(){
 
 
-console.log("Starting GTA Video");
+console.log("GTA LAMAR SCREEN");
 
 
 
-gtaLoadingScene.classList.remove("active");
+const dots = document.getElementById("loadingDots");
 
+
+if(dots){
+
+
+let count = 0;
+
+
+setInterval(()=>{
+
+
+count++;
+
+
+if(count > 3){
+
+count = 0;
+
+}
+
+
+dots.innerHTML = ".".repeat(count);
+
+
+
+},500);
+
+
+
+}
+
+
+
+
+// automaticky po 15 sekundách ukáže mission
 
 
 setTimeout(()=>{
 
 
-startGTAVideo();
+gtaLoadingScene.classList.remove("active");
+
+
+setTimeout(()=>{
+
+
+missionScene.classList.add("active");
 
 
 },800);
 
 
 
-});
+},15000);
+
+
+
+}
 
 
 
@@ -291,44 +349,37 @@ startGTAVideo();
 
 
 // =========================
-// GTA VIDEO
+// MISSION START → VIDEO
 // =========================
 
 
-function startGTAVideo(){
+if(missionStartButton){
 
 
-console.log("GTA VIDEO START");
 
+missionStartButton.addEventListener("click",()=>{
+
+
+console.log("Starting GTA Video");
+
+
+
+missionScene.classList.remove("active");
+
+
+
+setTimeout(()=>{
 
 
 gtaVideoScene.classList.add("active");
 
 
-
-gtaVideo.currentTime = 0;
-
-
-// povolí zvuk po kliknutí
-
-gtaVideo.muted = false;
-
-gtaVideo.volume = 1;
+playGTAVideo();
 
 
 
-gtaVideo.play()
-.then(()=>{
+},800);
 
-
-console.log("VIDEO PLAYING 🔊");
-
-
-})
-.catch((error)=>{
-
-
-console.log("VIDEO ERROR:", error);
 
 
 });
@@ -346,14 +397,86 @@ console.log("VIDEO ERROR:", error);
 
 
 // =========================
-// VIDEO END → CHAPTER SCREEN
+// GTA VIDEO
 // =========================
 
 
-gtaVideo.addEventListener("ended", ()=>{
+function playGTAVideo(){
+
+
+console.log("GTA VIDEO + SOUND PLAYING 🎵");
+
+
+
+if(gtaVideo){
+
+
+gtaVideo.muted = false;
+
+
+gtaVideo.volume = 1;
+
+
+gtaVideo.currentTime = 0;
+
+
+
+gtaVideo.play()
+.then(()=>{
+
+
+console.log("Video started");
+
+
+})
+.catch(err=>{
+
+
+console.log("Video blocked:",err);
+
+
+});
+
+
+
+
+gtaVideo.onended = ()=>{
 
 
 console.log("Video finished");
+
+
+enterRDR2();
+
+
+
+};
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =========================
+// RDR2 CHAPTER
+// =========================
+
+
+function enterRDR2(){
+
+
+console.log("Entering RDR2");
 
 
 
@@ -364,19 +487,20 @@ gtaVideoScene.classList.remove("active");
 setTimeout(()=>{
 
 
+if(chapterScene){
+
+
 chapterScene.classList.add("active");
 
 
-console.log("Entering RDR2 Chapters 🤠");
+}
+
+
+},1000);
 
 
 
-},1200);
-
-
-
-});
-
+}
 
 
 
@@ -386,11 +510,14 @@ console.log("Entering RDR2 Chapters 🤠");
 
 
 // =========================
-// BACK BUTTON PS5
+// BACK PS5
 // =========================
 
 
-bootBackButton.addEventListener("click", ()=>{
+if(bootBackButton){
+
+
+bootBackButton.addEventListener("click",()=>{
 
 
 bootScene.classList.remove("active");
@@ -402,7 +529,4 @@ saveScene.classList.add("active");
 });
 
 
-
-
-
-console.log("Game system loaded 🎮");
+}
