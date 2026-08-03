@@ -1,115 +1,282 @@
+* {
+    box-sizing: border-box;
+}
+
+
 body {
 
     margin: 0;
     height: 100vh;
 
-    background: #000;
+    background: #050505;
 
     color: white;
 
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 
 }
 
 
 .boot-screen {
 
-    text-align: center;
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
 
 }
 
 
-.logo {
+.ambient-glow {
 
-    font-size: 70px;
+    position: absolute;
 
-    animation: pulse 2s infinite;
+    width: 600px;
 
-}
-
-
-h1 {
-
-    letter-spacing: 5px;
-
-    font-size: 24px;
-
-}
-
-
-.loading-bar {
-
-    width: 350px;
-
-    height: 12px;
-
-    border: 1px solid #555;
-
-    margin: 30px auto;
-
-}
-
-
-.progress {
-
-    height: 100%;
-
-    width: 0%;
+    height: 600px;
 
     background: #00c2ff;
 
-    animation: load 4s forwards;
+    filter: blur(180px);
+
+    opacity: 0.18;
+
+    animation: glow 4s infinite alternate;
 
 }
 
 
-.players {
+
+.ps-logo {
+
+    font-size: 90px;
+
+    font-weight: 700;
+
+    letter-spacing: 15px;
+
+    z-index: 2;
+
+    animation: fadeIn 2s ease forwards;
+
+}
+
+
+.ps-logo span {
+
+    font-size: 45px;
+
+}
+
+
+
+.system-text {
+
+    text-align: center;
 
     margin-top: 40px;
 
+    letter-spacing: 4px;
+
+    z-index: 2;
+
 }
 
 
-.player {
+.system-text p {
+
+    color: #00c2ff;
+
+    font-size: 14px;
+
+}
+
+
+
+.system-text h1 {
+
+    font-size: 28px;
+
+}
+
+
+
+.system-text span {
+
+    color: #888;
+
+}
+
+
+
+.loading-container {
+
+    width: 420px;
+
+    height: 3px;
+
+    background: #222;
+
+    margin-top: 35px;
+
+    overflow: hidden;
+
+}
+
+
+
+.loading-line {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #00c2ff;
+
+    animation: loading 4s forwards;
+
+}
+
+
+
+.player-select {
+
+    margin-top: 50px;
+
+    text-align: center;
 
     opacity: 0;
 
     animation: appear 1s forwards;
-
-}
-
-
-.player:nth-child(1){
 
     animation-delay: 4s;
 
 }
 
 
-.player:nth-child(2){
 
-    animation-delay: 5s;
+.player-select h2 {
 
-}
+    letter-spacing: 5px;
 
-
-.coop {
-
-    opacity: 0;
-
-    animation: appear 1s forwards;
-
-    animation-delay: 6s;
+    font-weight: 400;
 
 }
 
 
 
-@keyframes load {
+.players {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+
+
+.player-card {
+
+    width:260px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 30px rgba(0,194,255,0.15);
+
+}
+
+
+
+.number {
+
+    color:#00c2ff;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+.player-card h3 {
+
+    font-size:28px;
+
+}
+
+
+
+.player-card p {
+
+    color:#ddd;
+
+}
+
+
+
+.player-card small {
+
+    color:#777;
+
+}
+
+
+
+.connection {
+
+    color:#00c2ff;
+
+    font-size:40px;
+
+}
+
+
+
+.connection span {
+
+    display:block;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+.connected {
+
+    margin-top:40px;
+
+    color:#00c2ff;
+
+    letter-spacing:4px;
+
+}
+
+
+
+@keyframes loading {
 
     to {
 
@@ -133,11 +300,39 @@ h1 {
 
 
 
-@keyframes pulse {
+@keyframes fadeIn {
 
-    50% {
+    from {
 
-        transform: scale(1.1);
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes glow {
+
+    from {
+
+        transform:scale(.8);
+
+    }
+
+    to {
+
+        transform:scale(1.2);
 
     }
 
