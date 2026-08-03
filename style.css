@@ -1,5 +1,6 @@
+```css
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 
@@ -12,14 +13,13 @@ body {
 
     color:white;
 
-    font-family: "Inter", Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
     overflow:hidden;
 
     cursor:none;
 
 }
-
 
 
 /* CUSTOM CURSOR */
@@ -30,25 +30,24 @@ body::after {
 
     position:fixed;
 
-    width:18px;
+    width:16px;
 
-    height:18px;
+    height:16px;
 
     border-radius:50%;
 
-    background:#00c2ff;
+    background:#b36cff;
 
     box-shadow:
-    0 0 20px #00c2ff,
-    0 0 50px #00c2ff;
+    0 0 20px #b36cff,
+    0 0 50px #8b35ff;
 
     pointer-events:none;
 
-    transform:translate(-50%, -50%);
-
     left:var(--mouse-x);
-
     top:var(--mouse-y);
+
+    transform:translate(-50%,-50%);
 
 }
 
@@ -100,51 +99,42 @@ body::after {
 
 
 
-/* START MENU */
-
+/* START SCREEN */
 
 #startScene {
-
 
     background:
 
     radial-gradient(
-
         circle at center,
-
-        #102433 0%,
-
-        #050505 45%,
-
+        #24103d 0%,
+        #090510 40%,
         #000 100%
-
     );
-
 
 }
 
 
 
-
 #startScene::before {
-
 
     content:"";
 
     position:absolute;
 
-    width:600px;
+    width:700px;
 
-    height:600px;
+    height:700px;
 
-    background:#00c2ff;
 
-    opacity:.12;
+    background:#9b5cff;
+
+    opacity:.15;
 
     filter:blur(180px);
 
-    animation:pulse 5s infinite alternate;
 
+    animation:pulse 5s infinite alternate;
 
 }
 
@@ -155,27 +145,91 @@ body::after {
 
 .logo {
 
+    display:flex;
 
-    font-size:100px;
+    align-items:center;
+
+    gap:25px;
+
+    font-size:120px;
 
     font-weight:700;
 
-    letter-spacing:20px;
+    letter-spacing:25px;
 
     z-index:2;
 
     animation:intro 2s ease;
 
+}
+
+
+
+/* NEON HEART */
+
+
+.heart {
+
+    width:70px;
+
+    height:70px;
+
+    background:#ff4fd8;
+
+    position:relative;
+
+    transform:rotate(-45deg);
+
+    animation:heartbeat 1.8s infinite;
+
+    box-shadow:
+
+    0 0 20px #ff4fd8,
+    0 0 60px #ff4fd8;
 
 }
 
 
 
-.logo span {
+.heart::before,
+.heart::after {
 
-    font-size:55px;
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    background:#ff4fd8;
+
+    border-radius:50%;
+
 
 }
+
+
+
+.heart::before {
+
+    top:-35px;
+
+    left:0;
+
+}
+
+
+
+.heart::after {
+
+    left:35px;
+
+    top:0;
+
+}
+
 
 
 
@@ -184,22 +238,19 @@ body::after {
 
 h1 {
 
-
     z-index:2;
+
+    margin-top:40px;
 
     font-size:18px;
 
-    letter-spacing:10px;
+    font-weight:300;
 
-    font-weight:400;
+    letter-spacing:12px;
 
-    color:#aaa;
-
-    margin-top:30px;
-
+    color:#c9c9c9;
 
 }
-
 
 
 
@@ -212,24 +263,22 @@ h1 {
     margin-top:80px;
 
 
-    padding:18px 60px;
+    padding:18px 65px;
 
 
     background:transparent;
 
 
-    color:white;
-
-
-    border:
-
-    1px solid #00c2ff;
+    border:1px solid #b36cff;
 
 
     border-radius:50px;
 
 
-    font-size:15px;
+    color:white;
+
+
+    font-size:14px;
 
 
     letter-spacing:5px;
@@ -251,15 +300,16 @@ h1 {
 #startButton:hover {
 
 
-    background:#00c2ff;
+    background:#b36cff;
 
 
-    color:#000;
+    color:black;
 
 
     box-shadow:
 
-    0 0 30px #00c2ff;
+    0 0 30px #b36cff,
+    0 0 80px #b36cff;
 
 
 }
@@ -271,21 +321,15 @@ h1 {
 
 .version {
 
-
     position:absolute;
-
 
     bottom:30px;
 
-
     right:40px;
-
 
     color:#555;
 
-
-    letter-spacing:3px;
-
+    letter-spacing:4px;
 
 }
 
@@ -299,27 +343,27 @@ h1 {
 
 from {
 
-    opacity:0;
+opacity:0;
 
-    transform:scale(.7);
+transform:scale(.7);
 
-    filter:blur(20px);
+filter:blur(20px);
 
 }
 
 
 to {
 
-    opacity:1;
+opacity:1;
 
-    transform:scale(1);
+transform:scale(1);
 
-    filter:blur(0);
+filter:blur(0);
+
+}
 
 }
 
-
-}
 
 
 
@@ -328,16 +372,38 @@ to {
 
 from {
 
-    transform:scale(.8);
+transform:scale(.8);
 
 }
 
 
 to {
 
-    transform:scale(1.2);
+transform:scale(1.2);
 
 }
 
 
 }
+
+
+
+
+@keyframes heartbeat {
+
+
+0%,100% {
+
+transform:rotate(-45deg) scale(1);
+
+}
+
+
+50% {
+
+transform:rotate(-45deg) scale(1.15);
+
+}
+
+}
+```
