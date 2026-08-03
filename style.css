@@ -6,32 +6,71 @@
 body {
 
     margin:0;
-
     height:100vh;
 
-    background:
-    radial-gradient(
-        circle at center,
-        #101820 0%,
-        #050505 45%,
-        #000 100%
-    );
+    background:#050505;
 
     color:white;
 
-    font-family:"Inter", Arial, sans-serif;
+    font-family: "Inter", Arial, sans-serif;
 
     overflow:hidden;
+
+    cursor:none;
 
 }
 
 
 
-/* PS5 BOOT */
+/* CUSTOM CURSOR */
 
-.boot-screen {
+body::after {
+
+    content:"";
+
+    position:fixed;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#00c2ff;
+
+    box-shadow:
+    0 0 20px #00c2ff,
+    0 0 50px #00c2ff;
+
+    pointer-events:none;
+
+    transform:translate(-50%, -50%);
+
+    left:var(--mouse-x);
+
+    top:var(--mouse-y);
+
+}
+
+
+
+/* GAME */
+
+#game {
 
     height:100vh;
+
+}
+
+
+
+/* SCENES */
+
+.scene {
+
+    height:100vh;
+
+    width:100%;
 
     display:flex;
 
@@ -41,27 +80,71 @@ body {
 
     align-items:center;
 
-    position:relative;
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
 
 }
 
 
 
-.ambient-glow {
+.scene.active {
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+
+/* START MENU */
+
+
+#startScene {
+
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        #102433 0%,
+
+        #050505 45%,
+
+        #000 100%
+
+    );
+
+
+}
+
+
+
+
+#startScene::before {
+
+
+    content:"";
 
     position:absolute;
 
-    width:700px;
+    width:600px;
 
-    height:700px;
+    height:600px;
 
     background:#00c2ff;
 
-    filter:blur(180px);
-
     opacity:.12;
 
-    animation:ambient 6s infinite alternate;
+    filter:blur(180px);
+
+    animation:pulse 5s infinite alternate;
+
 
 }
 
@@ -69,697 +152,192 @@ body {
 
 /* LOGO */
 
-.ps-logo {
 
-    z-index:2;
+.logo {
 
-    font-size:90px;
+
+    font-size:100px;
 
     font-weight:700;
 
-    letter-spacing:18px;
-
-    animation:intro 2s ease forwards;
-
-}
-
-
-.ps-logo span {
-
-    font-size:45px;
-
-}
-
-
-
-/* TEXT */
-
-.system-text {
+    letter-spacing:20px;
 
     z-index:2;
 
-    text-align:center;
+    animation:intro 2s ease;
 
-    margin-top:35px;
-
-    letter-spacing:4px;
-
-}
-
-
-.system-text p {
-
-    color:#00c2ff;
-
-    font-size:12px;
-
-}
-
-
-.system-text h1 {
-
-    font-size:28px;
-
-    font-weight:500;
-
-}
-
-
-.system-text span {
-
-    color:#888;
 
 }
 
 
 
-/* LOADING */
+.logo span {
 
-.loading-container {
-
-    width:420px;
-
-    height:3px;
-
-    background:#222;
-
-    margin-top:35px;
-
-    overflow:hidden;
+    font-size:55px;
 
 }
 
 
 
-.loading-line {
-
-    height:100%;
-
-    width:0%;
-
-    background:#00c2ff;
-
-    box-shadow:0 0 20px #00c2ff;
-
-    animation:loading 8s cubic-bezier(.65,0,.35,1) forwards;
-
-}
+/* TITLE */
 
 
+h1 {
 
-/* PLAYER SELECT */
-
-
-.player-select {
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    animation:showPlayers 1s forwards;
-
-    animation-delay:8.2s;
 
     z-index:2;
 
-    text-align:center;
+    font-size:18px;
 
-    margin-top:40px;
-
-}
-
-
-
-.player-select h2 {
-
-    font-size:14px;
+    letter-spacing:10px;
 
     font-weight:400;
 
-    letter-spacing:6px;
-
     color:#aaa;
 
-}
+    margin-top:30px;
 
-
-
-.players {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:35px;
 
 }
 
 
 
-.player-card {
 
-    width:280px;
+/* BUTTON */
 
-    padding:35px;
 
-    border-radius:24px;
+#startButton {
 
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.02)
-    );
 
+    margin-top:80px;
 
-    border:1px solid rgba(0,194,255,.25);
 
-    backdrop-filter:blur(20px);
+    padding:18px 60px;
 
-    box-shadow:
-    0 0 40px rgba(0,194,255,.12);
 
-}
+    background:transparent;
 
 
+    color:white;
 
-.player-one {
 
-    opacity:0;
+    border:
 
-    animation:playerOne 1s forwards;
+    1px solid #00c2ff;
 
-    animation-delay:9.2s;
 
-}
+    border-radius:50px;
 
 
+    font-size:15px;
 
-.player-two {
-
-    opacity:0;
-
-    animation:playerTwo 1s forwards;
-
-    animation-delay:10.7s;
-
-}
-
-
-
-.number {
-
-    color:#00c2ff;
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-}
-
-
-.player-card h3 {
-
-    font-size:32px;
-
-    margin:20px 0 10px;
-
-}
-
-
-.player-card p {
-
-    color:#ddd;
-
-}
-
-
-.player-card small {
-
-    color:#777;
-
-}
-
-
-
-/* CONNECTION */
-
-
-.connection {
-
-    color:#00c2ff;
-
-    font-size:45px;
-
-    opacity:0;
-
-    animation:connection 1s forwards;
-
-    animation-delay:12s;
-
-}
-
-
-
-.connection span {
-
-    display:block;
-
-    font-size:11px;
-
-    letter-spacing:4px;
-
-}
-
-
-
-.connected {
-
-    margin-top:35px;
-
-    color:#00c2ff;
 
     letter-spacing:5px;
 
-    font-size:13px;
 
-    opacity:0;
+    cursor:none;
 
-    animation:connected 1s forwards;
 
-    animation-delay:13s;
+    transition:.4s;
+
+
+    z-index:2;
+
 
 }
 
 
 
-/* GTA SCREEN */
-
-.gta-screen {
-
-    position:fixed;
-
-    inset:0;
-
-    background:black;
-
-    display:none;
-
-    z-index:50;
-
-}
+#startButton:hover {
 
 
-.gta-screen video {
+    background:#00c2ff;
 
-    width:100%;
 
-    height:100%;
+    color:#000;
 
-    object-fit:cover;
+
+    box-shadow:
+
+    0 0 30px #00c2ff;
+
 
 }
 
 
 
-/* ANIMACE */
+/* VERSION */
 
 
-@keyframes loading {
+.version {
 
-    to {
 
-        width:100%;
+    position:absolute;
 
-    }
+
+    bottom:30px;
+
+
+    right:40px;
+
+
+    color:#555;
+
+
+    letter-spacing:3px;
+
 
 }
 
 
 
-@keyframes showPlayers {
-
-    to {
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-
-@keyframes playerOne {
-
-    from {
-
-        opacity:0;
-
-        transform:translateX(-100px);
-
-        filter:blur(10px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateX(0);
-
-        filter:blur(0);
-
-    }
-
-}
-
-
-
-@keyframes playerTwo {
-
-    from {
-
-        opacity:0;
-
-        transform:translateX(100px);
-
-        filter:blur(10px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateX(0);
-
-        filter:blur(0);
-
-    }
-
-}
-
-
-
-@keyframes connection {
-
-    from {
-
-        opacity:0;
-
-        transform:scale(.5);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-
-@keyframes connected {
-
-    to {
-
-        opacity:1;
-
-    }
-
-}
-
-
-
-@keyframes ambient {
-
-    from {
-
-        transform:scale(.8);
-
-    }
-
-
-    to {
-
-        transform:scale(1.2);
-
-    }
-
-}
-
+/* ANIMATIONS */
 
 
 @keyframes intro {
 
-    from {
 
-        opacity:0;
-
-        transform:scale(.8);
-
-        filter:blur(10px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:scale(1);
-
-        filter:blur(0);
-
-    }
-
-}
-/* GTA SCREEN */
-
-
-.gta-screen {
-
-    position:fixed;
-
-    inset:0;
-
-    background:black;
-
-    display:none;
-
-    z-index:100;
-
-    overflow:hidden;
-
-}
-
-
-
-.gta-screen video {
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
+from {
 
     opacity:0;
 
-}
+    transform:scale(.7);
 
-
-
-.gta-overlay {
-
-    position:absolute;
-
-    z-index:2;
-
-    width:100%;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    color:white;
-
-    background:rgba(0,0,0,.35);
+    filter:blur(20px);
 
 }
 
 
-
-.gta-overlay h1 {
-
-    font-size:55px;
-
-    letter-spacing:8px;
-
-    font-weight:900;
-
-    animation:gtaFade 1s forwards;
-
-}
-
-
-
-.gta-overlay h2 {
-
-    font-size:28px;
-
-    letter-spacing:5px;
-
-    margin-top:20px;
-
-}
-
-
-
-.mission {
-
-    margin-top:40px;
-
-    color:#ddd;
-
-    letter-spacing:3px;
-
-}
-
-
-
-.dialogue {
-
-    margin-top:40px;
-
-    font-size:20px;
-
-}
-
-
-
-.dialogue span {
-
-    color:#00c2ff;
-
-    display:block;
-
-    letter-spacing:5px;
-
-}
-
-
-
-.status {
-
-    position:absolute;
-
-    bottom:60px;
-
-    letter-spacing:4px;
-
-}
-
-
-
-.status strong {
-
-    display:block;
-
-    margin-top:10px;
-
-    color:#00c2ff;
-
-}
-
-
-
-.gta-active video {
+to {
 
     opacity:1;
 
-}
+    transform:scale(1);
 
-
-
-
-@keyframes gtaFade {
-
-    from {
-
-        opacity:0;
-
-        transform:scale(1.2);
-
-        filter:blur(10px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:scale(1);
-
-        filter:blur(0);
-
-    }
-
-}
-
-.start-button {
-
-    margin-top:40px;
-
-    padding:15px 45px;
-
-    background:transparent;
-
-    color:white;
-
-    border:1px solid #00c2ff;
-
-    border-radius:50px;
-
-    letter-spacing:5px;
-
-    font-size:14px;
-
-    cursor:pointer;
-
-    z-index:5;
-
-    transition:.4s;
+    filter:blur(0);
 
 }
 
 
-.start-button:hover {
+}
 
-    background:#00c2ff;
 
-    color:black;
 
-    box-shadow:
-    0 0 30px #00c2ff;
+@keyframes pulse {
+
+
+from {
+
+    transform:scale(.8);
+
+}
+
+
+to {
+
+    transform:scale(1.2);
+
+}
+
 
 }
