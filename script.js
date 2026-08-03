@@ -1,24 +1,39 @@
 console.log("CO-OP STORY LOADED ❤️");
 
+
 setTimeout(() => {
 
 
     const gta = document.getElementById("gtaScreen");
+    const video = document.getElementById("gtaVideo");
 
 
-    gta.style.display="block";
+    if (!gta || !video) {
+        console.log("GTA screen not found");
+        return;
+    }
 
 
-    setTimeout(()=>{
+
+    gta.style.display = "block";
+
+
+
+    setTimeout(() => {
+
 
         gta.classList.add("gta-active");
 
 
-        document.getElementById("gtaVideo").play();
+        video.play().catch(error => {
+
+            console.log("Video autoplay blocked:", error);
+
+        });
 
 
-    },4000);
+    }, 4000);
 
 
 
-},15000);
+}, 15000);
