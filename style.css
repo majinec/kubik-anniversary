@@ -1155,17 +1155,12 @@ color:#00c8ff;
 
     background:
 
-    linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.85)
-    ),
+    radial-gradient(
+        circle at center,
+        #1a1a1a,
+        #000000 70%
+    );
 
-    url("lamar.jpg");
-
-
-    background-size:cover;
-
-    background-position:center;
 
     overflow:hidden;
 
