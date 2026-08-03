@@ -28,6 +28,7 @@ cursor:none;
 
 /* CURSOR */
 
+
 .custom-cursor {
 
 position:fixed;
@@ -56,6 +57,7 @@ z-index:9999;
 }
 
 
+
 .custom-cursor::after {
 
 content:"";
@@ -82,11 +84,12 @@ transform:translate(-50%,-50%);
 
 /* GAME */
 
+
 #game {
 
-height:100vh;
-
 width:100%;
+
+height:100vh;
 
 }
 
@@ -97,14 +100,16 @@ width:100%;
 
 .scene {
 
-height:100vh;
-
 width:100%;
+
+height:100vh;
 
 position:absolute;
 
 
 display:flex;
+
+flex-direction:column;
 
 justify-content:center;
 
@@ -139,7 +144,6 @@ pointer-events:auto;
 
 #startScene {
 
-
 background:
 
 radial-gradient(
@@ -154,13 +158,11 @@ circle at center,
 
 );
 
-
 }
 
 
 
 #startScene::before {
-
 
 content:"";
 
@@ -188,12 +190,18 @@ animation:pulse 5s infinite alternate;
 
 display:flex;
 
+flex-direction:row;
+
 align-items:center;
+
+justify-content:center;
+
 
 gap:55px;
 
 
 font-size:120px;
+
 
 font-weight:700;
 
@@ -202,6 +210,7 @@ letter-spacing:10px;
 
 
 z-index:2;
+
 
 animation:intro 2s ease;
 
@@ -220,13 +229,18 @@ height:65px;
 
 background:#00c8ff;
 
+
 position:relative;
+
 
 transform:rotate(-45deg);
 
+
 box-shadow:
 
+
 0 0 20px #00c8ff,
+
 0 0 70px #008cff;
 
 
@@ -241,17 +255,22 @@ animation:heartbeat 1.7s infinite;
 
 .heart::after {
 
+
 content:"";
 
 position:absolute;
+
 
 width:65px;
 
 height:65px;
 
+
 background:#00c8ff;
 
+
 border-radius:50%;
+
 
 }
 
@@ -282,15 +301,21 @@ h1 {
 
 z-index:2;
 
-margin-top:40px;
+
+margin-top:60px;
+
 
 font-size:18px;
 
+
 font-weight:300;
+
 
 letter-spacing:12px;
 
+
 color:#d0d0d0;
+
 
 }
 
@@ -298,7 +323,6 @@ color:#d0d0d0;
 
 
 button {
-
 
 font-family:inherit;
 
@@ -312,7 +336,8 @@ font-family:inherit;
 #continueButton {
 
 
-margin-top:80px;
+margin-top:70px;
+
 
 padding:18px 65px;
 
@@ -320,13 +345,13 @@ padding:18px 65px;
 background:transparent;
 
 
+color:white;
+
+
 border:1px solid #b36cff;
 
 
 border-radius:50px;
-
-
-color:white;
 
 
 font-size:14px;
@@ -370,8 +395,8 @@ box-shadow:
 
 
 
-.version {
 
+.version {
 
 position:absolute;
 
@@ -388,14 +413,71 @@ letter-spacing:4px;
 
 
 
-/* SAVE SCREEN */
+
+/* GO BACK */
+
+
+.back-button {
+
+
+position:absolute;
+
+
+top:35px;
+
+
+left:40px;
+
+
+background:transparent;
+
+
+border:none;
+
+
+color:#aaa;
+
+
+font-size:13px;
+
+
+letter-spacing:4px;
+
+
+cursor:none;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.back-button:hover {
+
+
+color:#00c8ff;
+
+
+text-shadow:
+
+0 0 15px #00c8ff;
+
+
+}
+
+
+
+
+
+/* SAVE SLOT */
 
 
 #saveScene {
 
 
 background:
-
 
 radial-gradient(
 
@@ -407,9 +489,7 @@ circle,
 
 );
 
-
 }
-
 
 
 
@@ -417,6 +497,7 @@ circle,
 
 
 width:600px;
+
 
 padding:50px;
 
@@ -459,9 +540,12 @@ animation:cardIn 1s ease;
 
 font-size:13px;
 
+
 letter-spacing:8px;
 
+
 color:#aaa;
+
 
 }
 
@@ -472,7 +556,9 @@ color:#aaa;
 
 font-size:32px;
 
+
 letter-spacing:5px;
+
 
 margin:25px 0;
 
@@ -486,10 +572,11 @@ margin:25px 0;
 
 font-size:22px;
 
+
 letter-spacing:3px;
 
-}
 
+}
 
 
 
@@ -498,7 +585,9 @@ letter-spacing:3px;
 
 margin-top:40px;
 
+
 text-align:left;
+
 
 }
 
@@ -508,6 +597,7 @@ text-align:left;
 
 
 display:flex;
+
 
 justify-content:space-between;
 
@@ -527,7 +617,9 @@ border-bottom:1px solid rgba(255,255,255,.1);
 
 color:#888;
 
+
 letter-spacing:2px;
+
 
 }
 
@@ -536,23 +628,8 @@ letter-spacing:2px;
 .stat strong {
 
 
-color:#fff;
+color:white;
 
-}
-
-
-
-
-.autosave {
-
-
-margin-top:25px;
-
-font-size:12px;
-
-color:#b36cff;
-
-letter-spacing:4px;
 
 }
 
@@ -565,12 +642,11 @@ letter-spacing:4px;
 
 margin-top:40px;
 
+
 }
 
 
 
-
-/* ANIMATIONS */
 
 
 @keyframes intro {
@@ -638,7 +714,6 @@ transform:rotate(-45deg) scale(1);
 transform:rotate(-45deg) scale(1.15);
 
 }
-
 
 }
 
