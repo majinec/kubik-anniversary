@@ -24,14 +24,12 @@ const bootBackButton = document.getElementById("bootBackButton");
 
 
 
-
 // SCENES
 
 const startScene = document.getElementById("startScene");
 const saveScene = document.getElementById("saveScene");
 const bootScene = document.getElementById("bootScene");
 const gtaScene = document.getElementById("gtaScene");
-
 
 
 
@@ -43,26 +41,20 @@ const gtaVideo = document.getElementById("gtaVideo");
 
 
 
-
 // START → SAVE
 
 startButton.addEventListener("click", ()=>{
-
 
     startScene.classList.remove("active");
 
 
     setTimeout(()=>{
 
-
         saveScene.classList.add("active");
-
 
     },800);
 
-
 });
-
 
 
 
@@ -73,21 +65,16 @@ startButton.addEventListener("click", ()=>{
 
 backButton.addEventListener("click", ()=>{
 
-
     saveScene.classList.remove("active");
 
 
     setTimeout(()=>{
 
-
         startScene.classList.add("active");
-
 
     },500);
 
-
 });
-
 
 
 
@@ -100,7 +87,7 @@ backButton.addEventListener("click", ()=>{
 continueButton.addEventListener("click", ()=>{
 
 
-    console.log("PS5 START");
+    console.log("Starting PS5");
 
 
     saveScene.classList.remove("active");
@@ -118,6 +105,7 @@ continueButton.addEventListener("click", ()=>{
     },800);
 
 
+
 });
 
 
@@ -127,25 +115,27 @@ continueButton.addEventListener("click", ()=>{
 
 
 
-// PS5 BOOT
+// PS5 LOADING
 
 function startBootSequence(){
 
 
-    console.log("Boot loading...");
+    console.log("Boot started");
 
 
+    const progress = document.getElementById("bootProgress");
 
-    setTimeout(()=>{
+
+    progress.addEventListener("animationend", ()=>{
 
 
-        console.log("Boot finished");
+        console.log("Progress finished");
 
 
         launchGTA();
 
 
-    },15500);
+    });
 
 
 
@@ -158,7 +148,7 @@ function startBootSequence(){
 
 
 
-// GTA START
+// GTA
 
 function launchGTA(){
 
@@ -166,9 +156,7 @@ function launchGTA(){
     console.log("Launching GTA");
 
 
-
     bootScene.classList.remove("active");
-
 
 
     setTimeout(()=>{
@@ -177,24 +165,10 @@ function launchGTA(){
         gtaScene.classList.add("active");
 
 
-
-        gtaVideo.muted = true;
-
         gtaVideo.currentTime = 0;
 
 
-        gtaVideo.play()
-        .then(()=>{
-
-            console.log("GTA VIDEO PLAYING");
-
-        })
-        .catch(error=>{
-
-            console.log("VIDEO ERROR", error);
-
-        });
-
+        gtaVideo.play();
 
 
     },1000);
@@ -209,8 +183,7 @@ function launchGTA(){
 
 
 
-
-// BACK FROM PS5
+// BACK BUTTON PS5
 
 bootBackButton.addEventListener("click", ()=>{
 
