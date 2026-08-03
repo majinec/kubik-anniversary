@@ -1146,17 +1146,8 @@ color:#00c8ff;
 
 
 }
-
-
-
-
-
-
-
-
-
 /* ========================= */
-/* GTA LAMAR LOADING SCREEN */
+/* GTA V LAMAR LOADING SCREEN */
 /* ========================= */
 
 
@@ -1164,11 +1155,17 @@ color:#00c8ff;
 
     background:
 
-    radial-gradient(
-        circle at center,
-        #252525,
-        #050505 75%
-    );
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.85)
+    ),
+
+    url("lamar.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
 
     overflow:hidden;
 
@@ -1185,6 +1182,7 @@ color:#00c8ff;
 
     height:100%;
 
+
     display:flex;
 
     flex-direction:column;
@@ -1193,12 +1191,11 @@ color:#00c8ff;
 
     align-items:center;
 
+
     text-align:center;
 
 
 }
-
-
 
 
 
@@ -1210,22 +1207,33 @@ color:#00c8ff;
 .gta-loading .gta-font {
 
 
-    font-family:"Pricedown", sans-serif;
+    font-family:"Pricedown", sans-serif !important;
 
-    font-size:100px;
 
-    letter-spacing:3px;
+    font-size:120px;
+
+
+    letter-spacing:4px;
+
+
+    line-height:1;
+
 
     margin:0;
+
 
     color:white;
 
 
+    text-transform:uppercase;
+
+
     text-shadow:
 
-    0 0 15px rgba(255,255,255,.25),
 
-    0 0 40px rgba(255,255,255,.15);
+    0 0 20px rgba(255,255,255,.5),
+
+    0 0 50px rgba(255,255,255,.2);
 
 
 }
@@ -1234,9 +1242,7 @@ color:#00c8ff;
 
 
 
-
-
-/* CHARACTER NAME */
+/* LAMAR NAME */
 
 
 .gta-loading h2 {
@@ -1244,15 +1250,14 @@ color:#00c8ff;
 
     margin-top:35px;
 
-    font-family:Arial, Helvetica, sans-serif;
 
-    font-size:28px;
+    font-size:32px;
 
-    letter-spacing:10px;
 
     font-weight:300;
 
-    color:white;
+
+    letter-spacing:12px;
 
 
 }
@@ -1261,61 +1266,19 @@ color:#00c8ff;
 
 
 
-
-
-/* QUOTE */
-
-
-.gta-loading .quote {
-
-
-    margin-top:55px;
-
-
-    max-width:700px;
-
-
-    font-family:Arial, Helvetica, sans-serif;
-
-
-    font-size:22px;
-
-
-    font-style:italic;
-
-
-    color:#d6d6d6;
-
-
-    letter-spacing:1px;
-
-
-}
-
-
-
-
-
-
-
-
-/* LOADING TEXT */
+/* LOADING */
 
 
 .loading-text {
 
 
-    position:absolute;
-
-    bottom:80px;
+    margin-top:70px;
 
 
-    font-size:20px;
-
-    letter-spacing:8px;
+    font-size:25px;
 
 
-    color:white;
+    letter-spacing:10px;
 
 
 }
@@ -1342,42 +1305,175 @@ color:#00c8ff;
 @keyframes dots {
 
 
-    0% {
+0%{
 
-        content:"";
+content:"";
 
-    }
-
-
-    25% {
-
-        content:".";
-
-    }
+}
 
 
-    50% {
+25%{
 
-        content:"..";
+content:".";
 
-    }
-
-
-    75% {
-
-        content:"...";
-
-    }
+}
 
 
-    100% {
+50%{
 
-        content:"";
+content:"..";
 
-    }
+}
+
+
+75%{
+
+content:"...";
+
+}
+
+
+100%{
+
+content:"";
+
+}
 
 
 }
+
+
+
+
+
+
+
+/* LAMAR QUOTE */
+
+
+.gta-loading .quote {
+
+
+    margin-top:60px;
+
+
+    font-size:25px;
+
+
+    color:#ddd;
+
+
+    font-style:italic;
+
+
+    max-width:700px;
+
+
+}
+
+
+
+
+
+/* MISSION BUTTON */
+
+
+#missionStartButton {
+
+
+    margin-top:70px;
+
+
+    padding:18px 70px;
+
+
+    background:transparent;
+
+
+    border:2px solid white;
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    letter-spacing:6px;
+
+
+    border-radius:5px;
+
+
+    cursor:pointer;
+
+
+    opacity:0;
+
+
+    animation:buttonAppear 1s forwards;
+
+
+    animation-delay:15s;
+
+
+}
+
+
+
+
+
+#missionStartButton:hover {
+
+
+    background:white;
+
+
+    color:black;
+
+
+    box-shadow:
+
+
+    0 0 30px white;
+
+
+}
+
+
+
+
+
+
+@keyframes buttonAppear {
+
+
+from{
+
+
+opacity:0;
+
+transform:translateY(20px);
+
+
+}
+
+
+to{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
 
 
 
@@ -1391,7 +1487,7 @@ color:#00c8ff;
 #gtaVideoScene {
 
 
-background:black;
+    background:black;
 
 
 }
@@ -1403,22 +1499,16 @@ background:black;
 #gtaVideo {
 
 
-position:absolute;
+    position:absolute;
 
 
-width:100%;
+    width:100%;
 
 
-height:100%;
+    height:100%;
 
 
-object-fit:cover;
-
-
-top:0;
-
-
-left:0;
+    object-fit:cover;
 
 
 }
@@ -1430,13 +1520,13 @@ left:0;
 .video-overlay {
 
 
-position:absolute;
+    position:absolute;
 
 
-inset:0;
+    inset:0;
 
 
-background:rgba(0,0,0,.15);
+    background:rgba(0,0,0,.15);
 
 
 }
@@ -1447,157 +1537,35 @@ background:rgba(0,0,0,.15);
 
 
 
+
 /* ========================= */
-/* MISSION START */
+/* RDR2 CHAPTER SELECT */
 /* ========================= */
 
 
 
-#missionScene {
+#chapterScene {
 
 
 background:
 
-
-radial-gradient(
-
-circle,
-
-#292929,
-
-#050505
-
-);
-
-
-}
-
-
-
-
-.mission-box {
-
-
-text-align:center;
-
-
-}
-
-
-
-
-
-.mission-box h1 {
-
-
-font-size:90px;
-
-
-letter-spacing:8px;
-
-
-margin:0;
-
-
-}
-
-
-
-
-
-.mission-box h2 {
-
-
-letter-spacing:5px;
-
-
-color:#aaa;
-
-
-}
-
-
-
-
-#missionStartButton {
-
-
-margin-top:50px;
-
-
-padding:18px 70px;
-
-
-background:transparent;
-
-
-border:2px solid white;
-
-
-color:white;
-
-
-font-size:18px;
-
-
-letter-spacing:6px;
-
-
-border-radius:5px;
-
-
-cursor:none;
-
-
-transition:.4s;
-
-
-}
-
-
-
-
-
-#missionStartButton:hover {
-
-
-background:white;
-
-
-color:black;
-
-
-box-shadow:
-
-0 0 40px white;
-
-
-}
-/* ========================= */
-/* RDR2 CHOOSING SCREEN */
-/* ========================= */
-
-
-#rdrScene {
-
-
-background:
 
 linear-gradient(
 
 rgba(0,0,0,.45),
 
-rgba(0,0,0,.8)
+rgba(0,0,0,.85)
 
 ),
+
 
 radial-gradient(
 
 circle,
 
-#3b2a18,
+#4a321b,
 
-#050505
+#080808
 
 );
 
@@ -1607,7 +1575,8 @@ circle,
 
 
 
-.rdr-container {
+
+.chapter-container {
 
 
 display:flex;
@@ -1619,9 +1588,6 @@ flex-direction:column;
 align-items:center;
 
 
-justify-content:center;
-
-
 text-align:center;
 
 
@@ -1631,7 +1597,7 @@ text-align:center;
 
 
 
-.rdr-title {
+.chapter-container > h1 {
 
 
 font-family:"ChineseRocks", serif;
@@ -1643,39 +1609,13 @@ font-size:90px;
 letter-spacing:8px;
 
 
-text-transform:uppercase;
-
-
-color:#e7d2a3;
+color:#d7bb83;
 
 
 text-shadow:
 
 
-0 0 20px rgba(255,220,150,.4);
-
-
-}
-
-
-
-
-.rdr-subtitle {
-
-
-font-family:"ChineseRocks", serif;
-
-
-font-size:35px;
-
-
-letter-spacing:6px;
-
-
-color:#c7b28a;
-
-
-margin-top:20px;
+0 0 25px rgba(255,210,120,.4);
 
 
 }
@@ -1684,16 +1624,18 @@ margin-top:20px;
 
 
 
-.rdr-characters {
+
+
+.chapter-cards {
 
 
 display:flex;
 
 
-gap:50px;
+gap:70px;
 
 
-margin-top:60px;
+margin-top:70px;
 
 
 }
@@ -1701,28 +1643,32 @@ margin-top:60px;
 
 
 
-.rdr-card {
+
+.chapter-card {
 
 
-width:250px;
+width:320px;
 
 
-height:320px;
+height:300px;
+
+
+padding:40px;
 
 
 background:
 
 
-rgba(255,255,255,.06);
+rgba(0,0,0,.45);
 
 
 border:
 
 
-1px solid rgba(255,220,150,.3);
+1px solid rgba(220,190,120,.35);
 
 
-border-radius:10px;
+border-radius:8px;
 
 
 display:flex;
@@ -1746,7 +1692,7 @@ transition:.5s;
 
 
 
-.rdr-card:hover {
+.chapter-card:hover {
 
 
 transform:translateY(-15px);
@@ -1755,7 +1701,7 @@ transform:translateY(-15px);
 box-shadow:
 
 
-0 0 40px rgba(255,220,150,.25);
+0 0 40px rgba(220,190,120,.3);
 
 
 }
@@ -1764,95 +1710,16 @@ box-shadow:
 
 
 
-.rdr-card h3 {
+.chapter-card h2 {
 
 
 font-family:"ChineseRocks", serif;
 
 
-font-size:35px;
+font-size:45px;
 
 
-color:#e7d2a3;
-
-
-}
-
-
-
-
-
-.rdr-card span {
-
-
-color:#aaa;
-
-
-letter-spacing:3px;
-
-
-font-size:13px;
-
-
-}
-
-
-
-
-
-
-
-/* ========================= */
-/* GTA ACHIEVEMENTS */
-/* ========================= */
-
-
-
-.achievement {
-
-
-position:absolute;
-
-
-top:40px;
-
-
-right:40px;
-
-
-width:350px;
-
-
-padding:25px;
-
-
-background:
-
-
-rgba(0,0,0,.85);
-
-
-border-left:
-
-
-5px solid #fff;
-
-
-animation:achievementIn 1s ease;
-
-
-}
-
-
-
-
-.achievement h2 {
-
-
-font-family:"Pricedown";
-
-
-font-size:35px;
+color:#d7bb83;
 
 
 margin:0;
@@ -1864,10 +1731,104 @@ margin:0;
 
 
 
-.achievement p {
+.chapter-card h3 {
+
+
+font-size:30px;
+
+
+letter-spacing:5px;
+
+
+}
+
+
+
+
+
+.chapter-card p {
+
+
+color:#aaa;
 
 
 letter-spacing:3px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ========================= */
+/* OUR FUTURE */
+/* ========================= */
+
+
+#futureScene {
+
+
+background:
+
+
+radial-gradient(
+
+circle,
+
+#302515,
+
+#050505
+
+);
+
+
+}
+
+
+
+
+
+.future-container {
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+.future-container h1 {
+
+
+font-family:"ChineseRocks", serif;
+
+
+font-size:100px;
+
+
+color:#d7bb83;
+
+
+}
+
+
+
+
+
+.future-container p {
+
+
+font-size:25px;
+
+
+letter-spacing:8px;
 
 
 color:#aaa;
@@ -1877,439 +1838,6 @@ color:#aaa;
 
 
 
-
-
-
-
-
-/* ========================= */
-/* GTA MISSION PASSED */
-/* ========================= */
-
-
-
-.mission-passed {
-
-
-font-family:"Pricedown";
-
-
-font-size:120px;
-
-
-letter-spacing:8px;
-
-
-color:white;
-
-
-text-transform:uppercase;
-
-
-text-shadow:
-
-
-0 0 30px rgba(255,255,255,.4);
-
-
-animation:missionIn 1s ease;
-
-
-}
-
-
-
-
-
-
-
-/* ========================= */
-/* GLOBAL ANIMATIONS */
-/* ========================= */
-
-
-
-@keyframes intro {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:scale(.7);
-
-
-filter:blur(20px);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:scale(1);
-
-
-filter:blur(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes pulse {
-
-
-from {
-
-
-transform:scale(.8);
-
-
-}
-
-
-
-to {
-
-
-transform:scale(1.2);
-
-
-}
-
-
-}
-
-
-
-
-
-@keyframes heartbeat {
-
-
-
-0%,100% {
-
-
-transform:rotate(-45deg) scale(1);
-
-
-}
-
-
-
-50% {
-
-
-transform:rotate(-45deg) scale(1.15);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes cardIn {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:translateY(40px);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:translateY(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-@keyframes loading {
-
-
-from {
-
-
-width:0;
-
-
-}
-
-
-
-to {
-
-
-width:100%;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes playerIn {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:translateY(40px);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:translateY(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes coopAppear {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:scale(.5);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:scale(1);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes fadeIn {
-
-
-to {
-
-
-opacity:1;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes dots {
-
-
-0% {
-
-
-content:"";
-
-
-}
-
-
-25% {
-
-
-content:".";
-
-
-}
-
-
-50% {
-
-
-content:"..";
-
-
-}
-
-
-75% {
-
-
-content:"...";
-
-
-}
-
-
-100% {
-
-
-content:"";
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes achievementIn {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:translateX(100px);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:translateX(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-@keyframes missionIn {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:scale(2);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:scale(1);
-
-
-}
-
-
-}
 
 
 
@@ -2323,11 +1851,17 @@ transform:scale(1);
 @media(max-width:900px){
 
 
+.gta-loading .gta-font{
 
-.players,
+
+font-size:65px;
 
 
-.rdr-characters {
+}
+
+
+
+.chapter-cards{
 
 
 flex-direction:column;
@@ -2337,39 +1871,24 @@ flex-direction:column;
 
 
 
-.save-card {
+.chapter-container > h1,
 
 
-width:90%;
+.future-container h1{
 
 
-}
-
-
-
-.loading-bar {
-
-
-width:80%;
-
-
-}
-
-
-
-.gta-loading h1,
-
-
-.mission-box h1,
-
-
-.rdr-title {
-
-
-font-size:55px;
+font-size:60px;
 
 
 }
 
 
 }
+
+
+
+
+
+
+
+
