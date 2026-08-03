@@ -380,7 +380,7 @@ CO-OP MODE ACTIVATED
 
 
 <!-- ========================= -->
-<!-- GTA LAMAR LOADING -->
+<!-- GTA V LAMAR LOADING -->
 <!-- ========================= -->
 
 
@@ -390,8 +390,7 @@ CO-OP MODE ACTIVATED
 <div class="gta-loading">
 
 
-
-<h1 class="gta-logo">
+<h1 class="gta-font">
 
 GRAND THEFT AUTO V
 
@@ -399,8 +398,7 @@ GRAND THEFT AUTO V
 
 
 
-
-<h2 class="lamar-name">
+<h2>
 
 LAMAR DAVIS
 
@@ -409,8 +407,17 @@ LAMAR DAVIS
 
 
 
+<div class="loading-text">
 
-<div class="gta-quote">
+LOADING<span id="loadingDots"></span>
+
+</div>
+
+
+
+
+
+<div class="quote">
 
 "Ah, don't hate me 'cause I'm beautiful."
 
@@ -420,13 +427,12 @@ LAMAR DAVIS
 
 
 
+<button id="missionStartButton">
 
+MISSION START
 
-<div class="gta-loading-text">
+</button>
 
-LOADING<span id="loadingDots"></span>
-
-</div>
 
 
 
@@ -456,10 +462,6 @@ id="gtaVideo"
 playsinline
 preload="auto">
 
-<source src="gta-loading.mp4" type="video/mp4">
-
-</video>
-
 
 <source src="gta-loading.mp4" type="video/mp4">
 
@@ -471,7 +473,6 @@ preload="auto">
 <div class="video-overlay"></div>
 
 
-
 </section>
 
 
@@ -483,78 +484,19 @@ preload="auto">
 
 
 <!-- ========================= -->
-<!-- MISSION READY -->
+<!-- CHAPTER SELECT -->
+<!-- GTA → RDR2 TRANSITION -->
 <!-- ========================= -->
 
 
-<section class="scene" id="missionScene">
+<section class="scene" id="chapterScene">
 
 
-<div class="mission-box">
-
-
-
-<h1 class="mission-passed">
-
-MISSION READY
-
-</h1>
+<div class="chapter-container">
 
 
 
-
-<h2>
-
-NEW CHAPTER AVAILABLE
-
-</h2>
-
-
-
-
-<div class="mission-quote">
-
-"Welcome to Los Santos."
-
-</div>
-
-
-
-
-
-<button id="missionStartButton">
-
-MISSION START
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ========================= -->
-<!-- RDR2 CHOOSE PATH -->
-<!-- ========================= -->
-
-
-<section class="scene" id="rdrScene">
-
-
-<div class="rdr-container">
-
-
-<h1 class="rdr-title">
+<h1 class="rdr-font">
 
 CHOOSE YOUR PATH
 
@@ -563,11 +505,21 @@ CHOOSE YOUR PATH
 
 
 
-<div class="rdr-characters">
+
+<div class="chapter-cards">
 
 
 
-<div class="rdr-card">
+<div class="chapter-card">
+
+
+
+<h2 class="rdr-font">
+
+CHAPTER I
+
+</h2>
+
 
 
 <h3>
@@ -577,11 +529,12 @@ MÁJINKA
 </h3>
 
 
-<span>
+
+<p>
 
 THE HEART OF THE STORY
 
-</span>
+</p>
 
 
 </div>
@@ -590,7 +543,18 @@ THE HEART OF THE STORY
 
 
 
-<div class="rdr-card">
+
+
+<div class="chapter-card">
+
+
+
+<h2 class="rdr-font">
+
+CHAPTER II
+
+</h2>
+
 
 
 <h3>
@@ -600,19 +564,60 @@ KUBÍK
 </h3>
 
 
-<span>
 
-THE DRIVER
+<p>
 
-</span>
+THE RIDER
+
+</p>
+
+
+</div>
+
+
+
 
 
 </div>
 
 
 
-
 </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ========================= -->
+<!-- FUTURE CHAPTERS PLACE -->
+<!-- ========================= -->
+
+
+<section class="scene" id="futureScene">
+
+
+<div class="future-container">
+
+
+<h1 class="rdr-font">
+
+OUR FUTURE
+
+</h1>
+
+
+<p>
+
+A NEW ADVENTURE AWAITS...
+
+</p>
 
 
 
