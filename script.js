@@ -305,7 +305,26 @@ setTimeout(()=>{
             gtaVideo.currentTime = 0;
 
 
-            gtaVideo.play();
+            gtaVideo.muted = true;
+
+let playPromise = gtaVideo.play();
+
+
+if(playPromise !== undefined){
+
+    playPromise
+    .then(()=>{
+
+        console.log("VIDEO STARTED 🎬");
+
+    })
+    .catch(error=>{
+
+        console.log("VIDEO BLOCKED:", error);
+
+    });
+
+}
 
 
 
