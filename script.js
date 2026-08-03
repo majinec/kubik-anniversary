@@ -1,17 +1,15 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
+// CUSTOM CURSOR
 
 const cursor = document.querySelector(".custom-cursor");
 
 
 document.addEventListener("mousemove", (e)=>{
 
-
     cursor.style.left = e.clientX + "px";
-
     cursor.style.top = e.clientY + "px";
-
 
 });
 
@@ -19,29 +17,45 @@ document.addEventListener("mousemove", (e)=>{
 
 
 
-const startButton =
+// BUTTONS
+
+const startButton = 
 document.getElementById("startButton");
 
 
-const continueButton =
+const continueButton = 
 document.getElementById("continueButton");
 
 
-const backButton =
+const backButton = 
 document.getElementById("backButton");
 
 
+const bootBackButton = 
+document.getElementById("bootBackButton");
 
-const startScene =
+
+
+
+
+// SCENES
+
+const startScene = 
 document.getElementById("startScene");
 
 
-const saveScene =
+const saveScene = 
 document.getElementById("saveScene");
 
 
+const bootScene = 
+document.getElementById("bootScene");
 
 
+
+
+
+// START MENU → SAVE SLOT
 
 startButton.addEventListener("click", ()=>{
 
@@ -67,6 +81,8 @@ startButton.addEventListener("click", ()=>{
 
 
 
+// SAVE SLOT → START
+
 backButton.addEventListener("click", ()=>{
 
 
@@ -88,25 +104,7 @@ backButton.addEventListener("click", ()=>{
 
 
 
-continueButton.addEventListener("click", ()=>{
-
-
-    console.log("Continue selected 🎮");
-
-
-});
-
-// PS5 BOOT SYSTEM
-
-
-const bootScene = document.getElementById("bootScene");
-
-
-const bootBackButton = document.getElementById("bootBackButton");
-
-
-
-
+// SAVE SLOT → PS5 BOOT
 
 continueButton.addEventListener("click", ()=>{
 
@@ -123,6 +121,9 @@ continueButton.addEventListener("click", ()=>{
         bootScene.classList.add("active");
 
 
+        console.log("PS5 BOOT ACTIVE");
+
+
     },800);
 
 
@@ -132,6 +133,8 @@ continueButton.addEventListener("click", ()=>{
 
 
 
+
+// PS5 BOOT → SAVE SLOT
 
 bootBackButton.addEventListener("click", ()=>{
 
