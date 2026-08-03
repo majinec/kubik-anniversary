@@ -4,20 +4,21 @@
 
 
 body {
-
     margin: 0;
     height: 100vh;
 
-    background: #050505;
+    background:
+        radial-gradient(circle at center, #101820 0%, #050505 45%, #000 100%);
 
     color: white;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", Arial, sans-serif;
 
     overflow: hidden;
-
 }
 
+
+/* MAIN */
 
 .boot-screen {
 
@@ -36,37 +37,41 @@ body {
 }
 
 
+
+/* BLUE PREMIUM LIGHT */
+
 .ambient-glow {
 
     position: absolute;
 
-    width: 600px;
-
-    height: 600px;
+    width: 700px;
+    height: 700px;
 
     background: #00c2ff;
 
     filter: blur(180px);
 
-    opacity: 0.18;
+    opacity: 0.12;
 
-    animation: glow 4s infinite alternate;
+    animation: ambient 6s infinite alternate;
 
 }
 
 
 
+/* LOGO */
+
 .ps-logo {
+
+    z-index: 2;
 
     font-size: 90px;
 
     font-weight: 700;
 
-    letter-spacing: 15px;
+    letter-spacing: 18px;
 
-    z-index: 2;
-
-    animation: fadeIn 2s ease forwards;
+    animation: intro 2s ease forwards;
 
 }
 
@@ -79,24 +84,26 @@ body {
 
 
 
+/* TEXT */
+
 .system-text {
 
-    text-align: center;
+    text-align:center;
 
-    margin-top: 40px;
+    z-index:2;
 
-    letter-spacing: 4px;
+    margin-top:35px;
 
-    z-index: 2;
+    letter-spacing:4px;
 
 }
 
 
 .system-text p {
 
-    color: #00c2ff;
+    color:#00c2ff;
 
-    font-size: 14px;
+    font-size:12px;
 
 }
 
@@ -104,31 +111,27 @@ body {
 
 .system-text h1 {
 
-    font-size: 28px;
+    font-size:28px;
+
+    font-weight:500;
 
 }
 
 
 
-.system-text span {
-
-    color: #888;
-
-}
-
-
+/* LOADING */
 
 .loading-container {
 
-    width: 420px;
+    width:420px;
 
-    height: 3px;
+    height:3px;
 
-    background: #222;
+    background:#222;
 
-    margin-top: 35px;
+    margin-top:35px;
 
-    overflow: hidden;
+    overflow:hidden;
 
 }
 
@@ -136,29 +139,36 @@ body {
 
 .loading-line {
 
-    width: 0%;
+    height:100%;
 
-    height: 100%;
+    width:0%;
 
-    background: #00c2ff;
+    background:#00c2ff;
 
-    animation: loading 4s forwards;
+    box-shadow:0 0 20px #00c2ff;
+
+    animation:loading 4s forwards;
 
 }
 
 
 
+/* PLAYERS */
+
+
 .player-select {
 
-    margin-top: 50px;
+    opacity:0;
 
-    text-align: center;
+    animation:showPlayers 1s forwards;
 
-    opacity: 0;
+    animation-delay:4.2s;
 
-    animation: appear 1s forwards;
+    z-index:2;
 
-    animation-delay: 4s;
+    text-align:center;
+
+    margin-top:40px;
 
 }
 
@@ -166,9 +176,13 @@ body {
 
 .player-select h2 {
 
-    letter-spacing: 5px;
+    font-size:14px;
 
-    font-weight: 400;
+    font-weight:400;
+
+    letter-spacing:6px;
+
+    color:#aaa;
 
 }
 
@@ -180,7 +194,7 @@ body {
 
     align-items:center;
 
-    gap:30px;
+    gap:35px;
 
 }
 
@@ -188,19 +202,43 @@ body {
 
 .player-card {
 
-    width:260px;
+    width:280px;
 
-    padding:30px;
+    padding:35px;
 
-    border-radius:20px;
+    border-radius:24px;
 
-    background: rgba(255,255,255,0.05);
 
-    border:1px solid rgba(255,255,255,0.1);
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+    );
 
-    backdrop-filter: blur(20px);
 
-    box-shadow: 0 0 30px rgba(0,194,255,0.15);
+    border:1px solid rgba(0,194,255,0.25);
+
+
+    backdrop-filter:blur(20px);
+
+
+    box-shadow:
+    0 0 40px rgba(0,194,255,0.12);
+
+
+    transition:.4s;
+
+}
+
+
+
+.player-card:hover {
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 50px rgba(0,194,255,0.35);
 
 }
 
@@ -210,9 +248,9 @@ body {
 
     color:#00c2ff;
 
-    font-size:13px;
+    font-size:12px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
 }
 
@@ -220,7 +258,9 @@ body {
 
 .player-card h3 {
 
-    font-size:28px;
+    font-size:32px;
+
+    margin:20px 0 10px;
 
 }
 
@@ -242,23 +282,25 @@ body {
 
 
 
+/* CONNECTION */
+
+
 .connection {
 
     color:#00c2ff;
 
-    font-size:40px;
+    font-size:45px;
 
 }
-
 
 
 .connection span {
 
     display:block;
 
-    font-size:12px;
+    font-size:11px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
 }
 
@@ -266,14 +308,19 @@ body {
 
 .connected {
 
-    margin-top:40px;
+    margin-top:35px;
 
     color:#00c2ff;
 
-    letter-spacing:4px;
+    letter-spacing:5px;
+
+    font-size:13px;
 
 }
 
+
+
+/* ANIMATIONS */
 
 
 @keyframes loading {
@@ -287,8 +334,7 @@ body {
 }
 
 
-
-@keyframes appear {
+@keyframes showPlayers {
 
     to {
 
@@ -300,7 +346,26 @@ body {
 
 
 
-@keyframes fadeIn {
+@keyframes ambient {
+
+    from {
+
+        transform:scale(.8);
+
+    }
+
+
+    to {
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+@keyframes intro {
 
     from {
 
@@ -308,7 +373,10 @@ body {
 
         transform:scale(.8);
 
+        filter:blur(10px);
+
     }
+
 
     to {
 
@@ -316,23 +384,7 @@ body {
 
         transform:scale(1);
 
-    }
-
-}
-
-
-
-@keyframes glow {
-
-    from {
-
-        transform:scale(.8);
-
-    }
-
-    to {
-
-        transform:scale(1.2);
+        filter:blur(0);
 
     }
 
