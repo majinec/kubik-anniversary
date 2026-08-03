@@ -2,7 +2,6 @@
 /* FONTS */
 /* ========================= */
 
-
 @font-face {
 
     font-family:"Pricedown";
@@ -10,7 +9,6 @@
     src:url("pricedown.ttf") format("truetype");
 
 }
-
 
 
 @font-face {
@@ -23,8 +21,6 @@
 
 
 
-
-
 .gta-font {
 
     font-family:"Pricedown", sans-serif;
@@ -32,15 +28,11 @@
 }
 
 
-
 .rdr-font {
 
     font-family:"ChineseRocks", serif;
 
 }
-
-
-
 
 
 
@@ -62,11 +54,9 @@
 html,
 body {
 
-    margin:0;
-
     width:100%;
-
     height:100%;
+    margin:0;
 
 }
 
@@ -81,9 +71,7 @@ body {
     font-family:
 
     Arial,
-
     Helvetica,
-
     sans-serif;
 
     overflow:hidden;
@@ -91,9 +79,6 @@ body {
     cursor:none;
 
 }
-
-
-
 
 
 
@@ -109,42 +94,51 @@ body {
 
 
 
-
-
 /* ========================= */
-/* CUSTOM CURSOR */
+/* CURSOR */
 /* ========================= */
 
 
 .custom-cursor {
 
+
     position:fixed;
+
 
     width:22px;
 
+
     height:22px;
+
 
     border-radius:50%;
 
+
     border:2px solid #00c8ff;
+
 
     background:rgba(0,200,255,.15);
 
+
     box-shadow:
+
 
     0 0 15px #00c8ff,
 
-    0 0 40px #00c8ff;
+
+    0 0 35px #00c8ff;
 
 
     pointer-events:none;
 
+
     transform:translate(-50%,-50%);
+
 
     z-index:9999;
 
-}
 
+}
 
 
 
@@ -184,8 +178,6 @@ body {
 
 
 
-
-
 /* ========================= */
 /* SCENES */
 /* ========================= */
@@ -193,14 +185,18 @@ body {
 
 .scene {
 
+
     position:absolute;
+
 
     inset:0;
 
 
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
@@ -233,6 +229,76 @@ body {
 
 
 
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+
+button {
+
+
+    font-family:inherit;
+
+}
+
+
+
+#startButton,
+#continueButton {
+
+
+    padding:18px 65px;
+
+
+    margin-top:60px;
+
+
+    background:transparent;
+
+
+    border:1px solid #b36cff;
+
+
+    border-radius:50px;
+
+
+    color:white;
+
+
+    letter-spacing:5px;
+
+
+    font-size:14px;
+
+
+    cursor:none;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+#startButton:hover,
+#continueButton:hover {
+
+
+    background:#b36cff;
+
+
+    color:black;
+
+
+    box-shadow:
+
+    0 0 30px #b36cff;
+
+
+}
+
+
 
 
 
@@ -246,14 +312,11 @@ body {
 
     background:
 
-
     radial-gradient(
 
-        circle at center,
+        circle,
 
         #24103d,
-
-        #090510 45%,
 
         #000
 
@@ -264,45 +327,6 @@ body {
 
 
 
-
-
-
-#startScene::before {
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    width:700px;
-
-
-    height:700px;
-
-
-    background:#9b5cff;
-
-
-    opacity:.18;
-
-
-    filter:blur(180px);
-
-
-    animation:pulse 5s infinite alternate;
-
-
-}
-
-
-
-
-
-
-
-
 .logo {
 
 
@@ -310,9 +334,6 @@ body {
 
 
     align-items:center;
-
-
-    justify-content:center;
 
 
     gap:55px;
@@ -327,14 +348,7 @@ body {
     letter-spacing:10px;
 
 
-    z-index:2;
-
-
-    animation:intro 2s ease;
-
-
 }
-
 
 
 
@@ -352,27 +366,16 @@ body {
     background:#00c8ff;
 
 
-    position:relative;
-
-
     transform:rotate(-45deg);
 
 
-    box-shadow:
-
-
-    0 0 20px #00c8ff,
-
-
-    0 0 70px #008cff;
+    position:relative;
 
 
     animation:heartbeat 1.7s infinite;
 
 
 }
-
-
 
 
 
@@ -401,211 +404,18 @@ body {
 }
 
 
-
 .heart::before {
-
 
     top:-32px;
 
-    left:0;
-
-
 }
-
 
 
 .heart::after {
 
-
-    top:0;
-
     left:32px;
 
-
 }
-
-
-
-
-
-
-
-
-h1 {
-
-
-    z-index:2;
-
-}
-
-
-
-
-
-button {
-
-
-    font-family:inherit;
-
-}
-
-
-
-
-
-
-
-
-#startButton,
-#continueButton {
-
-
-    margin-top:70px;
-
-
-    padding:18px 65px;
-
-
-    background:transparent;
-
-
-    color:white;
-
-
-    border:1px solid #b36cff;
-
-
-    border-radius:50px;
-
-
-    font-size:14px;
-
-
-    letter-spacing:5px;
-
-
-    cursor:none;
-
-
-    transition:.4s;
-
-
-    z-index:2;
-
-
-}
-
-
-
-
-
-#startButton:hover,
-#continueButton:hover {
-
-
-    background:#b36cff;
-
-
-    color:#000;
-
-
-    box-shadow:
-
-
-    0 0 30px #b36cff,
-
-
-    0 0 90px #b36cff;
-
-
-}
-
-
-
-
-
-.version {
-
-
-    position:absolute;
-
-
-    bottom:30px;
-
-
-    right:40px;
-
-
-    color:#555;
-
-
-    letter-spacing:4px;
-
-
-}
-/* ========================= */
-/* BACK BUTTON */
-/* ========================= */
-
-
-.back-button {
-
-
-    position:absolute;
-
-
-    top:35px;
-
-
-    left:40px;
-
-
-    background:transparent;
-
-
-    border:none;
-
-
-    color:#aaa;
-
-
-    font-size:13px;
-
-
-    letter-spacing:4px;
-
-
-    cursor:none;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-.back-button:hover {
-
-
-    color:#00c8ff;
-
-
-    text-shadow:
-
-
-    0 0 15px #00c8ff;
-
-
-}
-
-
-
-
-
-
-
-
 /* ========================= */
 /* SAVE SCREEN */
 /* ========================= */
@@ -623,13 +433,12 @@ button {
 
         #1b0c2c,
 
-        #050505 70%
+        #050505 75%
 
     );
 
 
 }
-
 
 
 
@@ -659,19 +468,10 @@ button {
     border-radius:25px;
 
 
-    box-shadow:
-
-
-    0 0 50px rgba(155,92,255,.25);
-
-
-    backdrop-filter:blur(15px);
-
-
     text-align:center;
 
 
-    animation:cardIn 1s ease;
+    backdrop-filter:blur(15px);
 
 
 }
@@ -680,18 +480,16 @@ button {
 
 
 
-
-
 .save-header {
 
 
-    font-size:13px;
+    color:#aaa;
 
 
     letter-spacing:8px;
 
 
-    color:#aaa;
+    font-size:13px;
 
 
 }
@@ -709,9 +507,6 @@ button {
     letter-spacing:5px;
 
 
-    margin:25px 0;
-
-
 }
 
 
@@ -724,11 +519,7 @@ button {
     font-size:22px;
 
 
-    letter-spacing:3px;
-
-
 }
-
 
 
 
@@ -740,11 +531,7 @@ button {
     margin-top:40px;
 
 
-    text-align:left;
-
-
 }
-
 
 
 
@@ -773,7 +560,6 @@ button {
 
 
 
-
 .stat span {
 
 
@@ -788,10 +574,47 @@ button {
 
 
 
-.stat strong {
+
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
 
 
-    color:white;
+.back-button {
+
+
+    position:absolute;
+
+
+    top:35px;
+
+
+    left:40px;
+
+
+    background:none;
+
+
+    border:none;
+
+
+    color:#aaa;
+
+
+    letter-spacing:4px;
+
+
+    cursor:none;
+
+
+}
+
+
+
+.back-button:hover {
+
+
+    color:#00c8ff;
 
 
 }
@@ -800,29 +623,9 @@ button {
 
 
 
-
-
-
-#continueButton {
-
-
-    margin-top:40px;
-
-
-}
-
-
-
-
-
-
-
-
-
 /* ========================= */
-/* PS5 BOOT SCREEN */
+/* PS5 BOOT */
 /* ========================= */
-
 
 
 #bootScene {
@@ -837,14 +640,12 @@ button {
 
         #161033,
 
-        #050505 70%
+        #050505
 
     );
 
 
 }
-
-
 
 
 
@@ -879,17 +680,16 @@ button {
 
 
 
-
 .system-version {
 
 
     position:absolute;
 
 
-    top:35px;
-
-
     right:40px;
+
+
+    top:35px;
 
 
     color:#777;
@@ -907,25 +707,19 @@ button {
 
 
 
-
-
 .ps-logo {
 
 
     font-size:80px;
 
 
-    font-weight:700;
-
-
     letter-spacing:15px;
 
 
-    margin-bottom:40px;
+    margin-bottom:35px;
 
 
 }
-
 
 
 
@@ -951,7 +745,6 @@ button {
 
 
 
-
 .boot-text {
 
 
@@ -970,10 +763,10 @@ button {
     color:#888;
 
 
-    font-size:13px;
-
-
     letter-spacing:8px;
+
+
+    font-size:13px;
 
 
 }
@@ -1016,13 +809,9 @@ button {
 
 
 
-
-
-
 /* ========================= */
-/* PS5 PROGRESS BAR */
+/* PROGRESS BAR */
 /* ========================= */
-
 
 
 .loading-bar {
@@ -1039,6 +828,7 @@ button {
 
     background:
 
+
     rgba(255,255,255,.15);
 
 
@@ -1048,36 +838,34 @@ button {
 }
 
 
+
+
+
 .loading-progress {
+
 
     height:100%;
 
+
     width:0;
+
 
     background:#00c8ff;
 
+
     box-shadow:
 
-    0 0 10px #00c8ff;
 
-    animation:none;
+    0 0 15px #00c8ff;
+
+
+    animation:
+
+
+    bootLoading 15s linear forwards;
+
 
 }
-
-
-#bootScene.active .loading-progress {
-
-    animation:bootLoading 15s linear forwards;
-
-}
-
-
-
-
-
-
-
-
 
 
 
@@ -1110,10 +898,6 @@ button {
 
 
 
-
-
-
-
 /* ========================= */
 /* PLAYER CARDS */
 /* ========================= */
@@ -1126,6 +910,9 @@ button {
 
 
     align-items:center;
+
+
+    justify-content:center;
 
 
     gap:50px;
@@ -1142,42 +929,42 @@ button {
 
 .boot-card {
 
+
     width:230px;
+
 
     padding:30px;
 
+
     background:
+
+
     rgba(255,255,255,.05);
 
+
     border:
+
+
     1px solid rgba(0,200,255,.4);
+
 
     border-radius:20px;
 
+
     text-align:center;
+
 
     opacity:0;
 
+
+    animation:
+
+
+    playerAppear 1s ease forwards;
+
+
 }
 
-
-#bootScene.active .boot-card:nth-child(1){
-
-    animation:playerAppear 1s ease forwards;
-
-    animation-delay:2s;
-
-}
-
-
-
-#bootScene.active .boot-card:nth-child(3){
-
-    animation:playerAppear 1s ease forwards;
-
-    animation-delay:3s;
-
-}
 
 
 
@@ -1192,8 +979,6 @@ button {
 
 
 
-
-
 .boot-card:nth-child(3) {
 
 
@@ -1201,8 +986,6 @@ button {
 
 
 }
-
-
 
 
 
@@ -1226,8 +1009,6 @@ button {
 
 
 
-
-
 .boot-card h3 {
 
 
@@ -1238,8 +1019,6 @@ button {
 
 
 }
-
-
 
 
 
@@ -1260,14 +1039,13 @@ button {
 
 
 
-
 .coop {
 
 
-    font-size:25px;
-
-
     color:#00c8ff;
+
+
+    font-size:25px;
 
 
     text-align:center;
@@ -1279,12 +1057,10 @@ button {
 
 
 
-
-
 .connection {
 
 
-    margin-top:50px;
+    margin-top:55px;
 
 
     text-align:center;
@@ -1294,6 +1070,17 @@ button {
 
 
     font-size:15px;
+
+
+    opacity:0;
+
+
+    animation:
+
+    fadeIn 1s ease forwards;
+
+
+    animation-delay:5s;
 
 
 }
@@ -1312,6 +1099,715 @@ button {
 
 
 
+
+
+@keyframes playerAppear {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateY(40px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}/* ========================= */
+/* SAVE SCREEN */
+/* ========================= */
+
+
+#saveScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #1b0c2c,
+
+        #050505 75%
+
+    );
+
+
+}
+
+
+
+
+
+.save-card {
+
+
+    width:600px;
+
+
+    padding:50px;
+
+
+    background:
+
+
+    rgba(255,255,255,.04);
+
+
+    border:
+
+
+    1px solid rgba(179,108,255,.4);
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    backdrop-filter:blur(15px);
+
+
+}
+
+
+
+
+
+.save-header {
+
+
+    color:#aaa;
+
+
+    letter-spacing:8px;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+.save-card h2 {
+
+
+    font-size:32px;
+
+
+    letter-spacing:5px;
+
+
+}
+
+
+
+
+
+.save-card h3 {
+
+
+    font-size:22px;
+
+
+}
+
+
+
+
+
+.stats {
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+
+.stat {
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    padding:18px 0;
+
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.1);
+
+
+}
+
+
+
+
+
+.stat span {
+
+
+    color:#888;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
+
+
+.back-button {
+
+
+    position:absolute;
+
+
+    top:35px;
+
+
+    left:40px;
+
+
+    background:none;
+
+
+    border:none;
+
+
+    color:#aaa;
+
+
+    letter-spacing:4px;
+
+
+    cursor:none;
+
+
+}
+
+
+
+.back-button:hover {
+
+
+    color:#00c8ff;
+
+
+}
+
+
+
+
+
+/* ========================= */
+/* PS5 BOOT */
+/* ========================= */
+
+
+#bootScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #161033,
+
+        #050505
+
+    );
+
+
+}
+
+
+
+
+.ps-system {
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    position:relative;
+
+
+}
+
+
+
+
+
+.system-version {
+
+
+    position:absolute;
+
+
+    right:40px;
+
+
+    top:35px;
+
+
+    color:#777;
+
+
+    font-size:11px;
+
+
+    letter-spacing:4px;
+
+
+}
+
+
+
+
+
+.ps-logo {
+
+
+    font-size:80px;
+
+
+    letter-spacing:15px;
+
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+
+.ps-logo span {
+
+
+    filter:
+
+
+    drop-shadow(
+
+        0 0 15px #00c8ff
+
+    );
+
+
+}
+
+
+
+
+
+
+.boot-text {
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.boot-text p {
+
+
+    color:#888;
+
+
+    letter-spacing:8px;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+.boot-text h2 {
+
+
+    font-size:35px;
+
+
+    letter-spacing:8px;
+
+
+    margin:20px 0;
+
+
+}
+
+
+
+
+
+.boot-text span {
+
+
+    color:#aaa;
+
+
+    letter-spacing:5px;
+
+
+}
+
+
+
+
+
+
+/* ========================= */
+/* PROGRESS BAR */
+/* ========================= */
+
+
+.loading-bar {
+
+
+    margin-top:45px;
+
+
+    width:450px;
+
+
+    height:6px;
+
+
+    background:
+
+
+    rgba(255,255,255,.15);
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+.loading-progress {
+
+
+    height:100%;
+
+
+    width:0;
+
+
+    background:#00c8ff;
+
+
+    box-shadow:
+
+
+    0 0 15px #00c8ff;
+
+
+    animation:
+
+
+    bootLoading 15s linear forwards;
+
+
+}
+
+
+
+
+
+@keyframes bootLoading {
+
+
+    from {
+
+
+        width:0;
+
+
+    }
+
+
+    to {
+
+
+        width:100%;
+
+
+    }
+
+
+}
+
+
+
+
+
+/* ========================= */
+/* PLAYER CARDS */
+/* ========================= */
+
+
+.players {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    gap:50px;
+
+
+    margin-top:50px;
+
+
+}
+
+
+
+
+
+.boot-card {
+
+
+    width:230px;
+
+
+    padding:30px;
+
+
+    background:
+
+
+    rgba(255,255,255,.05);
+
+
+    border:
+
+
+    1px solid rgba(0,200,255,.4);
+
+
+    border-radius:20px;
+
+
+    text-align:center;
+
+
+    opacity:0;
+
+
+    animation:
+
+
+    playerAppear 1s ease forwards;
+
+
+}
+
+
+
+
+
+.boot-card:nth-child(1) {
+
+
+    animation-delay:2s;
+
+
+}
+
+
+
+.boot-card:nth-child(3) {
+
+
+    animation-delay:3s;
+
+
+}
+
+
+
+
+
+.player-number {
+
+
+    color:#00c8ff;
+
+
+    font-size:12px;
+
+
+    letter-spacing:4px;
+
+
+}
+
+
+
+
+
+.boot-card h3 {
+
+
+    font-size:28px;
+
+
+    margin:15px 0;
+
+
+}
+
+
+
+
+
+.boot-card p {
+
+
+    color:#aaa;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+
+.coop {
+
+
+    color:#00c8ff;
+
+
+    font-size:25px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.connection {
+
+
+    margin-top:55px;
+
+
+    text-align:center;
+
+
+    letter-spacing:5px;
+
+
+    font-size:15px;
+
+
+    opacity:0;
+
+
+    animation:
+
+    fadeIn 1s ease forwards;
+
+
+    animation-delay:5s;
+
+
+}
+
+
+
+
+
+.connection span {
+
+
+    color:#00c8ff;
+
+
+}
 
 
 
@@ -1346,452 +1842,15 @@ button {
 
 }
 /* ========================= */
-/* GTA LAMAR LOADING SCREEN */
-/* ========================= */
-
-
-
-#gtaLoadingScene {
-
-
-    background:#000;
-
-
-    overflow:hidden;
-
-
-}
-
-
-
-
-
-
-.gta-loading {
-
-
-    width:100%;
-
-
-    height:100%;
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-
-
-/* GTA V LOGO */
-
-
-
-.gta-loading h1 {
-
-    font-family:"Pricedown";
-
-    font-size:95px;
-
-    letter-spacing:5px;
-
-    margin:0;
-
-    color:white;
-
-    text-shadow:
-
-    0 0 2px rgba(255,255,255,.15);
-
-}
-
-
-
-
-
-
-
-/* LOADING TEXT */
-
-
-
-.gta-loading-title {
-
-
-    margin-top:45px;
-
-
-    font-size:55px;
-
-
-    letter-spacing:12px;
-
-
-    font-weight:300;
-
-
-}
-
-
-
-
-
-
-
-.loading-text {
-
-
-    margin-top:35px;
-
-
-    font-size:30px;
-
-
-    letter-spacing:8px;
-
-
-}
-
-
-
-
-
-
-
-#loadingDots::after {
-
-
-    content:"";
-
-
-    animation:
-
-    loadingDots 1.5s infinite;
-
-
-}
-
-
-
-
-
-
-@keyframes loadingDots {
-
-
-    0% {
-
-
-        content:"";
-
-
-    }
-
-
-    33% {
-
-
-        content:".";
-
-
-    }
-
-
-    66% {
-
-
-        content:"..";
-
-
-    }
-
-
-    100% {
-
-
-        content:"...";
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
-/* LAMAR */
-
-
-
-.gta-loading h2 {
-
-
-    margin-top:45px;
-
-
-    font-size:30px;
-
-
-    letter-spacing:12px;
-
-
-    font-weight:300;
-
-
-}
-
-
-
-
-
-
-
-/* QUOTE */
-
-
-
-.gta-loading .quote {
-
-
-    margin-top:30px;
-
-
-    max-width:650px;
-
-
-    font-size:22px;
-
-
-    color:#ccc;
-
-
-    font-style:italic;
-
-
-}
-
-
-
-
-
-
-
-/* ========================= */
-/* MISSION START SCREEN */
-/* ========================= */
-
-
-
-#missionScene {
-
-
-    background:
-
-
-    radial-gradient(
-
-        circle,
-
-        #202020,
-
-        #000
-
-    );
-
-
-}
-
-
-
-
-
-
-
-.mission-box {
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-
-
-.mission-box h1 {
-
-
-    font-family:"Pricedown";
-
-
-    font-size:120px;
-
-
-    letter-spacing:8px;
-
-
-    margin:0;
-
-
-    color:white;
-
-
-}
-
-
-
-
-
-
-
-.mission-box h2 {
-
-
-    margin-top:25px;
-
-
-    color:#aaa;
-
-
-    letter-spacing:6px;
-
-
-}
-
-
-
-
-
-
-
-.mission-box .quote {
-
-
-    margin-top:35px;
-
-
-    color:#ddd;
-
-
-    font-style:italic;
-
-
-}
-
-
-
-
-
-
-
-#missionStartButton {
-
-
-    margin-top:60px;
-
-
-    padding:
-
-
-    18px 80px;
-
-
-    background:transparent;
-
-
-    color:white;
-
-
-    border:2px solid white;
-
-
-    font-size:18px;
-
-
-    letter-spacing:7px;
-
-
-    cursor:none;
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-
-
-
-#missionStartButton:hover {
-
-
-    background:white;
-
-
-    color:black;
-
-
-    box-shadow:
-
-
-    0 0 40px white;
-
-
-}
-
-
-
-
-
-
-
-
-
-
-/* ========================= */
 /* GTA VIDEO */
 /* ========================= */
 
 
-
 #gtaVideoScene {
 
-
-    background:black;
-
+    background:#000;
 
 }
-
-
-
 
 
 
@@ -1800,15 +1859,11 @@ button {
 
     position:absolute;
 
-
     inset:0;
-
 
     width:100%;
 
-
     height:100%;
-
 
     object-fit:cover;
 
@@ -1817,27 +1872,28 @@ button {
 
 
 
-
-
-
-
 .video-overlay {
 
 
     position:absolute;
 
-
     inset:0;
 
-
-    background:rgba(0,0,0,.15);
+    background:rgba(0,0,0,.12);
 
 
 }
-/* ========================= */
-/* RDR2 CHAPTER SCREEN */
-/* ========================= */
 
+
+
+
+
+
+
+
+/* ========================= */
+/* RDR2 CHAPTER SELECT */
+/* ========================= */
 
 
 #chapterScene {
@@ -1845,12 +1901,19 @@ button {
 
     background:
 
+    linear-gradient(
+
+        rgba(0,0,0,.45),
+
+        rgba(0,0,0,.85)
+
+    ),
 
     radial-gradient(
 
         circle,
 
-        #3b2918,
+        #3a2918,
 
         #000
 
@@ -1866,16 +1929,15 @@ button {
 .chapter-container {
 
 
-    text-align:center;
-
-
     display:flex;
-
 
     flex-direction:column;
 
+    justify-content:center;
 
     align-items:center;
+
+    text-align:center;
 
 
 }
@@ -1884,21 +1946,16 @@ button {
 
 
 
+.chapter-container h1 {
 
 
-.chapter-title {
+    font-family:"ChineseRocks", serif;
 
+    font-size:95px;
 
-    font-family:"ChineseRocks";
+    letter-spacing:10px;
 
-
-    font-size:100px;
-
-
-    letter-spacing:8px;
-
-
-    color:#e2c28b;
+    color:#d8bc87;
 
 
     text-transform:uppercase;
@@ -1907,33 +1964,10 @@ button {
     text-shadow:
 
 
-    0 0 20px rgba(220,180,100,.35);
+    0 0 8px rgba(220,180,100,.25);
 
 
-}
-
-
-
-
-
-
-
-.chapter-subtitle {
-
-
-    margin-top:20px;
-
-
-    font-family:"ChineseRocks";
-
-
-    font-size:35px;
-
-
-    letter-spacing:6px;
-
-
-    color:#bda275;
+    margin:0;
 
 
 }
@@ -1949,9 +1983,7 @@ button {
 
     display:flex;
 
-
-    gap:50px;
-
+    gap:60px;
 
     margin-top:70px;
 
@@ -1967,33 +1999,37 @@ button {
 .chapter-card {
 
 
-    width:280px;
+    width:300px;
+
+    min-height:350px;
 
 
-    padding:45px;
+    padding:45px 30px;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
 
     background:
-
 
     rgba(0,0,0,.55);
 
 
     border:
 
-
     1px solid rgba(220,190,130,.35);
-
-
-    text-align:center;
 
 
     transition:.5s;
 
 
 }
-
-
 
 
 
@@ -2008,7 +2044,7 @@ button {
     box-shadow:
 
 
-    0 0 40px rgba(220,190,130,.25);
+    0 0 35px rgba(220,190,130,.2);
 
 
 }
@@ -2017,12 +2053,10 @@ button {
 
 
 
-
-
 .chapter-card h2 {
 
 
-    font-family:"ChineseRocks";
+    font-family:"ChineseRocks", serif;
 
 
     font-size:45px;
@@ -2031,7 +2065,7 @@ button {
     color:#e2c28b;
 
 
-    margin:0;
+    margin:0 0 30px;
 
 
 }
@@ -2045,13 +2079,16 @@ button {
 .chapter-card h3 {
 
 
-    margin-top:20px;
+    font-size:32px;
 
 
-    font-size:28px;
+    letter-spacing:5px;
 
 
-    letter-spacing:3px;
+    margin:0;
+
+
+    color:white;
 
 
 }
@@ -2060,12 +2097,10 @@ button {
 
 
 
-
-
 .chapter-card p {
 
 
-    margin-top:15px;
+    margin-top:20px;
 
 
     color:#aaa;
@@ -2085,7 +2120,100 @@ button {
 
 
 /* ========================= */
-/* ACHIEVEMENTS */
+/* FUTURE SCREEN */
+/* ========================= */
+
+
+
+#futureScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #151515,
+
+        #000
+
+    );
+
+
+}
+
+
+
+
+
+
+
+.future-container {
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+.future-container h1 {
+
+
+    font-family:"ChineseRocks";
+
+
+    font-size:100px;
+
+
+    letter-spacing:10px;
+
+
+    color:#d8bc87;
+
+
+}
+
+
+
+
+
+
+
+.future-container p {
+
+
+    margin-top:40px;
+
+
+    font-size:22px;
+
+
+    letter-spacing:6px;
+
+
+    color:#aaa;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* ACHIEVEMENT POPUP */
 /* ========================= */
 
 
@@ -2098,7 +2226,6 @@ button {
 
     top:40px;
 
-
     right:40px;
 
 
@@ -2110,18 +2237,15 @@ button {
 
     background:
 
-
     rgba(0,0,0,.85);
 
 
     border-left:
 
-
     5px solid white;
 
 
     animation:
-
 
     achievementIn 1s ease;
 
@@ -2157,9 +2281,6 @@ button {
 .achievement p {
 
 
-    margin-top:15px;
-
-
     color:#aaa;
 
 
@@ -2177,7 +2298,7 @@ button {
 
 
 /* ========================= */
-/* GTA MISSION PASSED */
+/* GTA MISSION STYLE */
 /* ========================= */
 
 
@@ -2188,7 +2309,7 @@ button {
     font-family:"Pricedown";
 
 
-    font-size:130px;
+    font-size:120px;
 
 
     letter-spacing:10px;
@@ -2203,18 +2324,19 @@ button {
     text-align:center;
 
 
-    animation:
-
-
-    missionPassedIn 1s ease;
-
-
 }
 
 
 
 
 
+
+
+
+
+/* ========================= */
+/* ANIMATIONS */
+/* ========================= */
 
 
 @keyframes missionPassedIn {
@@ -2225,8 +2347,7 @@ button {
 
         opacity:0;
 
-
-        transform:scale(2);
+        transform:scale(1.5);
 
 
     }
@@ -2236,7 +2357,6 @@ button {
 
 
         opacity:1;
-
 
         transform:scale(1);
 
@@ -2250,17 +2370,7 @@ button {
 
 
 
-
-
-
-
-/* ========================= */
-/* GLOBAL ANIMATIONS */
-/* ========================= */
-
-
-
-@keyframes intro {
+@keyframes achievementIn {
 
 
     from {
@@ -2268,11 +2378,7 @@ button {
 
         opacity:0;
 
-
-        transform:scale(.7);
-
-
-        filter:blur(20px);
+        transform:translateX(100px);
 
 
     }
@@ -2284,18 +2390,13 @@ button {
 
         opacity:1;
 
-
-        transform:scale(1);
-
-
-        filter:blur(0);
+        transform:translateX(0);
 
 
     }
 
 
 }
-
 
 
 
@@ -2334,7 +2435,6 @@ button {
 @keyframes heartbeat {
 
 
-
     0%,100% {
 
 
@@ -2361,7 +2461,7 @@ button {
 
 
 
-@keyframes cardIn {
+@keyframes intro {
 
 
     from {
@@ -2369,11 +2469,13 @@ button {
 
         opacity:0;
 
+        transform:scale(.7);
 
-        transform:translateY(40px);
+        filter:blur(20px);
 
 
     }
+
 
 
     to {
@@ -2381,12 +2483,109 @@ button {
 
         opacity:1;
 
+        transform:scale(1);
 
-        transform:translateY(0);
+        filter:blur(0);
 
 
     }
 
+
+}
+/* ========================= */
+/* GLOBAL ANIMATIONS */
+/* ========================= */
+
+
+@keyframes intro {
+
+    from {
+
+        opacity:0;
+        transform:scale(.7);
+        filter:blur(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+
+    }
+
+}
+
+
+
+
+
+@keyframes pulse {
+
+    from {
+
+        transform:scale(.8);
+
+    }
+
+
+    to {
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+
+
+
+
+@keyframes heartbeat {
+
+
+    0%,100% {
+
+        transform:rotate(-45deg) scale(1);
+
+    }
+
+
+    50% {
+
+        transform:rotate(-45deg) scale(1.15);
+
+    }
+
+}
+
+
+
+
+
+
+
+@keyframes cardIn {
+
+
+    from {
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
 
 }
 
@@ -2401,21 +2600,16 @@ button {
 
     from {
 
-
         opacity:0;
-
 
     }
 
 
     to {
 
-
         opacity:1;
 
-
     }
-
 
 }
 
@@ -2430,27 +2624,323 @@ button {
 
     from {
 
-
         opacity:0;
-
-
         transform:translateX(100px);
 
-
     }
-
 
 
     to {
 
-
         opacity:1;
-
-
         transform:translateX(0);
 
+    }
+
+}
+
+
+
+
+
+
+
+@keyframes missionPassedIn {
+
+
+    from {
+
+        opacity:0;
+        transform:scale(2);
 
     }
+
+
+    to {
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+
+
+
+
+/* ========================= */
+/* RDR CHAPTER ANIMATION */
+/* ========================= */
+
+
+.chapter-container {
+
+
+    animation:
+
+    chapterFade 1.5s ease forwards;
+
+}
+
+
+
+
+
+.chapter-card {
+
+
+    opacity:0;
+
+    animation:
+
+    chapterCardIn 1s ease forwards;
+
+}
+
+
+
+.chapter-card:nth-child(1){
+
+    animation-delay:.4s;
+
+}
+
+
+
+.chapter-card:nth-child(2){
+
+    animation-delay:.8s;
+
+}
+
+
+
+
+
+
+@keyframes chapterFade {
+
+
+from {
+
+    opacity:0;
+    transform:translateY(40px);
+
+}
+
+
+to {
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+
+
+@keyframes chapterCardIn {
+
+
+from {
+
+    opacity:0;
+    transform:translateY(50px);
+
+}
+
+
+to {
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* ========================= */
+/* BUTTON EFFECTS */
+/* ========================= */
+
+
+#missionStartButton {
+
+
+    animation:
+
+    buttonPulse 2s infinite;
+
+}
+
+
+
+
+
+@keyframes buttonPulse {
+
+
+0%,100% {
+
+
+    box-shadow:
+
+    0 0 0 transparent;
+
+
+}
+
+
+50% {
+
+
+    box-shadow:
+
+    0 0 25px rgba(255,255,255,.35);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* ========================= */
+/* VIDEO FADE */
+/* ========================= */
+
+
+#gtaVideo {
+
+
+    animation:
+
+    videoFade 1s ease;
+
+}
+
+
+
+
+
+@keyframes videoFade {
+
+
+from {
+
+    opacity:0;
+
+}
+
+
+to {
+
+    opacity:1;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* FUTURE SCREEN */
+/* ========================= */
+
+
+
+#futureScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #1b1208,
+
+        #000
+
+    );
+
+
+}
+
+
+
+
+
+
+.future-container {
+
+
+    text-align:center;
+
+}
+
+
+
+
+.future-container h1 {
+
+
+    font-size:110px;
+
+    color:#e2c28b;
+
+    text-shadow:
+
+
+    0 0 20px rgba(220,180,100,.3);
+
+
+}
+
+
+
+
+
+.future-container p {
+
+
+    margin-top:40px;
+
+    font-size:22px;
+
+    letter-spacing:8px;
+
+    color:#aaa;
 
 
 }
@@ -2468,67 +2958,139 @@ button {
 /* ========================= */
 
 
-
 @media(max-width:900px){
 
 
 
-    .players,
+.players,
 
 
-    .chapter-cards {
+.chapter-cards {
 
 
-        flex-direction:column;
+    flex-direction:column;
 
 
-    }
-
-
-
-
-
-
-    .save-card {
-
-
-        width:90%;
-
-
-    }
+}
 
 
 
 
+.save-card {
 
 
-    .loading-bar {
+    width:90%;
+
+    padding:35px;
 
 
-        width:80%;
-
-
-    }
+}
 
 
 
 
 
-
-    .gta-loading h1,
-
-
-    .mission-passed,
+.loading-bar {
 
 
-    .chapter-title {
+    width:80%;
 
 
-        font-size:55px;
+}
 
 
-    }
+
+
+.gta-loading h1 {
+
+
+    font-size:55px;
+
+
+}
+
+
+
+
+
+.gta-loading-title {
+
+
+    font-size:35px;
+
+
+}
+
+
+
+
+
+.mission-box h1,
+
+
+.mission-passed {
+
+
+    font-size:60px;
+
+
+}
+
+
+
+
+
+.chapter-title {
+
+
+    font-size:55px;
+
+
+}
+
+
+
+
+
+.chapter-card {
+
+
+    width:85%;
+
+
+}
+
+
+
+
+.future-container h1 {
+
+
+    font-size:60px;
+
+
+}
+
 
 
 
 }
+
+
+
+
+
+/* ========================= */
+/* REMOVE OLD IMAGE BUG */
+/* ========================= */
+
+
+#gtaLoadingScene {
+
+
+    background:#000 !important;
+
+
+}
+
+
