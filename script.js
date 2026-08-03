@@ -1,18 +1,26 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
+
 // =========================
 // CURSOR
 // =========================
 
+
 const cursor = document.querySelector(".custom-cursor");
+
 
 document.addEventListener("mousemove", (e)=>{
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+    if(cursor){
+
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+
+    }
 
 });
+
 
 
 
@@ -21,11 +29,18 @@ document.addEventListener("mousemove", (e)=>{
 // BUTTONS
 // =========================
 
+
 const startButton = document.getElementById("startButton");
+
 const continueButton = document.getElementById("continueButton");
 
 const backButton = document.getElementById("backButton");
+
 const bootBackButton = document.getElementById("bootBackButton");
+
+const missionStartButton = document.getElementById("missionStartButton");
+
+
 
 
 
@@ -34,17 +49,31 @@ const bootBackButton = document.getElementById("bootBackButton");
 // SCENES
 // =========================
 
+
 const startScene = document.getElementById("startScene");
+
 const saveScene = document.getElementById("saveScene");
+
 const bootScene = document.getElementById("bootScene");
-const gtaScene = document.getElementById("gtaScene");
+
+const gtaLoadingScene = document.getElementById("gtaLoadingScene");
+
+const gtaVideoScene = document.getElementById("gtaVideoScene");
+
+const missionScene = document.getElementById("missionScene");
+
+const rdrScene = document.getElementById("rdrScene");
+
+
+
 
 
 
 
 // =========================
-// GTA VIDEO
+// VIDEO
 // =========================
+
 
 const gtaVideo = document.getElementById("gtaVideo");
 
@@ -57,10 +86,14 @@ const gtaVideo = document.getElementById("gtaVideo");
 // START → SAVE
 // =========================
 
+
+if(startButton){
+
+
 startButton.addEventListener("click", ()=>{
 
 
-    console.log("Loading save data...");
+    console.log("Opening save file...");
 
 
     startScene.classList.remove("active");
@@ -68,12 +101,18 @@ startButton.addEventListener("click", ()=>{
 
     setTimeout(()=>{
 
+
         saveScene.classList.add("active");
+
 
     },800);
 
 
 });
+
+
+}
+
 
 
 
@@ -85,6 +124,10 @@ startButton.addEventListener("click", ()=>{
 // SAVE → START
 // =========================
 
+
+if(backButton){
+
+
 backButton.addEventListener("click", ()=>{
 
 
@@ -93,12 +136,18 @@ backButton.addEventListener("click", ()=>{
 
     setTimeout(()=>{
 
+
         startScene.classList.add("active");
+
 
     },500);
 
 
 });
+
+
+}
+
 
 
 
@@ -110,6 +159,10 @@ backButton.addEventListener("click", ()=>{
 // SAVE → PS5
 // =========================
 
+
+if(continueButton){
+
+
 continueButton.addEventListener("click", ()=>{
 
 
@@ -119,19 +172,24 @@ continueButton.addEventListener("click", ()=>{
     saveScene.classList.remove("active");
 
 
+
     setTimeout(()=>{
 
 
         bootScene.classList.add("active");
 
 
-        startBootSequence();
+        startBoot();
 
 
     },800);
 
 
+
 });
+
+
+}
 
 
 
@@ -144,44 +202,62 @@ continueButton.addEventListener("click", ()=>{
 // PS5 BOOT
 // =========================
 
-function startBootSequence(){
+
+function startBoot(){
 
 
-    console.log("PS5 BOOT ACTIVE");
-
-
-    let counter = 0;
-
-
-    const bootTimer = setInterval(()=>{
-
-
-        counter++;
-
-
-        console.log("BOOT TIMER:", counter);
+console.log("PS5 BOOT ACTIVE");
 
 
 
-        if(counter >= 15){
-
-
-            clearInterval(bootTimer);
+const progress = document.getElementById("bootProgress");
 
 
 
-            console.log("PS5 BOOT FINISHED");
+if(progress){
+
+
+    progress.style.animation="none";
+
+
+    progress.offsetHeight;
+
+
+    progress.style.animation="loading 15s linear forwards";
 
 
 
-            launchGTA();
+}
 
 
 
-        }
 
 
-    },1000);
+setTimeout(()=>{
+
+
+    console.log("Launching GTA Loading");
+
+
+    bootScene.classList.remove("active");
+
+
+
+    setTimeout(()=>{
+
+
+        gtaLoadingScene.classList.add("active");
+
+
+        startGTALoading();
+
+
+
+    },800);
+
+
+
+},15000);
 
 
 
@@ -195,23 +271,31 @@ function startBootSequence(){
 
 
 // =========================
-// GTA LOADING
+// GTA LAMAR LOADING
 // =========================
 
-function launchGTA(){
+
+function startGTALoading(){
 
 
-    console.log("LAUNCHING GTA V");
+console.log("GTA Loading Screen");
 
 
-    bootScene.classList.remove("active");
+
+setTimeout(()=>{
+
+
+    console.log("Starting GTA Video");
+
+
+    gtaLoadingScene.classList.remove("active");
 
 
 
     setTimeout(()=>{
 
 
-        gtaScene.classList.add("active");
+        gtaVideoScene.classList.add("active");
 
 
 
@@ -221,30 +305,109 @@ function launchGTA(){
             gtaVideo.currentTime = 0;
 
 
+            gtaVideo.play();
 
-            gtaVideo.play()
-            .then(()=>{
-
-
-                console.log("GTA VIDEO PLAYING");
-
-
-            })
-            .catch((error)=>{
-
-
-                console.log("VIDEO ERROR:", error);
-
-
-            });
 
 
         }
 
 
 
+    },800);
+
+
+
+},15000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =========================
+// VIDEO END
+// =========================
+
+
+if(gtaVideo){
+
+
+
+gtaVideo.addEventListener("ended", ()=>{
+
+
+    console.log("Video finished");
+
+
+    gtaVideo.pause();
+
+
+
+    gtaVideoScene.classList.remove("active");
+
+
+
+    setTimeout(()=>{
+
+
+        missionScene.classList.add("active");
+
+
+
     },1000);
 
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =========================
+// MISSION START → RDR2
+// =========================
+
+
+if(missionStartButton){
+
+
+missionStartButton.addEventListener("click", ()=>{
+
+
+console.log("Entering RDR2");
+
+
+missionScene.classList.remove("active");
+
+
+
+setTimeout(()=>{
+
+
+    rdrScene.classList.add("active");
+
+
+},1000);
+
+
+
+});
 
 
 }
@@ -260,13 +423,58 @@ function launchGTA(){
 // BACK FROM PS5
 // =========================
 
+
+if(bootBackButton){
+
+
 bootBackButton.addEventListener("click", ()=>{
 
 
-    bootScene.classList.remove("active");
+bootScene.classList.remove("active");
 
 
-    saveScene.classList.add("active");
+setTimeout(()=>{
+
+
+saveScene.classList.add("active");
+
+
+},500);
+
 
 
 });
+
+
+}
+
+
+
+
+
+
+
+
+// =========================
+// RDR2 RESET
+// =========================
+
+
+function resetVideo(){
+
+
+if(gtaVideo){
+
+
+gtaVideo.pause();
+
+gtaVideo.currentTime=0;
+
+
+}
+
+
+}
+
+
+console.log("Game system loaded 🎮");
