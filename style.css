@@ -44,6 +44,8 @@
 
 
 
+
+
 /* ========================= */
 /* GLOBAL */
 /* ========================= */
@@ -57,17 +59,32 @@
 
 
 
+html,
 body {
 
     margin:0;
 
-    height:100vh;
+    width:100%;
 
-    background:#050505;
+    height:100%;
+
+}
+
+
+
+body {
+
+    background:#000;
 
     color:white;
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
 
     overflow:hidden;
 
@@ -77,6 +94,26 @@ body {
 
 
 
+
+
+
+#game {
+
+    width:100%;
+
+    height:100vh;
+
+}
+
+
+
+
+
+
+
+/* ========================= */
+/* CUSTOM CURSOR */
+/* ========================= */
 
 
 .custom-cursor {
@@ -99,6 +136,7 @@ body {
 
     0 0 40px #00c8ff;
 
+
     pointer-events:none;
 
     transform:translate(-50%,-50%);
@@ -109,43 +147,36 @@ body {
 
 
 
+
 .custom-cursor::after {
+
 
     content:"";
 
+
     position:absolute;
+
 
     width:6px;
 
+
     height:6px;
+
 
     background:white;
 
+
     border-radius:50%;
 
-    top:50%;
 
     left:50%;
 
+
+    top:50%;
+
+
     transform:translate(-50%,-50%);
 
-}
-
-
-
-
-
-
-/* ========================= */
-/* GAME */
-/* ========================= */
-
-
-#game {
-
-    width:100%;
-
-    height:100vh;
 
 }
 
@@ -162,25 +193,26 @@ body {
 
 .scene {
 
-    width:100%;
-
-    height:100vh;
-
     position:absolute;
 
-    display:flex;
+    inset:0;
 
-    flex-direction:column;
+
+    display:flex;
 
     justify-content:center;
 
     align-items:center;
 
+
     opacity:0;
+
 
     pointer-events:none;
 
+
     transition:1s ease;
+
 
 }
 
@@ -188,11 +220,15 @@ body {
 
 .scene.active {
 
+
     opacity:1;
+
 
     pointer-events:auto;
 
+
 }
+
 
 
 
@@ -208,45 +244,60 @@ body {
 #startScene {
 
 
-background:
+    background:
 
-radial-gradient(
 
-circle at center,
+    radial-gradient(
 
-#24103d,
+        circle at center,
 
-#090510 45%,
+        #24103d,
 
-#000
+        #090510 45%,
 
-);
+        #000
+
+    );
 
 
 }
+
+
 
 
 
 
 #startScene::before {
 
-content:"";
 
-position:absolute;
+    content:"";
 
-width:700px;
 
-height:700px;
+    position:absolute;
 
-background:#9b5cff;
 
-opacity:.18;
+    width:700px;
 
-filter:blur(180px);
 
-animation:pulse 5s infinite alternate;
+    height:700px;
+
+
+    background:#9b5cff;
+
+
+    opacity:.18;
+
+
+    filter:blur(180px);
+
+
+    animation:pulse 5s infinite alternate;
+
 
 }
+
+
+
 
 
 
@@ -255,27 +306,34 @@ animation:pulse 5s infinite alternate;
 .logo {
 
 
-display:flex;
+    display:flex;
 
-align-items:center;
 
-justify-content:center;
+    align-items:center;
 
-gap:55px;
 
-font-size:120px;
+    justify-content:center;
 
-font-weight:700;
 
-letter-spacing:10px;
+    gap:55px;
 
-z-index:2;
 
-animation:intro 2s ease;
+    font-size:120px;
+
+
+    font-weight:700;
+
+
+    letter-spacing:10px;
+
+
+    z-index:2;
+
+
+    animation:intro 2s ease;
 
 
 }
-
 
 
 
@@ -285,26 +343,31 @@ animation:intro 2s ease;
 .heart {
 
 
-width:65px;
-
-height:65px;
-
-background:#00c8ff;
-
-position:relative;
-
-transform:rotate(-45deg);
+    width:65px;
 
 
-box-shadow:
+    height:65px;
 
 
-0 0 20px #00c8ff,
-
-0 0 70px #008cff;
+    background:#00c8ff;
 
 
-animation:heartbeat 1.7s infinite;
+    position:relative;
+
+
+    transform:rotate(-45deg);
+
+
+    box-shadow:
+
+
+    0 0 20px #00c8ff,
+
+
+    0 0 70px #008cff;
+
+
+    animation:heartbeat 1.7s infinite;
 
 
 }
@@ -314,49 +377,55 @@ animation:heartbeat 1.7s infinite;
 
 
 .heart::before,
-
 .heart::after {
 
 
-content:"";
-
-position:absolute;
+    content:"";
 
 
-width:65px;
-
-height:65px;
+    position:absolute;
 
 
-background:#00c8ff;
+    width:65px;
 
 
-border-radius:50%;
+    height:65px;
+
+
+    background:#00c8ff;
+
+
+    border-radius:50%;
 
 
 }
-
 
 
 
 .heart::before {
 
-top:-32px;
 
-left:0;
+    top:-32px;
+
+    left:0;
+
 
 }
-
 
 
 
 .heart::after {
 
-top:0;
 
-left:32px;
+    top:0;
+
+    left:32px;
+
 
 }
+
+
+
 
 
 
@@ -364,7 +433,8 @@ left:32px;
 
 h1 {
 
-z-index:2;
+
+    z-index:2;
 
 }
 
@@ -374,79 +444,81 @@ z-index:2;
 
 button {
 
-font-family:inherit;
+
+    font-family:inherit;
 
 }
+
+
+
 
 
 
 
 
 #startButton,
-
 #continueButton {
 
 
-margin-top:70px;
+    margin-top:70px;
 
 
-padding:18px 65px;
+    padding:18px 65px;
 
 
-background:transparent;
+    background:transparent;
 
 
-color:white;
+    color:white;
 
 
-border:1px solid #b36cff;
+    border:1px solid #b36cff;
 
 
-border-radius:50px;
+    border-radius:50px;
 
 
-font-size:14px;
+    font-size:14px;
 
 
-letter-spacing:5px;
+    letter-spacing:5px;
 
 
-cursor:none;
+    cursor:none;
 
 
-transition:.4s;
+    transition:.4s;
 
 
-z-index:2;
+    z-index:2;
 
 
 }
+
 
 
 
 
 #startButton:hover,
-
 #continueButton:hover {
 
 
-background:#b36cff;
+    background:#b36cff;
 
 
-color:#000;
+    color:#000;
 
 
-box-shadow:
+    box-shadow:
 
 
-0 0 30px #b36cff,
+    0 0 30px #b36cff,
 
-0 0 90px #b36cff;
+
+    0 0 90px #b36cff;
 
 
 }
-
-
 
 
 
@@ -455,30 +527,22 @@ box-shadow:
 .version {
 
 
-position:absolute;
+    position:absolute;
 
 
-bottom:30px;
+    bottom:30px;
 
 
-right:40px;
+    right:40px;
 
 
-color:#555;
+    color:#555;
 
 
-letter-spacing:4px;
+    letter-spacing:4px;
 
 
 }
-
-
-
-
-
-
-
-
 /* ========================= */
 /* BACK BUTTON */
 /* ========================= */
@@ -487,53 +551,54 @@ letter-spacing:4px;
 .back-button {
 
 
-position:absolute;
+    position:absolute;
 
 
-top:35px;
+    top:35px;
 
 
-left:40px;
+    left:40px;
 
 
-background:transparent;
+    background:transparent;
 
 
-border:none;
+    border:none;
 
 
-color:#aaa;
+    color:#aaa;
 
 
-font-size:13px;
+    font-size:13px;
 
 
-letter-spacing:4px;
+    letter-spacing:4px;
 
 
-cursor:none;
+    cursor:none;
 
 
-transition:.3s;
+    transition:.3s;
 
 
 }
-
 
 
 
 .back-button:hover {
 
 
-color:#00c8ff;
+    color:#00c8ff;
 
 
-text-shadow:
+    text-shadow:
 
-0 0 15px #00c8ff;
+
+    0 0 15px #00c8ff;
 
 
 }
+
 
 
 
@@ -549,21 +614,23 @@ text-shadow:
 #saveScene {
 
 
-background:
+    background:
 
 
-radial-gradient(
+    radial-gradient(
 
-circle,
+        circle,
 
-#1b0c2c,
+        #1b0c2c,
 
-#050505 70%
+        #050505 70%
 
-);
+    );
 
 
 }
+
+
 
 
 
@@ -571,40 +638,46 @@ circle,
 .save-card {
 
 
-width:600px;
+    width:600px;
 
 
-padding:50px;
+    padding:50px;
 
 
-background:
-
-rgba(255,255,255,.04);
+    background:
 
 
-border:
-
-1px solid rgba(179,108,255,.4);
+    rgba(255,255,255,.04);
 
 
-border-radius:25px;
+    border:
 
 
-box-shadow:
-
-0 0 50px rgba(155,92,255,.25);
+    1px solid rgba(179,108,255,.4);
 
 
-backdrop-filter:blur(15px);
+    border-radius:25px;
 
 
-text-align:center;
+    box-shadow:
 
 
-animation:cardIn 1s ease;
+    0 0 50px rgba(155,92,255,.25);
+
+
+    backdrop-filter:blur(15px);
+
+
+    text-align:center;
+
+
+    animation:cardIn 1s ease;
 
 
 }
+
+
+
 
 
 
@@ -612,16 +685,17 @@ animation:cardIn 1s ease;
 .save-header {
 
 
-font-size:13px;
+    font-size:13px;
 
 
-letter-spacing:8px;
+    letter-spacing:8px;
 
 
-color:#aaa;
+    color:#aaa;
 
 
 }
+
 
 
 
@@ -629,16 +703,17 @@ color:#aaa;
 .save-card h2 {
 
 
-font-size:32px;
+    font-size:32px;
 
 
-letter-spacing:5px;
+    letter-spacing:5px;
 
 
-margin:25px 0;
+    margin:25px 0;
 
 
 }
+
 
 
 
@@ -646,13 +721,14 @@ margin:25px 0;
 .save-card h3 {
 
 
-font-size:22px;
+    font-size:22px;
 
 
-letter-spacing:3px;
+    letter-spacing:3px;
 
 
 }
+
 
 
 
@@ -661,13 +737,15 @@ letter-spacing:3px;
 .stats {
 
 
-margin-top:40px;
+    margin-top:40px;
 
 
-text-align:left;
+    text-align:left;
 
 
 }
+
+
 
 
 
@@ -675,16 +753,18 @@ text-align:left;
 .stat {
 
 
-display:flex;
+    display:flex;
 
 
-justify-content:space-between;
+    justify-content:space-between;
 
 
-padding:18px 0;
+    padding:18px 0;
 
 
-border-bottom:1px solid rgba(255,255,255,.1);
+    border-bottom:
+
+    1px solid rgba(255,255,255,.1);
 
 
 }
@@ -692,13 +772,15 @@ border-bottom:1px solid rgba(255,255,255,.1);
 
 
 
+
+
 .stat span {
 
 
-color:#888;
+    color:#888;
 
 
-letter-spacing:2px;
+    letter-spacing:2px;
 
 
 }
@@ -709,10 +791,14 @@ letter-spacing:2px;
 .stat strong {
 
 
-color:white;
+    color:white;
 
 
 }
+
+
+
+
 
 
 
@@ -720,29 +806,45 @@ color:white;
 #continueButton {
 
 
-margin-top:40px;
+    margin-top:40px;
+
 
 }
+
+
+
+
+
+
+
+
+
 /* ========================= */
 /* PS5 BOOT SCREEN */
 /* ========================= */
 
 
+
 #bootScene {
 
-background:
 
-radial-gradient(
+    background:
 
-circle,
 
-#161033,
+    radial-gradient(
 
-#050505 70%
+        circle,
 
-);
+        #161033,
+
+        #050505 70%
+
+    );
+
 
 }
+
+
 
 
 
@@ -750,28 +852,29 @@ circle,
 .ps-system {
 
 
-width:100%;
+    width:100%;
 
 
-height:100%;
+    height:100%;
 
 
-display:flex;
+    display:flex;
 
 
-flex-direction:column;
+    flex-direction:column;
 
 
-align-items:center;
+    justify-content:center;
 
 
-justify-content:center;
+    align-items:center;
 
 
-position:relative;
+    position:relative;
 
 
 }
+
 
 
 
@@ -780,25 +883,27 @@ position:relative;
 .system-version {
 
 
-position:absolute;
+    position:absolute;
 
 
-top:35px;
+    top:35px;
 
 
-right:40px;
+    right:40px;
 
 
-font-size:11px;
+    color:#777;
 
 
-letter-spacing:4px;
+    font-size:11px;
 
 
-color:#777;
+    letter-spacing:4px;
 
 
 }
+
+
 
 
 
@@ -807,22 +912,21 @@ color:#777;
 .ps-logo {
 
 
-font-size:80px;
+    font-size:80px;
 
 
-font-weight:700;
+    font-weight:700;
 
 
-letter-spacing:15px;
+    letter-spacing:15px;
 
 
-margin-bottom:40px;
-
-
-animation:intro 1.5s ease;
+    margin-bottom:40px;
 
 
 }
+
+
 
 
 
@@ -830,12 +934,19 @@ animation:intro 1.5s ease;
 .ps-logo span {
 
 
-filter:
+    filter:
 
-drop-shadow(0 0 15px #00c8ff);
+
+    drop-shadow(
+
+        0 0 15px #00c8ff
+
+    );
 
 
 }
+
+
 
 
 
@@ -844,7 +955,7 @@ drop-shadow(0 0 15px #00c8ff);
 .boot-text {
 
 
-text-align:center;
+    text-align:center;
 
 
 }
@@ -856,13 +967,13 @@ text-align:center;
 .boot-text p {
 
 
-color:#888;
+    color:#888;
 
 
-letter-spacing:8px;
+    font-size:13px;
 
 
-font-size:13px;
+    letter-spacing:8px;
 
 
 }
@@ -874,13 +985,13 @@ font-size:13px;
 .boot-text h2 {
 
 
-font-size:35px;
+    font-size:35px;
 
 
-letter-spacing:8px;
+    letter-spacing:8px;
 
 
-margin:20px 0;
+    margin:20px 0;
 
 
 }
@@ -892,37 +1003,52 @@ margin:20px 0;
 .boot-text span {
 
 
-color:#aaa;
+    color:#aaa;
 
 
-letter-spacing:5px;
+    letter-spacing:5px;
 
 
 }
 
 
+
+
+
+
+
+
+
+/* ========================= */
+/* PS5 PROGRESS BAR */
+/* ========================= */
 
 
 
 .loading-bar {
 
 
-margin-top:45px;
+    margin-top:45px;
 
 
-width:450px;
+    width:450px;
 
 
-height:5px;
+    height:6px;
 
 
-background:rgba(255,255,255,.15);
+    background:
+
+    rgba(255,255,255,.15);
 
 
-overflow:hidden;
+    overflow:hidden;
 
 
 }
+
+
+
 
 
 
@@ -930,21 +1056,24 @@ overflow:hidden;
 .loading-progress {
 
 
-height:100%;
+    height:100%;
 
 
-width:0;
+    width:0;
 
 
-background:#00c8ff;
+    background:#00c8ff;
 
 
-box-shadow:
-
-0 0 20px #00c8ff;
+    box-shadow:
 
 
-animation:loading 15s linear forwards;
+    0 0 20px #00c8ff;
+
+
+    animation:
+
+    bootLoading 15s linear forwards;
 
 
 }
@@ -955,22 +1084,55 @@ animation:loading 15s linear forwards;
 
 
 
+@keyframes bootLoading {
+
+
+    from {
+
+
+        width:0;
+
+
+    }
+
+
+    to {
+
+
+        width:100%;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* PLAYER CARDS */
+/* ========================= */
+
+
 .players {
 
 
-display:flex;
+    display:flex;
 
 
-align-items:center;
+    align-items:center;
 
 
-gap:50px;
+    gap:50px;
 
 
-margin-top:50px;
-
-
-margin-bottom:40px;
+    margin-top:50px;
 
 
 }
@@ -982,32 +1144,33 @@ margin-bottom:40px;
 .boot-card {
 
 
-width:230px;
+    width:230px;
 
 
-padding:30px;
+    padding:30px;
 
 
-background:
-
-rgba(255,255,255,.05);
+    background:
 
 
-border:
-
-1px solid rgba(0,200,255,.4);
+    rgba(255,255,255,.05);
 
 
-border-radius:20px;
+    border:
 
 
-text-align:center;
+    1px solid rgba(0,200,255,.4);
 
 
-opacity:0;
+    border-radius:20px;
 
 
-animation:playerIn 1s forwards;
+    text-align:center;
+
+
+    animation:
+
+    playerAppear 1s ease forwards;
 
 
 }
@@ -1019,7 +1182,7 @@ animation:playerIn 1s forwards;
 .boot-card:nth-child(1) {
 
 
-animation-delay:2s;
+    animation-delay:2s;
 
 
 }
@@ -1031,10 +1194,12 @@ animation-delay:2s;
 .boot-card:nth-child(3) {
 
 
-animation-delay:3s;
+    animation-delay:3s;
 
 
 }
+
+
 
 
 
@@ -1043,16 +1208,18 @@ animation-delay:3s;
 .player-number {
 
 
-color:#00c8ff;
+    color:#00c8ff;
 
 
-letter-spacing:4px;
+    font-size:12px;
 
 
-font-size:12px;
+    letter-spacing:4px;
 
 
 }
+
+
 
 
 
@@ -1061,13 +1228,15 @@ font-size:12px;
 .boot-card h3 {
 
 
-font-size:28px;
+    font-size:28px;
 
 
-margin:15px 0;
+    margin:15px 0;
 
 
 }
+
+
 
 
 
@@ -1076,13 +1245,14 @@ margin:15px 0;
 .boot-card p {
 
 
-color:#aaa;
+    color:#aaa;
 
 
-letter-spacing:2px;
+    letter-spacing:2px;
 
 
 }
+
 
 
 
@@ -1091,16 +1261,13 @@ letter-spacing:2px;
 .coop {
 
 
-font-size:25px;
+    font-size:25px;
 
 
-color:#00c8ff;
+    color:#00c8ff;
 
 
-text-align:center;
-
-
-animation:coopAppear 1.5s ease forwards;
+    text-align:center;
 
 
 }
@@ -1109,28 +1276,21 @@ animation:coopAppear 1.5s ease forwards;
 
 
 
+
+
 .connection {
 
 
-margin-top:80px;
+    margin-top:50px;
 
 
-text-align:center;
+    text-align:center;
 
 
-letter-spacing:5px;
+    letter-spacing:5px;
 
 
-font-size:15px;
-
-
-opacity:0;
-
-
-animation:fadeIn 1s forwards;
-
-
-animation-delay:5s;
+    font-size:15px;
 
 
 }
@@ -1142,29 +1302,63 @@ animation-delay:5s;
 .connection span {
 
 
-color:#00c8ff;
+    color:#00c8ff;
+
+
+}
+
+
+
+
+
+
+
+
+@keyframes playerAppear {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateY(40px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
 
 
 }
 /* ========================= */
-/* GTA V LAMAR LOADING SCREEN */
+/* GTA LAMAR LOADING SCREEN */
 /* ========================= */
+
 
 
 #gtaLoadingScene {
 
-    background:
 
-    radial-gradient(
-        circle at center,
-        #1a1a1a,
-        #000000 70%
-    );
+    background:#000;
 
 
     overflow:hidden;
 
+
 }
+
 
 
 
@@ -1175,14 +1369,18 @@ color:#00c8ff;
 
     width:100%;
 
+
     height:100%;
 
 
     display:flex;
 
+
     flex-direction:column;
 
+
     justify-content:center;
+
 
     align-items:center;
 
@@ -1196,22 +1394,22 @@ color:#00c8ff;
 
 
 
+
+
 /* GTA V LOGO */
 
 
-.gta-loading .gta-font {
+
+.gta-loading h1 {
 
 
-    font-family:"Pricedown", sans-serif !important;
+    font-family:"Pricedown";
 
 
-    font-size:120px;
+    font-size:95px;
 
 
-    letter-spacing:4px;
-
-
-    line-height:1;
+    letter-spacing:5px;
 
 
     margin:0;
@@ -1226,9 +1424,7 @@ color:#00c8ff;
     text-shadow:
 
 
-    0 0 20px rgba(255,255,255,.5),
-
-    0 0 50px rgba(255,255,255,.2);
+    0 0 8px rgba(255,255,255,.2);
 
 
 }
@@ -1237,46 +1433,50 @@ color:#00c8ff;
 
 
 
-/* LAMAR NAME */
 
 
-.gta-loading h2 {
+/* LOADING TEXT */
 
 
-    margin-top:35px;
+
+.gta-loading-title {
 
 
-    font-size:32px;
+    margin-top:45px;
 
 
-    font-weight:300;
+    font-size:55px;
 
 
     letter-spacing:12px;
 
 
+    font-weight:300;
+
+
 }
 
 
 
 
 
-/* LOADING */
 
 
 .loading-text {
 
 
-    margin-top:70px;
+    margin-top:35px;
 
 
-    font-size:25px;
+    font-size:30px;
 
 
-    letter-spacing:10px;
+    letter-spacing:8px;
 
 
 }
+
+
 
 
 
@@ -1288,51 +1488,9 @@ color:#00c8ff;
     content:"";
 
 
-    animation:dots 1.5s infinite;
+    animation:
 
-
-}
-
-
-
-
-
-@keyframes dots {
-
-
-0%{
-
-content:"";
-
-}
-
-
-25%{
-
-content:".";
-
-}
-
-
-50%{
-
-content:"..";
-
-}
-
-
-75%{
-
-content:"...";
-
-}
-
-
-100%{
-
-content:"";
-
-}
+    loadingDots 1.5s infinite;
 
 
 }
@@ -1342,17 +1500,207 @@ content:"";
 
 
 
+@keyframes loadingDots {
 
-/* LAMAR QUOTE */
+
+    0% {
+
+
+        content:"";
+
+
+    }
+
+
+    33% {
+
+
+        content:".";
+
+
+    }
+
+
+    66% {
+
+
+        content:"..";
+
+
+    }
+
+
+    100% {
+
+
+        content:"...";
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* LAMAR */
+
+
+
+.gta-loading h2 {
+
+
+    margin-top:45px;
+
+
+    font-size:30px;
+
+
+    letter-spacing:12px;
+
+
+    font-weight:300;
+
+
+}
+
+
+
+
+
+
+
+/* QUOTE */
+
 
 
 .gta-loading .quote {
 
 
-    margin-top:60px;
+    margin-top:30px;
 
 
-    font-size:25px;
+    max-width:650px;
+
+
+    font-size:22px;
+
+
+    color:#ccc;
+
+
+    font-style:italic;
+
+
+}
+
+
+
+
+
+
+
+/* ========================= */
+/* MISSION START SCREEN */
+/* ========================= */
+
+
+
+#missionScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #202020,
+
+        #000
+
+    );
+
+
+}
+
+
+
+
+
+
+
+.mission-box {
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+.mission-box h1 {
+
+
+    font-family:"Pricedown";
+
+
+    font-size:120px;
+
+
+    letter-spacing:8px;
+
+
+    margin:0;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+.mission-box h2 {
+
+
+    margin-top:25px;
+
+
+    color:#aaa;
+
+
+    letter-spacing:6px;
+
+
+}
+
+
+
+
+
+
+
+.mission-box .quote {
+
+
+    margin-top:35px;
 
 
     color:#ddd;
@@ -1361,58 +1709,50 @@ content:"";
     font-style:italic;
 
 
-    max-width:700px;
-
-
 }
 
 
 
 
 
-/* MISSION BUTTON */
 
 
 #missionStartButton {
 
 
-    margin-top:70px;
+    margin-top:60px;
 
 
-    padding:18px 70px;
+    padding:
+
+
+    18px 80px;
 
 
     background:transparent;
 
 
-    border:2px solid white;
-
-
     color:white;
+
+
+    border:2px solid white;
 
 
     font-size:18px;
 
 
-    letter-spacing:6px;
+    letter-spacing:7px;
 
 
-    border-radius:5px;
+    cursor:none;
 
 
-    cursor:pointer;
-
-
-    opacity:0;
-
-
-    animation:buttonAppear 1s forwards;
-
-
-    animation-delay:15s;
+    transition:.4s;
 
 
 }
+
+
 
 
 
@@ -1430,42 +1770,12 @@ content:"";
     box-shadow:
 
 
-    0 0 30px white;
+    0 0 40px white;
 
 
 }
 
 
-
-
-
-
-@keyframes buttonAppear {
-
-
-from{
-
-
-opacity:0;
-
-transform:translateY(20px);
-
-
-}
-
-
-to{
-
-
-opacity:1;
-
-transform:translateY(0);
-
-
-}
-
-
-}
 
 
 
@@ -1477,6 +1787,7 @@ transform:translateY(0);
 /* ========================= */
 /* GTA VIDEO */
 /* ========================= */
+
 
 
 #gtaVideoScene {
@@ -1491,10 +1802,14 @@ transform:translateY(0);
 
 
 
+
 #gtaVideo {
 
 
     position:absolute;
+
+
+    inset:0;
 
 
     width:100%;
@@ -1507,6 +1822,8 @@ transform:translateY(0);
 
 
 }
+
+
 
 
 
@@ -1525,16 +1842,8 @@ transform:translateY(0);
 
 
 }
-
-
-
-
-
-
-
-
 /* ========================= */
-/* RDR2 CHAPTER SELECT */
+/* RDR2 CHAPTER SCREEN */
 /* ========================= */
 
 
@@ -1542,27 +1851,18 @@ transform:translateY(0);
 #chapterScene {
 
 
-background:
+    background:
 
 
-linear-gradient(
+    radial-gradient(
 
-rgba(0,0,0,.45),
+        circle,
 
-rgba(0,0,0,.85)
+        #3b2918,
 
-),
+        #000
 
-
-radial-gradient(
-
-circle,
-
-#4a321b,
-
-#080808
-
-);
+    );
 
 
 }
@@ -1574,16 +1874,16 @@ circle,
 .chapter-container {
 
 
-display:flex;
+    text-align:center;
 
 
-flex-direction:column;
+    display:flex;
 
 
-align-items:center;
+    flex-direction:column;
 
 
-text-align:center;
+    align-items:center;
 
 
 }
@@ -1592,25 +1892,56 @@ text-align:center;
 
 
 
-.chapter-container > h1 {
 
 
-font-family:"ChineseRocks", serif;
+.chapter-title {
 
 
-font-size:90px;
+    font-family:"ChineseRocks";
 
 
-letter-spacing:8px;
+    font-size:100px;
 
 
-color:#d7bb83;
+    letter-spacing:8px;
 
 
-text-shadow:
+    color:#e2c28b;
 
 
-0 0 25px rgba(255,210,120,.4);
+    text-transform:uppercase;
+
+
+    text-shadow:
+
+
+    0 0 20px rgba(220,180,100,.35);
+
+
+}
+
+
+
+
+
+
+
+.chapter-subtitle {
+
+
+    margin-top:20px;
+
+
+    font-family:"ChineseRocks";
+
+
+    font-size:35px;
+
+
+    letter-spacing:6px;
+
+
+    color:#bda275;
 
 
 }
@@ -1624,16 +1955,18 @@ text-shadow:
 .chapter-cards {
 
 
-display:flex;
+    display:flex;
 
 
-gap:70px;
+    gap:50px;
 
 
-margin-top:70px;
+    margin-top:70px;
 
 
 }
+
+
 
 
 
@@ -1642,46 +1975,33 @@ margin-top:70px;
 .chapter-card {
 
 
-width:320px;
+    width:280px;
 
 
-height:300px;
+    padding:45px;
 
 
-padding:40px;
+    background:
 
 
-background:
+    rgba(0,0,0,.55);
 
 
-rgba(0,0,0,.45);
+    border:
 
 
-border:
+    1px solid rgba(220,190,130,.35);
 
 
-1px solid rgba(220,190,120,.35);
+    text-align:center;
 
 
-border-radius:8px;
-
-
-display:flex;
-
-
-flex-direction:column;
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-transition:.5s;
+    transition:.5s;
 
 
 }
+
+
 
 
 
@@ -1690,16 +2010,18 @@ transition:.5s;
 .chapter-card:hover {
 
 
-transform:translateY(-15px);
+    transform:translateY(-15px);
 
 
-box-shadow:
+    box-shadow:
 
 
-0 0 40px rgba(220,190,120,.3);
+    0 0 40px rgba(220,190,130,.25);
 
 
 }
+
+
 
 
 
@@ -1708,19 +2030,21 @@ box-shadow:
 .chapter-card h2 {
 
 
-font-family:"ChineseRocks", serif;
+    font-family:"ChineseRocks";
 
 
-font-size:45px;
+    font-size:45px;
 
 
-color:#d7bb83;
+    color:#e2c28b;
 
 
-margin:0;
+    margin:0;
 
 
 }
+
+
 
 
 
@@ -1729,13 +2053,18 @@ margin:0;
 .chapter-card h3 {
 
 
-font-size:30px;
+    margin-top:20px;
 
 
-letter-spacing:5px;
+    font-size:28px;
+
+
+    letter-spacing:3px;
 
 
 }
+
+
 
 
 
@@ -1744,13 +2073,17 @@ letter-spacing:5px;
 .chapter-card p {
 
 
-color:#aaa;
+    margin-top:15px;
 
 
-letter-spacing:3px;
+    color:#aaa;
+
+
+    letter-spacing:3px;
 
 
 }
+
 
 
 
@@ -1760,55 +2093,45 @@ letter-spacing:3px;
 
 
 /* ========================= */
-/* OUR FUTURE */
+/* ACHIEVEMENTS */
 /* ========================= */
 
 
-#futureScene {
+
+.achievement {
 
 
-background:
+    position:absolute;
 
 
-radial-gradient(
-
-circle,
-
-#302515,
-
-#050505
-
-);
+    top:40px;
 
 
-}
+    right:40px;
 
 
+    width:360px;
 
 
-
-.future-container {
-
-
-text-align:center;
+    padding:25px;
 
 
-}
+    background:
 
 
+    rgba(0,0,0,.85);
 
 
-
-.future-container h1 {
-
-
-font-family:"ChineseRocks", serif;
+    border-left:
 
 
-font-size:100px;
+    5px solid white;
 
 
-color:#d7bb83;
+    animation:
+
+
+    achievementIn 1s ease;
 
 
 }
@@ -1817,19 +2140,329 @@ color:#d7bb83;
 
 
 
-.future-container p {
 
 
-font-size:25px;
+.achievement h2 {
 
 
-letter-spacing:8px;
+    font-family:"Pricedown";
 
 
-color:#aaa;
+    font-size:38px;
+
+
+    margin:0;
 
 
 }
+
+
+
+
+
+
+
+.achievement p {
+
+
+    margin-top:15px;
+
+
+    color:#aaa;
+
+
+    letter-spacing:3px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* GTA MISSION PASSED */
+/* ========================= */
+
+
+
+.mission-passed {
+
+
+    font-family:"Pricedown";
+
+
+    font-size:130px;
+
+
+    letter-spacing:10px;
+
+
+    color:white;
+
+
+    text-transform:uppercase;
+
+
+    text-align:center;
+
+
+    animation:
+
+
+    missionPassedIn 1s ease;
+
+
+}
+
+
+
+
+
+
+
+@keyframes missionPassedIn {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:scale(2);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:scale(1);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* GLOBAL ANIMATIONS */
+/* ========================= */
+
+
+
+@keyframes intro {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:scale(.7);
+
+
+        filter:blur(20px);
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:scale(1);
+
+
+        filter:blur(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes pulse {
+
+
+    from {
+
+
+        transform:scale(.8);
+
+
+    }
+
+
+    to {
+
+
+        transform:scale(1.2);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes heartbeat {
+
+
+
+    0%,100% {
+
+
+        transform:rotate(-45deg) scale(1);
+
+
+    }
+
+
+    50% {
+
+
+        transform:rotate(-45deg) scale(1.15);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes cardIn {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateY(40px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes fadeIn {
+
+
+    from {
+
+
+        opacity:0;
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@keyframes achievementIn {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:translateX(100px);
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:translateX(0);
+
+
+    }
+
+
+}
+
 
 
 
@@ -1843,47 +2476,67 @@ color:#aaa;
 /* ========================= */
 
 
+
 @media(max-width:900px){
 
 
-.gta-loading .gta-font{
+
+    .players,
 
 
-font-size:65px;
+    .chapter-cards {
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+
+
+    .save-card {
+
+
+        width:90%;
+
+
+    }
+
+
+
+
+
+
+    .loading-bar {
+
+
+        width:80%;
+
+
+    }
+
+
+
+
+
+
+    .gta-loading h1,
+
+
+    .mission-passed,
+
+
+    .chapter-title {
+
+
+        font-size:55px;
+
+
+    }
+
 
 
 }
-
-
-
-.chapter-cards{
-
-
-flex-direction:column;
-
-
-}
-
-
-
-.chapter-container > h1,
-
-
-.future-container h1{
-
-
-font-size:60px;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
