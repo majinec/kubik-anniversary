@@ -1,6 +1,144 @@
 body {
+
+    margin: 0;
+    height: 100vh;
+
     background: #000;
+
     color: white;
+
     font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.boot-screen {
+
     text-align: center;
+
+}
+
+
+.logo {
+
+    font-size: 70px;
+
+    animation: pulse 2s infinite;
+
+}
+
+
+h1 {
+
+    letter-spacing: 5px;
+
+    font-size: 24px;
+
+}
+
+
+.loading-bar {
+
+    width: 350px;
+
+    height: 12px;
+
+    border: 1px solid #555;
+
+    margin: 30px auto;
+
+}
+
+
+.progress {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #00c2ff;
+
+    animation: load 4s forwards;
+
+}
+
+
+.players {
+
+    margin-top: 40px;
+
+}
+
+
+.player {
+
+    opacity: 0;
+
+    animation: appear 1s forwards;
+
+}
+
+
+.player:nth-child(1){
+
+    animation-delay: 4s;
+
+}
+
+
+.player:nth-child(2){
+
+    animation-delay: 5s;
+
+}
+
+
+.coop {
+
+    opacity: 0;
+
+    animation: appear 1s forwards;
+
+    animation-delay: 6s;
+
+}
+
+
+
+@keyframes load {
+
+    to {
+
+        width:100%;
+
+    }
+
+}
+
+
+
+@keyframes appear {
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@keyframes pulse {
+
+    50% {
+
+        transform: scale(1.1);
+
+    }
+
 }
