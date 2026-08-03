@@ -254,12 +254,18 @@ gtaVideo.currentTime = 0;
 
 
 
+gtaVideo.muted = false;
+gtaVideo.volume = 1;
+
 gtaVideo.play()
+.then(()=>{
+
+console.log("GTA VIDEO + SOUND PLAYING 🎵");
+
+})
 .catch(error=>{
 
-
-console.log(error);
-
+console.log("VIDEO SOUND BLOCKED:", error);
 
 });
 
