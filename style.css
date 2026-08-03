@@ -1,9 +1,6 @@
 * {
-
-    box-sizing:border-box;
-
+    box-sizing: border-box;
 }
-
 
 
 body {
@@ -25,27 +22,30 @@ body {
 }
 
 
-
-/* CUSTOM CURSOR */
+/* CUSTOM GAME CURSOR */
 
 .custom-cursor {
 
     position:fixed;
 
-    width:18px;
+    width:22px;
 
-    height:18px;
+    height:22px;
 
     border-radius:50%;
 
 
-    background:#b36cff;
+    border:2px solid #00c8ff;
+
+
+    background:rgba(0,200,255,0.15);
 
 
     box-shadow:
 
-    0 0 20px #b36cff,
-    0 0 60px #8b35ff;
+    0 0 15px #00c8ff,
+
+    0 0 40px #00c8ff;
 
 
     pointer-events:none;
@@ -55,6 +55,35 @@ body {
 
 
     z-index:9999;
+
+}
+
+
+.custom-cursor::after {
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:6px;
+
+    height:6px;
+
+
+    background:white;
+
+
+    border-radius:50%;
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:translate(-50%, -50%);
 
 }
 
@@ -88,6 +117,7 @@ body {
 
     flex-direction:column;
 
+
     justify-content:center;
 
     align-items:center;
@@ -116,10 +146,12 @@ body {
 
 /* START SCREEN */
 
+
 #startScene {
 
 
     background:
+
 
     radial-gradient(
 
@@ -149,6 +181,7 @@ body {
 
     width:700px;
 
+
     height:700px;
 
 
@@ -163,7 +196,6 @@ body {
 
     animation:pulse 5s infinite alternate;
 
-
 }
 
 
@@ -173,27 +205,36 @@ body {
 
 .logo {
 
+
     display:flex;
+
 
     align-items:center;
 
+
     gap:55px;
+
 
     font-size:120px;
 
+
     font-weight:700;
+
 
     letter-spacing:10px;
 
+
     z-index:2;
 
+
     animation:intro 2s ease;
+
 
 }
 
 
 
-/* HEART */
+/* BLUE NEON HEART */
 
 
 .heart {
@@ -204,7 +245,7 @@ body {
     height:65px;
 
 
-    background:#ff4fd8;
+    background:#00c8ff;
 
 
     position:relative;
@@ -216,13 +257,12 @@ body {
     box-shadow:
 
 
-    0 0 20px #ff4fd8,
+    0 0 20px #00c8ff,
 
-    0 0 70px #ff4fd8;
+    0 0 70px #008cff;
 
 
     animation:heartbeat 1.7s infinite;
-
 
 }
 
@@ -241,10 +281,11 @@ body {
 
     width:65px;
 
+
     height:65px;
 
 
-    background:#ff4fd8;
+    background:#00c8ff;
 
 
     border-radius:50%;
@@ -256,9 +297,11 @@ body {
 
 .heart::before {
 
+
     top:-32px;
 
     left:0;
+
 
 }
 
@@ -266,12 +309,13 @@ body {
 
 .heart::after {
 
+
     top:0;
 
     left:32px;
 
-}
 
+}
 
 
 
@@ -393,8 +437,6 @@ h1 {
 
 
 
-
-
 /* ANIMATIONS */
 
 
@@ -421,6 +463,7 @@ to {
     filter:blur(0);
 
 }
+
 
 }
 
@@ -452,14 +495,19 @@ to {
 
 0%,100% {
 
+
     transform:rotate(-45deg) scale(1);
+
 
 }
 
 
+
 50% {
 
+
     transform:rotate(-45deg) scale(1.15);
+
 
 }
 
