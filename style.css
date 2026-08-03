@@ -173,30 +173,21 @@ body {
 
 .logo {
 
-
     display:flex;
-
 
     align-items:center;
 
-
-    gap:30px;
-
+    gap:55px;
 
     font-size:120px;
 
-
     font-weight:700;
 
-
-    letter-spacing:20px;
-
+    letter-spacing:10px;
 
     z-index:2;
 
-
     animation:intro 2s ease;
-
 
 }
 
