@@ -1048,35 +1048,34 @@ button {
 }
 
 
-
-
-
-
-
 .loading-progress {
-
 
     height:100%;
 
-
     width:0;
-
 
     background:#00c8ff;
 
-
     box-shadow:
 
+    0 0 10px #00c8ff;
 
-    0 0 20px #00c8ff;
-
-
-    animation:
-
-    bootLoading 15s linear forwards;
-
+    animation:none;
 
 }
+
+
+#bootScene.active .loading-progress {
+
+    animation:bootLoading 15s linear forwards;
+
+}
+
+
+
+
+
+
 
 
 
