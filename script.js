@@ -95,3 +95,57 @@ continueButton.addEventListener("click", ()=>{
 
 
 });
+
+// PS5 BOOT SYSTEM
+
+
+const bootScene = document.getElementById("bootScene");
+
+
+const bootBackButton = document.getElementById("bootBackButton");
+
+
+
+
+
+continueButton.addEventListener("click", ()=>{
+
+
+    console.log("Starting PS5 Boot...");
+
+
+    saveScene.classList.remove("active");
+
+
+    setTimeout(()=>{
+
+
+        bootScene.classList.add("active");
+
+
+    },800);
+
+
+
+});
+
+
+
+
+
+bootBackButton.addEventListener("click", ()=>{
+
+
+    bootScene.classList.remove("active");
+
+
+    setTimeout(()=>{
+
+
+        saveScene.classList.add("active");
+
+
+    },500);
+
+
+});
