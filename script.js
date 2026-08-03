@@ -1,10 +1,9 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
-// CUSTOM CURSOR
+// CURSOR
 
 const cursor = document.querySelector(".custom-cursor");
-
 
 document.addEventListener("mousemove", (e)=>{
 
@@ -16,17 +15,12 @@ document.addEventListener("mousemove", (e)=>{
 
 
 
-
 // BUTTONS
 
 const startButton = document.getElementById("startButton");
-
 const continueButton = document.getElementById("continueButton");
-
 const backButton = document.getElementById("backButton");
-
 const bootBackButton = document.getElementById("bootBackButton");
-
 
 
 
@@ -34,13 +28,9 @@ const bootBackButton = document.getElementById("bootBackButton");
 // SCENES
 
 const startScene = document.getElementById("startScene");
-
 const saveScene = document.getElementById("saveScene");
-
 const bootScene = document.getElementById("bootScene");
-
 const gtaScene = document.getElementById("gtaScene");
-
 
 
 
@@ -59,9 +49,6 @@ const gtaVideo = document.getElementById("gtaVideo");
 startButton.addEventListener("click", ()=>{
 
 
-    console.log("Opening save slot...");
-
-
     startScene.classList.remove("active");
 
 
@@ -75,6 +62,7 @@ startButton.addEventListener("click", ()=>{
 
 
 });
+
 
 
 
@@ -112,7 +100,7 @@ backButton.addEventListener("click", ()=>{
 continueButton.addEventListener("click", ()=>{
 
 
-    console.log("Starting PS5 system...");
+    console.log("PS5 START");
 
 
     saveScene.classList.remove("active");
@@ -130,7 +118,6 @@ continueButton.addEventListener("click", ()=>{
     },800);
 
 
-
 });
 
 
@@ -140,37 +127,25 @@ continueButton.addEventListener("click", ()=>{
 
 
 
-// PS5 LOADING SEQUENCE
-
+// PS5 BOOT
 
 function startBootSequence(){
 
 
-    console.log("PS5 Boot Started");
+    console.log("Boot loading...");
 
 
 
     setTimeout(()=>{
 
 
-        console.log("Memory checked");
+        console.log("Boot finished");
 
 
-
-    },12000);
-
+        launchGTA();
 
 
-
-    setTimeout(()=>{
-
-
-        console.log("Boot completed");
-
-        startGTA();
-
-
-    },15000);
+    },15500);
 
 
 
@@ -182,14 +157,13 @@ function startBootSequence(){
 
 
 
-// START GTA AFTER BOOT
+
+// GTA START
+
+function launchGTA(){
 
 
-function startGTA(){
-
-
-
-    console.log("Launching GTA V...");
+    console.log("Launching GTA");
 
 
 
@@ -203,14 +177,27 @@ function startGTA(){
         gtaScene.classList.add("active");
 
 
+
+        gtaVideo.muted = true;
+
         gtaVideo.currentTime = 0;
 
 
-        gtaVideo.play();
+        gtaVideo.play()
+        .then(()=>{
+
+            console.log("GTA VIDEO PLAYING");
+
+        })
+        .catch(error=>{
+
+            console.log("VIDEO ERROR", error);
+
+        });
 
 
 
-    },1200);
+    },1000);
 
 
 
@@ -223,8 +210,7 @@ function startGTA(){
 
 
 
-// GO BACK FROM PS5
-
+// BACK FROM PS5
 
 bootBackButton.addEventListener("click", ()=>{
 
@@ -232,13 +218,7 @@ bootBackButton.addEventListener("click", ()=>{
     bootScene.classList.remove("active");
 
 
-    setTimeout(()=>{
-
-
-        saveScene.classList.add("active");
-
-
-    },500);
+    saveScene.classList.add("active");
 
 
 });
