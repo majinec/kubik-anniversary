@@ -740,3 +740,459 @@ transform:translateY(0);
 }
 
 }
+/* ========================= */
+/* PS5 BOOT SCREEN */
+/* ========================= */
+
+
+#bootScene {
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        #161033,
+
+        #050505 70%
+
+    );
+
+}
+
+
+
+.ps-system {
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+}
+
+
+
+
+
+.system-version {
+
+
+    position:absolute;
+
+    top:35px;
+
+    right:40px;
+
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#777;
+
+
+}
+
+
+
+
+
+.ps-logo {
+
+
+    font-size:80px;
+
+    font-weight:700;
+
+
+    letter-spacing:15px;
+
+
+    margin-bottom:40px;
+
+
+    animation:intro 1.5s ease;
+
+
+}
+
+
+
+.ps-logo span {
+
+
+    filter:
+
+    drop-shadow(0 0 15px #00c8ff);
+
+
+}
+
+
+
+
+
+.boot-text {
+
+
+    text-align:center;
+
+
+}
+
+
+
+.boot-text p {
+
+
+    color:#888;
+
+
+    letter-spacing:8px;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+.boot-text h2 {
+
+
+    font-size:35px;
+
+
+    letter-spacing:8px;
+
+
+    margin:20px 0;
+
+
+}
+
+
+
+
+
+.boot-text span {
+
+
+    color:#aaa;
+
+
+    letter-spacing:5px;
+
+
+}
+
+
+
+
+
+.loading-bar {
+
+
+    margin-top:45px;
+
+
+    width:450px;
+
+
+    height:5px;
+
+
+    background:rgba(255,255,255,.15);
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.loading-progress {
+
+
+    height:100%;
+
+
+    width:0;
+
+
+    background:#00c8ff;
+
+
+    box-shadow:
+
+    0 0 20px #00c8ff;
+
+
+    animation:loading 8s linear forwards;
+
+
+}
+
+
+
+
+
+.players {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:50px;
+
+
+    margin-top:50px;
+
+
+}
+
+
+
+
+
+.boot-card {
+
+
+    width:230px;
+
+
+    padding:30px;
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+    border:
+
+    1px solid rgba(0,200,255,.4);
+
+
+    border-radius:20px;
+
+
+    text-align:center;
+
+
+    opacity:0;
+
+
+    animation:playerIn 1s forwards;
+
+
+}
+
+
+
+.boot-card:nth-child(1) {
+
+
+    animation-delay:2s;
+
+
+}
+
+
+
+.boot-card:nth-child(3) {
+
+
+    animation-delay:3s;
+
+
+}
+
+
+
+
+.player-number {
+
+
+    color:#00c8ff;
+
+
+    letter-spacing:4px;
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+
+.boot-card h3 {
+
+
+    font-size:28px;
+
+
+    margin:15px 0;
+
+
+}
+
+
+
+
+
+.boot-card p {
+
+
+    color:#aaa;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+
+.coop {
+
+
+    font-size:25px;
+
+
+    color:#00c8ff;
+
+
+    text-align:center;
+
+
+    animation:pulse 2s infinite;
+
+
+}
+
+
+
+
+
+.connection {
+
+
+    margin-top:35px;
+
+
+    text-align:center;
+
+
+    letter-spacing:5px;
+
+
+    font-size:15px;
+
+
+    opacity:0;
+
+
+    animation:fadeIn 1s forwards;
+
+    animation-delay:5s;
+
+
+}
+
+
+
+.connection span {
+
+
+    color:#00c8ff;
+
+
+}
+
+
+
+
+
+@keyframes loading {
+
+
+from {
+
+    width:0;
+
+}
+
+
+to {
+
+    width:100%;
+
+}
+
+
+}
+
+
+
+
+
+@keyframes playerIn {
+
+
+from {
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+
+to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+@keyframes fadeIn {
+
+
+to {
+
+    opacity:1;
+
+}
+
+
+}
