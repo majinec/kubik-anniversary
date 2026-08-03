@@ -1,46 +1,34 @@
-console.log("CO-OP STORY LOADED ❤️");
+console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
-const button = document.getElementById("startButton");
+
+// CUSTOM CURSOR
+
+const cursor = document.querySelector(".custom-cursor");
 
 
-button.addEventListener("click", () => {
+document.addEventListener("mousemove", (e)=>{
 
 
-    button.style.display="none";
+    cursor.style.left = e.clientX + "px";
+
+    cursor.style.top = e.clientY + "px";
+
+
+});
+
+
+
+
+// START BUTTON
+
+const startButton = document.getElementById("startButton");
+
+
+startButton.addEventListener("click", ()=>{
 
 
     console.log("GAME STARTED");
 
 
-
-    setTimeout(() => {
-
-
-        const gta = document.getElementById("gtaScreen");
-        const video = document.getElementById("gtaVideo");
-
-
-        gta.style.display="block";
-
-
-        setTimeout(()=>{
-
-
-            gta.classList.add("gta-active");
-
-
-            video.play();
-
-
-        },4000);
-
-
-
-    },15000);
-
-
-
 });
-
-}, 15000);
