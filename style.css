@@ -1142,38 +1142,42 @@ button {
 
 .boot-card {
 
-
     width:230px;
-
 
     padding:30px;
 
-
     background:
-
-
     rgba(255,255,255,.05);
 
-
     border:
-
-
     1px solid rgba(0,200,255,.4);
-
 
     border-radius:20px;
 
-
     text-align:center;
 
-
-    animation:
-
-    playerAppear 1s ease forwards;
-
+    opacity:0;
 
 }
 
+
+#bootScene.active .boot-card:nth-child(1){
+
+    animation:playerAppear 1s ease forwards;
+
+    animation-delay:2s;
+
+}
+
+
+
+#bootScene.active .boot-card:nth-child(3){
+
+    animation:playerAppear 1s ease forwards;
+
+    animation-delay:3s;
+
+}
 
 
 
@@ -1401,30 +1405,19 @@ button {
 
 .gta-loading h1 {
 
-
     font-family:"Pricedown";
-
 
     font-size:95px;
 
-
     letter-spacing:5px;
-
 
     margin:0;
 
-
     color:white;
-
-
-    text-transform:uppercase;
-
 
     text-shadow:
 
-
-    0 0 8px rgba(255,255,255,.2);
-
+    0 0 2px rgba(255,255,255,.15);
 
 }
 
