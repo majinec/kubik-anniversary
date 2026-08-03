@@ -1196,3 +1196,73 @@ to {
 
 
 }
+
+/* PS5 BOOT FINAL POLISH */
+
+
+/* pomalejší loading bar */
+
+.loading-progress {
+
+    animation-duration: 15s !important;
+
+}
+
+
+
+
+
+/* CO-OP mezi kartami - bez pulzování */
+
+.coop {
+
+    animation: coopAppear 1.5s ease forwards !important;
+
+}
+
+
+
+@keyframes coopAppear {
+
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+
+}
+
+
+
+
+
+/* větší rozestup dole */
+
+.connection {
+
+    margin-top:80px !important;
+
+}
+
+
+
+
+
+.players {
+
+    margin-bottom:40px;
+
+}
