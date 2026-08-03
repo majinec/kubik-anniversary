@@ -1,10 +1,9 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
-// CUSTOM CURSOR
+// CURSOR
 
 const cursor = document.querySelector(".custom-cursor");
-
 
 document.addEventListener("mousemove", (e)=>{
 
@@ -16,51 +15,31 @@ document.addEventListener("mousemove", (e)=>{
 
 
 
-
 // BUTTONS
 
-const startButton = 
-document.getElementById("startButton");
-
-
-const continueButton = 
-document.getElementById("continueButton");
-
-
-const backButton = 
-document.getElementById("backButton");
-
-
-const bootBackButton = 
-document.getElementById("bootBackButton");
-
+const startButton = document.getElementById("startButton");
+const continueButton = document.getElementById("continueButton");
+const backButton = document.getElementById("backButton");
+const bootBackButton = document.getElementById("bootBackButton");
 
 
 
 
 // SCENES
 
-const startScene = 
-document.getElementById("startScene");
+const startScene = document.getElementById("startScene");
+const saveScene = document.getElementById("saveScene");
+const bootScene = document.getElementById("bootScene");
+const gtaScene = document.getElementById("gtaScene");
 
-
-const saveScene = 
-document.getElementById("saveScene");
-
-
-const bootScene = 
-document.getElementById("bootScene");
+const gtaVideo = document.getElementById("gtaVideo");
 
 
 
 
-
-// START MENU → SAVE SLOT
+// START → SAVE
 
 startButton.addEventListener("click", ()=>{
-
-
-    console.log("Loading save data...");
 
 
     startScene.classList.remove("active");
@@ -68,9 +47,7 @@ startButton.addEventListener("click", ()=>{
 
     setTimeout(()=>{
 
-
         saveScene.classList.add("active");
-
 
     },800);
 
@@ -81,7 +58,7 @@ startButton.addEventListener("click", ()=>{
 
 
 
-// SAVE SLOT → START
+// SAVE → START
 
 backButton.addEventListener("click", ()=>{
 
@@ -91,9 +68,7 @@ backButton.addEventListener("click", ()=>{
 
     setTimeout(()=>{
 
-
         startScene.classList.add("active");
-
 
     },500);
 
@@ -104,12 +79,9 @@ backButton.addEventListener("click", ()=>{
 
 
 
-// SAVE SLOT → PS5 BOOT
+// SAVE → PS5
 
 continueButton.addEventListener("click", ()=>{
-
-
-    console.log("Starting PS5 Boot...");
 
 
     saveScene.classList.remove("active");
@@ -121,11 +93,7 @@ continueButton.addEventListener("click", ()=>{
         bootScene.classList.add("active");
 
 
-        console.log("PS5 BOOT ACTIVE");
-
-
     },800);
-
 
 
 });
@@ -134,7 +102,42 @@ continueButton.addEventListener("click", ()=>{
 
 
 
-// PS5 BOOT → SAVE SLOT
+
+// PS5 → GTA
+
+setTimeout(()=>{
+
+
+    if(bootScene.classList.contains("active")){
+
+
+        bootScene.classList.remove("active");
+
+
+        setTimeout(()=>{
+
+
+            gtaScene.classList.add("active");
+
+
+            gtaVideo.play();
+
+
+        },1000);
+
+
+    }
+
+
+},18000);
+
+
+
+
+
+
+
+// PS5 BACK
 
 bootBackButton.addEventListener("click", ()=>{
 
@@ -144,9 +147,7 @@ bootBackButton.addEventListener("click", ()=>{
 
     setTimeout(()=>{
 
-
         saveScene.classList.add("active");
-
 
     },500);
 
