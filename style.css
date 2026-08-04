@@ -1868,31 +1868,43 @@ button {
 
 
 
-#gtaLoadingScene .gta-loading,
-#gtaLoadingScene .gta-loading *,
-#gtaLoadingScene button {
-
-    font-family:"Pricedown", sans-serif;
-
-}
-
-
-
 .gta-loading {
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     height:100%;
+
     width:100%;
+
     text-align:center;
 
 }
 
 
 
-.gta-loading h1 {
+/* GTA FONT ONLY */
+
+#gtaLoadingScene .gta-font {
+
+    font-family:"Pricedown", sans-serif !important;
+
+}
+
+
+
+
+
+
+/* GTA LOGO */
+
+
+.gta-loading .gta-logo {
 
 
     font-size:92px;
@@ -1915,6 +1927,11 @@ button {
 
 
 
+
+
+/* LOADING TEXT */
+
+
 .gta-loading-title {
 
 
@@ -1931,7 +1948,29 @@ button {
 
 
 
-.gta-loading h2 {
+
+#loadingDots::after {
+
+
+    content:"";
+
+    animation:
+
+    loadingDots 1.5s infinite;
+
+
+}
+
+
+
+
+
+
+
+/* LAMAR */
+
+
+.lamar-name {
 
 
     margin-top:60px;
@@ -1945,6 +1984,11 @@ button {
 
 
 
+
+
+
+
+/* QUOTE */
 
 
 .gta-loading .quote {
@@ -1964,24 +2008,38 @@ button {
 
 
 
+
+
+
+/* BUTTON */
+
+
 #gtaLoadingScene #missionStartButton {
 
 
     margin-top:70px;
 
+
     padding:22px 90px;
+
 
     font-size:22px;
 
+
     letter-spacing:8px;
+
 
     background:transparent;
 
+
     color:white;
+
 
     border:2px solid white;
 
-    cursor:pointer;
+
+    cursor:none;
+
 
     transition:.4s;
 
@@ -1990,16 +2048,59 @@ button {
 
 
 
+
+
 #gtaLoadingScene #missionStartButton:hover {
 
 
     background:white;
+
 
     color:black;
 
 
 }
 
+
+
+
+
+
+
+/* LOADING DOTS ANIMATION */
+
+
+@keyframes loadingDots {
+
+
+    0% {
+
+        content:"";
+
+    }
+
+
+    33% {
+
+        content:".";
+
+    }
+
+
+    66% {
+
+        content:"..";
+
+    }
+
+
+    100% {
+
+        content:"...";
+
+    }
+
+}
 
 @keyframes loadingDots {
 
