@@ -431,36 +431,17 @@ if(chapter1StartButton){
         console.log("Starting Chapter I video");
 
 
+        openScene(chapter1VideoScene);
+
+
+
         if(chapter1Video){
 
 
             chapter1Video.currentTime = 0;
 
 
-            chapter1Video.play()
-            
-            .then(()=>{
-
-
-                console.log("Chapter I video playing");
-
-
-                openScene(chapter1VideoScene);
-
-
-            })
-
-
-            .catch(error=>{
-
-
-                console.log(
-                    "Chapter video error:",
-                    error
-                );
-
-
-            });
+            chapter1Video.play();
 
 
         }
@@ -469,7 +450,6 @@ if(chapter1StartButton){
     };
 
 }
-
 
 
 
