@@ -1,23 +1,19 @@
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
 
 
-
 /* ========================= */
 /* ELEMENTS */
 /* ========================= */
 
-
 const startButton = document.getElementById("startButton");
 const continueButton = document.getElementById("continueButton");
 const missionStartButton = document.getElementById("missionStartButton");
-
 
 const saveScene = document.getElementById("saveScene");
 const bootScene = document.getElementById("bootScene");
 const gtaLoadingScene = document.getElementById("gtaLoadingScene");
 const gtaVideoScene = document.getElementById("gtaVideoScene");
 const chapterSelectScene = document.getElementById("chapterSelectScene");
-
 
 const gtaVideo = document.getElementById("gtaVideo");
 const bootProgress = document.getElementById("bootProgress");
@@ -31,26 +27,16 @@ const bootProgress = document.getElementById("bootProgress");
 
 function openScene(scene){
 
+    if(!scene) return;
 
-    console.log("Opening scene:", scene?.id);
-
-
-
-    document.querySelectorAll(".scene")
-    .forEach(s=>{
-
+    document.querySelectorAll(".scene").forEach(s=>{
         s.classList.remove("active");
-
     });
 
 
+    scene.classList.add("active");
 
-    if(scene){
-
-        scene.classList.add("active");
-
-    }
-
+    console.log("Opened:", scene.id);
 
 }
 
@@ -58,27 +44,20 @@ function openScene(scene){
 
 
 
-
-
 /* ========================= */
-/* START SCREEN */
+/* START */
 /* ========================= */
 
 
 if(startButton){
 
+startButton.addEventListener("click",()=>{
 
-startButton.onclick=()=>{
-
-
-    console.log("Opening save file...");
-
+    console.log("Opening save file");
 
     openScene(saveScene);
 
-
-};
-
+});
 
 }
 
@@ -89,30 +68,23 @@ startButton.onclick=()=>{
 
 
 /* ========================= */
-/* SAVE CONTINUE */
+/* CONTINUE */
 /* ========================= */
 
 
 if(continueButton){
 
+continueButton.addEventListener("click",()=>{
 
-continueButton.onclick=()=>{
-
-
-    console.log("Starting PS5 Boot...");
-
+    console.log("Starting PS5 boot");
 
     openScene(bootScene);
 
-
     startBoot();
 
-
-};
-
+});
 
 }
-
 
 
 
@@ -126,49 +98,38 @@ continueButton.onclick=()=>{
 
 function startBoot(){
 
-
 console.log("PS5 BOOT ACTIVE");
-
 
 
 if(bootProgress){
 
-
-    bootProgress.style.width="0%";
-
-
-    setTimeout(()=>{
+bootProgress.style.width="0%";
 
 
-        bootProgress.style.width="100%";
+setTimeout(()=>{
 
+bootProgress.style.width="100%";
 
-    },100);
+},100);
 
 
 }
 
 
 
-
-
 const cards=document.querySelectorAll(".boot-card");
-
 
 
 cards.forEach((card,index)=>{
 
-
-    card.style.opacity="0";
-
-
-    setTimeout(()=>{
+card.style.opacity="0";
 
 
-        card.style.opacity="1";
+setTimeout(()=>{
 
+card.style.opacity="1";
 
-    },2000+(index*1000));
+},2000+(index*1000));
 
 
 });
@@ -176,40 +137,9 @@ cards.forEach((card,index)=>{
 
 
 
-
-
-const connection=document.querySelector(".connection");
-
-
-
-if(connection){
-
-
-    connection.style.opacity="0";
-
-
-    setTimeout(()=>{
-
-
-        connection.style.opacity="1";
-
-
-    },5000);
-
-
-}
-
-
-
-
-
-
-
 setTimeout(()=>{
 
-
-    openGtaLoading();
-
+openGtaLoading();
 
 },15000);
 
@@ -230,12 +160,9 @@ setTimeout(()=>{
 
 function openGtaLoading(){
 
-
-console.log("GTA Loading Screen");
-
+console.log("GTA Loading");
 
 openScene(gtaLoadingScene);
-
 
 }
 
@@ -253,65 +180,47 @@ openScene(gtaLoadingScene);
 
 if(missionStartButton){
 
+missionStartButton.onclick=async()=>{
 
 
-missionStartButton.onclick = async ()=>{
-
-
-console.log("Starting GTA Video");
+console.log("Starting GTA video");
 
 
 openScene(gtaVideoScene);
 
 
 
-
 if(gtaVideo){
 
 
-    gtaVideo.pause();
+gtaVideo.currentTime=0;
+
+gtaVideo.muted=false;
 
 
-    gtaVideo.currentTime=0;
+try{
 
+await gtaVideo.play();
 
-    gtaVideo.muted=false;
+console.log("Video playing");
 
+}
 
-    gtaVideo.volume=1;
+catch(e){
 
+console.log(e);
 
-
-
-    try{
-
-
-        await gtaVideo.play();
-
-
-        console.log("GTA VIDEO PLAYING 🎵");
-
-
-    }
-
-
-    catch(error){
-
-
-        console.log("VIDEO ERROR:",error);
-
-
-    }
+}
 
 
 
 }
+
 
 
 };
 
 
-
 }
 
 
@@ -322,26 +231,21 @@ if(gtaVideo){
 
 
 /* ========================= */
-/* VIDEO FINISHED */
+/* AFTER VIDEO */
 /* ========================= */
 
 
 if(gtaVideo){
 
-
-
 gtaVideo.onended=()=>{
 
 
-console.log("GTA video finished");
-
+console.log("Video finished");
 
 
 setTimeout(()=>{
 
-
-    openChapterSelect();
-
+openChapterSelect();
 
 },1000);
 
@@ -350,7 +254,6 @@ setTimeout(()=>{
 };
 
 
-
 }
 
 
@@ -360,14 +263,12 @@ setTimeout(()=>{
 
 
 
-
 /* ========================= */
-/* STORY PROGRESSION */
+/* CHAPTER SYSTEM */
 /* ========================= */
 
 
 const chapters=[
-
 
 "chapter1",
 "chapter2",
@@ -376,15 +277,11 @@ const chapters=[
 "chapter4",
 "chapter5"
 
-
 ];
 
 
-
-
-let unlockedChapter = 
+let unlockedChapter =
 localStorage.getItem("chapterProgress") || "chapter1";
-
 
 
 
@@ -394,18 +291,11 @@ localStorage.getItem("chapterProgress") || "chapter1";
 
 function openChapterSelect(){
 
-
-console.log("Opening Journal");
-
-
 openScene(chapterSelectScene);
-
 
 updateChapters();
 
-
 }
-
 
 
 
@@ -416,85 +306,59 @@ updateChapters();
 function updateChapters(){
 
 
-
 const cards=document.querySelectorAll(".chapter-card");
 
 
-
-let currentIndex =
+let currentIndex=
 chapters.indexOf(unlockedChapter);
-
-
 
 
 
 cards.forEach(card=>{
 
 
-const chapter =
-card.dataset.chapter;
+let id=card.dataset.chapter;
+
+let index=chapters.indexOf(id);
+
+
+let lock=card.querySelector(".lock");
+
+let status=card.querySelector(".status");
 
 
 
-const index =
-chapters.indexOf(chapter);
+if(index<=currentIndex){
+
+
+card.classList.add("unlocked");
+
+card.classList.remove("locked");
+
+
+if(lock)
+lock.innerHTML="✓";
+
+
+if(status)
+status.innerHTML="AVAILABLE";
 
 
 
+}else{
 
 
-const lock =
-card.querySelector(".lock");
+card.classList.add("locked");
 
-const status =
-card.querySelector(".status");
+card.classList.remove("unlocked");
 
 
+if(lock)
+lock.innerHTML="🔒";
 
 
-
-if(index <= currentIndex){
-
-
-
-    card.classList.remove("locked");
-
-
-    card.classList.add("unlocked");
-
-
-
-    if(lock)
-    lock.innerHTML="✓";
-
-
-
-    if(status)
-    status.innerHTML="AVAILABLE";
-
-
-
-}
-
-else{
-
-
-
-    card.classList.remove("unlocked");
-
-
-    card.classList.add("locked");
-
-
-
-    if(lock)
-    lock.innerHTML="🔒";
-
-
-
-    if(status)
-    status.innerHTML="LOCKED";
-
+if(status)
+status.innerHTML="LOCKED";
 
 
 }
@@ -505,21 +369,13 @@ else{
 
 
 
-
-
-
-
-const progress =
-document.getElementById("storyProgress");
-
+let progress=document.getElementById("storyProgress");
 
 
 if(progress){
 
-
-progress.innerHTML =
+progress.innerHTML=
 (currentIndex+1)+" / 06";
-
 
 }
 
@@ -543,112 +399,29 @@ document.querySelectorAll(".chapter-card")
 .forEach(card=>{
 
 
-
-card.onclick=()=>{
+card.addEventListener("click",()=>{
 
 
 if(card.classList.contains("locked")){
 
-
-console.log("Chapter locked 🔒");
-
+console.log("Locked");
 
 return;
-
 
 }
 
 
-
-const selected =
-card.dataset.chapter;
-
-
-
 console.log(
-"Selected chapter:",
-selected
+"Selected:",
+card.dataset.chapter
 );
-
-
-
-/*
-
-SEM POZDĚJI NAPOJÍME:
-
-chapter1Scene
-chapter2Scene
-chapter3Scene
-gtaRadioScene
-chapter4Scene
-chapter5Scene
-
-*/
-
-
-
-};
-
 
 
 });
 
 
+});
 
-
-
-
-
-
-/* ========================= */
-/* COMPLETE CHAPTER */
-/* ========================= */
-
-
-function completeChapter(chapter){
-
-
-
-let index =
-chapters.indexOf(chapter);
-
-
-
-
-if(index < chapters.length-1){
-
-
-
-localStorage.setItem(
-
-"chapterProgress",
-
-chapters[index+1]
-
-);
-
-
-
-console.log(
-
-"Unlocked:",
-
-chapters[index+1]
-
-);
-
-
-
-}
-
-
-
-
-openChapterSelect();
-
-
-
-}
 
 
 
@@ -662,16 +435,12 @@ openChapterSelect();
 /* ========================= */
 
 
-const dots =
-document.getElementById("loadingDots");
-
+const dots=document.getElementById("loadingDots");
 
 let count=0;
 
 
-
 if(dots){
-
 
 setInterval(()=>{
 
@@ -679,23 +448,16 @@ setInterval(()=>{
 count++;
 
 
-if(count>3){
-
+if(count>3)
 count=0;
 
-}
 
-
-
-dots.textContent =
-".".repeat(count);
-
+dots.textContent=".".repeat(count);
 
 
 },500);
 
 
-
 }
 
 
@@ -704,34 +466,24 @@ dots.textContent =
 
 
 
-
-
 /* ========================= */
-/* CUSTOM CURSOR */
+/* CURSOR */
 /* ========================= */
 
 
-const cursor =
-document.querySelector(".custom-cursor");
-
+const cursor=document.querySelector(".custom-cursor");
 
 
 document.addEventListener("mousemove",(e)=>{
 
 
-if(!cursor)
-return;
+if(cursor){
 
+cursor.style.left=e.clientX+"px";
 
+cursor.style.top=e.clientY+"px";
 
-cursor.style.left =
-e.clientX+"px";
-
-
-
-cursor.style.top =
-e.clientY+"px";
-
+}
 
 
 });
@@ -741,15 +493,10 @@ e.clientY+"px";
 
 
 
-
-
-window.onload=()=>{
-
+window.addEventListener("load",()=>{
 
 console.log("Game system loaded 🎮");
 
-
 updateChapters();
 
-
-};
+});
