@@ -3685,3 +3685,571 @@ grid-template-columns:1fr;
 
 
 }
+/* ================================= */
+/* CHAPTER I INTRO */
+/* ================================= */
+
+
+#chapter1IntroScene {
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.9)
+    ),
+
+    radial-gradient(
+        circle,
+        #3a2918,
+        #000
+    );
+
+}
+
+
+
+.rdr-intro {
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    animation:chapterFade 1.5s ease forwards;
+
+}
+
+
+
+
+
+.chapter-number {
+
+    font-family:"ChineseRocks", serif;
+
+    color:#d8bc87;
+
+    letter-spacing:10px;
+
+    font-size:22px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+
+.rdr-intro h1 {
+
+
+    font-family:"ChineseRocks", serif;
+
+    font-size:95px;
+
+    letter-spacing:12px;
+
+    color:#d8bc87;
+
+    margin:0 0 60px;
+
+
+    text-transform:uppercase;
+
+
+    text-shadow:
+
+    0 0 20px rgba(216,188,135,.3);
+
+
+}
+
+
+
+
+
+
+
+.quote-box {
+
+
+    max-width:750px;
+
+    padding:40px;
+
+
+    border-top:
+
+    1px solid rgba(216,188,135,.4);
+
+
+    border-bottom:
+
+    1px solid rgba(216,188,135,.4);
+
+
+}
+
+
+
+
+
+.quote-box p {
+
+
+    font-family:"ChineseRocks", serif;
+
+    color:white;
+
+    font-size:38px;
+
+    line-height:1.5;
+
+    letter-spacing:3px;
+
+    margin:0;
+
+
+}
+
+
+
+
+
+.quote-box span {
+
+
+    display:block;
+
+    margin-top:25px;
+
+
+    font-family:"ChineseRocks", serif;
+
+
+    color:#d8bc87;
+
+
+    font-size:22px;
+
+    letter-spacing:5px;
+
+
+}
+
+
+
+
+
+
+
+
+/* GO DOWN THE PATH BUTTON */
+
+
+#chapter1StartButton {
+
+
+    margin-top:70px;
+
+
+    padding:20px 70px;
+
+
+    background:transparent;
+
+
+    border:
+
+    2px solid #d8bc87;
+
+
+    color:#d8bc87;
+
+
+    font-family:"ChineseRocks", serif;
+
+
+    font-size:22px;
+
+
+    letter-spacing:7px;
+
+
+    cursor:none;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+
+#chapter1StartButton:hover {
+
+
+    background:#d8bc87;
+
+
+    color:black;
+
+
+    box-shadow:
+
+    0 0 35px rgba(216,188,135,.5);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================= */
+/* CHAPTER I VIDEO */
+/* ================================= */
+
+
+#chapter1VideoScene {
+
+
+    background:black;
+
+
+}
+
+
+
+
+
+#chapter1Video {
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+
+
+.chapter-video-overlay {
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    background:rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================= */
+/* ACHIEVEMENT SCREEN */
+/* ================================= */
+
+
+#achievementScene {
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #1c160d,
+
+        #000
+
+    );
+
+
+}
+
+
+
+
+
+
+.achievement-screen {
+
+
+    text-align:center;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    animation:
+
+    achievementIn 1s ease forwards;
+
+
+}
+
+
+
+
+
+
+.trophy {
+
+
+    font-size:100px;
+
+
+    margin-bottom:30px;
+
+
+    filter:
+
+    drop-shadow(
+
+        0 0 25px rgba(216,188,135,.7)
+
+    );
+
+
+}
+
+
+
+
+
+.achievement-screen h1 {
+
+
+    font-family:"Pricedown", sans-serif;
+
+
+    font-size:65px;
+
+
+    letter-spacing:8px;
+
+
+    margin:0;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+.achievement-screen h2 {
+
+
+    margin-top:35px;
+
+
+    font-family:"ChineseRocks", serif;
+
+
+    color:#d8bc87;
+
+
+    font-size:45px;
+
+
+    letter-spacing:8px;
+
+
+}
+
+
+
+
+
+
+.achievement-screen p {
+
+
+    color:#aaa;
+
+
+    font-size:22px;
+
+
+    letter-spacing:4px;
+
+
+    margin-top:20px;
+
+
+}
+
+
+
+
+
+
+#returnStoryButton {
+
+
+    margin-top:60px;
+
+
+    padding:18px 60px;
+
+
+    background:transparent;
+
+
+    border:
+
+    2px solid #00c8ff;
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    letter-spacing:6px;
+
+
+    cursor:none;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+
+#returnStoryButton:hover {
+
+
+    background:#00c8ff;
+
+
+    color:black;
+
+
+    box-shadow:
+
+    0 0 35px #00c8ff;
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+
+@media(max-width:900px){
+
+
+.rdr-intro h1 {
+
+
+    font-size:55px;
+
+
+}
+
+
+
+.quote-box p {
+
+
+    font-size:25px;
+
+
+}
+
+
+
+.achievement-screen h1 {
+
+
+    font-size:40px;
+
+
+}
+
+
+
+.achievement-screen h2 {
+
+
+    font-size:30px;
+
+
+}
+
+
+
+}
