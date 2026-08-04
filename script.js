@@ -387,94 +387,164 @@ window.onload=()=>{
 // =================================
 
 
-const chapter1Card = document.querySelector('[data-chapter="chapter1"]');
+const chapter1Card = document.querySelector(
+    '[data-chapter="chapter1"]'
+);
 
-const chapter1IntroScene = document.getElementById("chapter1IntroScene");
+const chapter1IntroScene = document.getElementById(
+    "chapter1IntroScene"
+);
 
-const chapter1VideoScene = document.getElementById("chapter1VideoScene");
+const chapter1VideoScene = document.getElementById(
+    "chapter1VideoScene"
+);
 
-const chapter1StartButton = document.getElementById("chapter1StartButton");
+const chapter1StartButton = document.getElementById(
+    "chapter1StartButton"
+);
 
-const chapter1Video = document.getElementById("chapter1Video");
+const chapter1Video = document.getElementById(
+    "chapter1Video"
+);
 
-const achievementScene = document.getElementById("achievementScene");
+const achievementScene = document.getElementById(
+    "achievementScene"
+);
 
-const returnStoryButton = document.getElementById("returnStoryButton");
+const returnStoryButton = document.getElementById(
+    "returnStoryButton"
+);
+
+
+
+// DEBUG
+
+console.log(
+    "Chapter button:",
+    chapter1StartButton
+);
+
+console.log(
+    "Chapter video:",
+    chapter1Video
+);
 
 
 
 
+// =================================
 // OPEN CHAPTER I
+// =================================
+
 
 if(chapter1Card){
 
+
     chapter1Card.onclick = ()=>{
 
-        console.log("Opening Chapter I");
 
-        openScene(chapter1IntroScene);
+        console.log(
+            "Opening Chapter I"
+        );
+
+
+        openScene(
+            chapter1IntroScene
+        );
+
 
     };
+
 
 }
 
 
 
 
-// START CHAPTER VIDEO
+
+// =================================
+// START CHAPTER I VIDEO
+// =================================
+
 
 if(chapter1StartButton){
+
 
     chapter1StartButton.onclick = async ()=>{
 
 
-        console.log("GO DOWN THE PATH CLICKED");
+        console.log(
+            "GO DOWN THE PATH CLICKED"
+        );
 
 
-        openScene(chapter1VideoScene);
+        openScene(
+            chapter1VideoScene
+        );
 
 
 
-        if(chapter1Video){
+        if(!chapter1Video){
 
 
-            chapter1Video.pause();
-
-            chapter1Video.currentTime = 0;
-
-
-            try {
+            console.log(
+                "VIDEO ELEMENT NOT FOUND ❌"
+            );
 
 
-                await chapter1Video.play();
-
-
-                console.log(
-                    "CHAPTER I VIDEO PLAYING ❤️"
-                );
-
-
-            } catch(error){
-
-
-                console.log(
-                    "VIDEO PLAY ERROR:",
-                    error
-                );
-
-
-            }
+            return;
 
 
         }
 
 
+
+        chapter1Video.pause();
+
+
+        chapter1Video.currentTime = 0;
+
+
+
+        try{
+
+
+            await chapter1Video.play();
+
+
+
+            console.log(
+                "CHAPTER I VIDEO PLAYING ❤️"
+            );
+
+
+
+        }catch(error){
+
+
+            console.log(
+                "CHAPTER VIDEO ERROR:",
+                error
+            );
+
+
+        }
+
+
+
     };
+
 
 }
 
 
-// VIDEO END
+
+
+
+// =================================
+// VIDEO FINISHED
+// =================================
+
 
 if(chapter1Video){
 
@@ -483,8 +553,9 @@ if(chapter1Video){
 
 
         console.log(
-            "Chapter I finished"
+            "Chapter I completed 🏆"
         );
+
 
 
         localStorage.setItem(
@@ -493,9 +564,38 @@ if(chapter1Video){
         );
 
 
+
         openScene(
             achievementScene
         );
+
+
+    };
+
+
+}
+
+
+
+
+
+// =================================
+// RETURN TO STORY
+// =================================
+
+
+if(returnStoryButton){
+
+
+    returnStoryButton.onclick = ()=>{
+
+
+        openScene(
+            chapterSelectScene
+        );
+
+
+        updateChapters();
 
 
     };
