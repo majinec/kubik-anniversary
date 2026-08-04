@@ -473,36 +473,21 @@ console.log("GO DOWN THE PATH clicked");
 openScene(chapter1VideoScene);
 
 
-
 if(chapter1Video){
-
-
-chapter1Video.pause();
-
 
 chapter1Video.currentTime = 0;
 
-
-
-chapter1Video.muted = false;
-
-
-chapter1Video.volume = 1;
-
-
+chapter1Video.muted = true;
 
 chapter1Video.play()
 .then(()=>{
 
-console.log("Chapter I video playing ❤️");
-
+console.log("VIDEO STARTED");
 
 })
-.catch(err=>{
+.catch(error=>{
 
-
-console.log("VIDEO PLAY ERROR:",err);
-
+console.log("VIDEO ERROR:", error);
 
 });
 
@@ -511,7 +496,6 @@ console.log("VIDEO PLAY ERROR:",err);
 
 
 };
-
 
 }
 
