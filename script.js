@@ -416,7 +416,7 @@ const returnStoryButton = document.getElementById(
 
 
 
-// OPEN CHAPTER I
+// OTEVŘENÍ CHAPTER I
 
 if(chapter1Card){
 
@@ -433,11 +433,9 @@ if(chapter1Card){
 
 
 
-
-// START VIDEO
+// SPUŠTĚNÍ VIDEA
 
 if(chapter1StartButton){
-
 
     chapter1StartButton.onclick = ()=>{
 
@@ -455,44 +453,31 @@ if(chapter1StartButton){
             chapter1Video.currentTime = 0;
 
 
-            // důležité pro zvuk
-            chapter1Video.muted = false;
-
-            chapter1Video.volume = 1;
-
-
-
             chapter1Video.play()
-
+            
             .then(()=>{
-
 
                 console.log(
                     "Chapter I video started ❤️"
                 );
 
-
             })
+
 
             .catch(error=>{
 
-
                 console.log(
-                    "VIDEO PLAY ERROR:",
+                    "Video error:",
                     error
                 );
 
-
             });
-
 
 
         }
 
 
-
     };
-
 
 }
 
@@ -500,10 +485,9 @@ if(chapter1StartButton){
 
 
 
-// VIDEO END
+// PO SKONČENÍ VIDEA
 
 if(chapter1Video){
-
 
     chapter1Video.onended = ()=>{
 
@@ -526,17 +510,15 @@ if(chapter1Video){
 
     };
 
-
 }
 
 
 
 
 
-// RETURN
+// ZPĚT NA MENU
 
 if(returnStoryButton){
-
 
     returnStoryButton.onclick = ()=>{
 
@@ -550,6 +532,5 @@ if(returnStoryButton){
 
 
     };
-
 
 }
