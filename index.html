@@ -22,12 +22,6 @@
 <div id="game">
 
 
-
-<!-- ========================= -->
-<!-- START SCREEN -->
-<!-- ========================= -->
-
-
 <section class="scene active" id="startScene">
 
 
@@ -47,19 +41,13 @@ ANNIVERSARY EDITION
 </h1>
 
 
-
 <button id="startButton">
-
 PRESS START
-
 </button>
 
 
-
 <div class="version">
-
 v1.0
-
 </div>
 
 
@@ -67,133 +55,67 @@ v1.0
 
 
 
-
-
-
-
-<!-- ========================= -->
-<!-- SAVE SCREEN -->
-<!-- ========================= -->
 
 
 <section class="scene" id="saveScene">
 
 
 <button class="back-button" id="backButton">
-
 ← GO BACK
-
 </button>
-
 
 
 <div class="save-card">
 
 
 <div class="save-header">
-
 SELECT SAVE FILE
-
 </div>
 
 
-
 <h2>
-
 SAVE SLOT 01
-
 </h2>
 
 
-
 <h3>
-
 💙 MÁJINKA & KUBÍK
-
 </h3>
-
 
 
 <div class="stats">
 
 
 <div class="stat">
-
-<span>
-PLAY TIME
-</span>
-
-
-<strong>
-365 DAYS
-</strong>
-
-
+<span>PLAY TIME</span>
+<strong>365 DAYS</strong>
 </div>
-
-
 
 
 <div class="stat">
-
-<span>
-RELATIONSHIP STATUS
-</span>
-
-
-<strong>
-TOGETHER ❤️
-</strong>
-
-
+<span>RELATIONSHIP STATUS</span>
+<strong>TOGETHER ❤️</strong>
 </div>
-
-
 
 
 <div class="stat">
-
-<span>
-DIFFICULTY
-</span>
-
-
-<strong>
-SOULMATE
-</strong>
-
-
+<span>DIFFICULTY</span>
+<strong>SOULMATE</strong>
 </div>
-
-
 
 
 <div class="stat">
-
-<span>
-COMPLETION
-</span>
-
-
-<strong>
-0%
-</strong>
-
-
+<span>COMPLETION</span>
+<strong>0%</strong>
 </div>
 
 
 </div>
-
-
 
 
 <button id="continueButton">
-
 CONTINUE
-
 </button>
-
 
 
 </div>
@@ -205,229 +127,122 @@ CONTINUE
 
 
 
-
-
-
-
-<!-- ========================= -->
-<!-- PS5 BOOT SCREEN -->
-<!-- ========================= -->
-
-
 <section class="scene" id="bootScene">
 
 
-
 <button class="back-button" id="bootBackButton">
-
 ← GO BACK
-
 </button>
-
-
 
 
 <div class="ps-system">
 
 
-
-
-
 <div class="system-version">
-
 MAJINKA-KUBIK OS
-
 <br>
-
 SYSTEM VERSION 01
-
 </div>
-
-
-
 
 
 <div class="ps-logo">
-
 M <span>💙</span> K
-
 </div>
-
-
-
 
 
 <div class="boot-text">
 
-
 <p>
-
 PLAYSTATION 5
-
 </p>
 
-
 <h2>
-
 SYSTEM STARTING...
-
 </h2>
 
-
-
 <span>
-
 CHECKING MEMORY...
-
 </span>
 
-
 </div>
-
-
-
-
 
 
 <div class="loading-bar">
 
-
 <div class="loading-progress" id="bootProgress"></div>
 
-
 </div>
-
-
-
-
-
 
 
 
 <div class="players">
 
 
-
 <div class="player-card boot-card">
 
-
 <div class="player-number">
-
 PLAYER 1
-
 </div>
-
-
 
 <h3>
-
 Májinka
-
 </h3>
 
-
-
 <p>
-
 MAIN CHARACTER
-
 </p>
 
-
-
 </div>
-
-
-
-
-
 
 
 <div class="coop">
-
 +
-
 <br>
-
 CO-OP
-
 </div>
-
-
-
-
-
 
 
 <div class="player-card boot-card">
 
-
 <div class="player-number">
-
 PLAYER 2
-
 </div>
-
-
 
 <h3>
-
 Kubík
-
 </h3>
 
-
-
 <p>
-
 PLAYER TWO
-
 </p>
 
-
-
 </div>
 
 
-
-
-
 </div>
-
-
-
-
 
 
 
 <div class="connection">
 
-
 CONNECTION ESTABLISHED
-
 
 <br>
 
-
 <span>
-
 CO-OP MODE ACTIVATED
-
 </span>
 
-
 </div>
-
-
 
 
 </div>
 
 
 </section>
-<!-- ========================= -->
-<!-- GTA V LAMAR LOADING -->
-<!-- ========================= -->
+
+
+
 
 
 <section class="scene" id="gtaLoadingScene">
@@ -436,18 +251,9 @@ CO-OP MODE ACTIVATED
 <div class="gta-loading">
 
 
-
-
-
 <h1 class="gta-font gta-logo">
-
 GRAND THEFT AUTO V
-
 </h1>
-
-
-
-
 
 
 <div class="gta-loading-title">
@@ -457,43 +263,21 @@ LOADING<span id="loadingDots"></span>
 </div>
 
 
-
-
-
-
 <h2 class="lamar-name">
-
 LAMAR DAVIS
-
 </h2>
-
-
-
-
 
 
 <div class="quote">
-
 "Ah, don't hate me 'cause I'm beautiful."
-
 </div>
-
-
-
-
 
 
 <button id="missionStartButton">
-
 MISSION START
-
 </button>
 
 
-
-
-
-
 </div>
 
 
@@ -503,23 +287,14 @@ MISSION START
 
 
 
-
-
-
-
-<!-- ========================= -->
-<!-- GTA VIDEO -->
-<!-- ========================= -->
-
-
 <section class="scene" id="gtaVideoScene">
-
 
 
 <video 
 id="gtaVideo"
 playsinline
-preload="auto">
+preload="auto"
+muted>
 
 
 <source src="gta-loading.mp4" type="video/mp4">
@@ -528,11 +303,7 @@ preload="auto">
 </video>
 
 
-
-
-
 <div class="video-overlay"></div>
-
 
 
 </section>
@@ -541,303 +312,66 @@ preload="auto">
 
 
 
-
-
-<!-- ========================= -->
-<!-- RDR2 CHAPTER SELECT -->
-<!-- ========================= -->
-
-
 <section class="scene" id="chapterScene">
 
 
-
 <div class="chapter-container">
-
-
-
-
 
 
 <h1 class="chapter-main-title rdr-font">
-
 CHOOSE YOUR PATH
-
 </h1>
-
-
-
-
-
 
 
 
 <div class="chapter-cards">
 
 
-
-
-
-
 <div class="chapter-card">
-
-
 
 <h2 class="rdr-font">
-
 CHAPTER I
-
 </h2>
 
-
-
-
 <h3>
-
 MÁJINKA
-
 </h3>
 
-
-
 <p>
-
 THE HEART OF THE STORY
-
 </p>
-
-
 
 </div>
 
 
 
-
-
-
-
-
-
 <div class="chapter-card">
-
-
 
 <h2 class="rdr-font">
-
 CHAPTER II
-
 </h2>
 
-
-
-
 <h3>
-
 KUBÍK
-
 </h3>
 
-
-
 <p>
-
 THE RIDER
-
 </p>
 
+</div>
 
 
 </div>
 
 
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-<!-- ========================= -->
-<!-- GTA VIDEO -->
-<!-- ========================= -->
-
-
-<section class="scene" id="gtaVideoScene">
-
-
-
-<video 
-id="gtaVideo"
-playsinline
-preload="auto">
-
-
-
-<source src="gta-loading.mp4" type="video/mp4">
-
-
-
-</video>
-
-
-
-<div class="video-overlay"></div>
-
 
 
 </section>
 
 
 
-
-
-
-
-
-
-<!-- ========================= -->
-<!-- RDR2 CHAPTER SELECT -->
-<!-- ========================= -->
-
-
-<section class="scene" id="chapterScene">
-
-
-
-<div class="chapter-container">
-
-
-
-
-
-<h1 class="chapter-title">
-
-CHOOSE YOUR PATH
-
-</h1>
-
-
-
-
-
-
-
-<div class="chapter-cards">
-
-
-
-
-
-<div class="chapter-card">
-
-
-
-<h2>
-
-CHAPTER I
-
-</h2>
-
-
-
-<h3>
-
-MÁJINKA
-
-</h3>
-
-
-
-<p>
-
-THE HEART OF THE STORY
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="chapter-card">
-
-
-
-<h2>
-
-CHAPTER II
-
-</h2>
-
-
-
-<h3>
-
-KUBÍK
-
-</h3>
-
-
-
-<p>
-
-THE RIDER
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ========================= -->
-<!-- FUTURE SCREEN -->
-<!-- ========================= -->
 
 
 <section class="scene" id="futureScene">
@@ -846,21 +380,14 @@ THE RIDER
 <div class="future-container">
 
 
-
 <h1 class="rdr-font">
-
 OUR FUTURE
-
 </h1>
 
 
-
 <p>
-
 A NEW ADVENTURE AWAITS...
-
 </p>
-
 
 
 </div>
@@ -872,13 +399,7 @@ A NEW ADVENTURE AWAITS...
 
 
 
-
-
-
-
 </div>
-
-
 
 
 
