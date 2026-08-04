@@ -425,10 +425,10 @@ if(chapter1Card){
 
 if(chapter1StartButton){
 
-    chapter1StartButton.onclick = ()=>{
+    chapter1StartButton.onclick = async ()=>{
 
 
-        console.log("Starting Chapter I video");
+        console.log("GO DOWN THE PATH CLICKED");
 
 
         openScene(chapter1VideoScene);
@@ -438,10 +438,32 @@ if(chapter1StartButton){
         if(chapter1Video){
 
 
+            chapter1Video.pause();
+
             chapter1Video.currentTime = 0;
 
 
-            chapter1Video.play();
+            try {
+
+
+                await chapter1Video.play();
+
+
+                console.log(
+                    "CHAPTER I VIDEO PLAYING ❤️"
+                );
+
+
+            } catch(error){
+
+
+                console.log(
+                    "VIDEO PLAY ERROR:",
+                    error
+                );
+
+
+            }
 
 
         }
@@ -450,7 +472,6 @@ if(chapter1StartButton){
     };
 
 }
-
 
 
 
