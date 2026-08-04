@@ -468,67 +468,51 @@ if(chapter1StartButton){
     chapter1StartButton.onclick = ()=>{
 
 
-        console.log("GO DOWN THE PATH clicked");
+    console.log("GO DOWN THE PATH clicked");
+
+
+    openScene(chapter1VideoScene);
 
 
 
-        openScene(chapter1VideoScene);
-
+    setTimeout(()=>{
 
 
         if(chapter1Video){
 
 
-            chapter1Video.load();
-
-
             chapter1Video.currentTime = 0;
 
 
-            chapter1Video.muted = false;
+            chapter1Video.play()
+            .then(()=>{
 
 
-            chapter1Video.volume = 1;
+                console.log(
+                    "Chapter I video playing ❤️"
+                );
 
 
-
-            let playPromise = chapter1Video.play();
-
-
-
-            if(playPromise !== undefined){
+            })
+            .catch(error=>{
 
 
-                playPromise.then(()=>{
+                console.log(
+                    "PLAY ERROR:",
+                    error
+                );
 
 
-                    console.log(
-                        "Chapter I video playing ❤️"
-                    );
-
-
-                })
-
-
-                .catch(error=>{
-
-
-                    console.log(
-                        "PLAY ERROR:",
-                        error
-                    );
-
-
-                });
-
-
-            }
+            });
 
 
         }
 
 
-    };
+    },1000);
+
+
+};
 
 
 }
