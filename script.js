@@ -464,52 +464,50 @@ if(chapter1Video){
 
 if(chapter1StartButton){
 
-
-    chapter1StartButton.onclick = ()=>{
-
-
-    console.log("GO DOWN THE PATH clicked");
+chapter1StartButton.onclick = ()=>{
 
 
-    openScene(chapter1VideoScene);
+console.log("GO DOWN THE PATH clicked");
+
+
+openScene(chapter1VideoScene);
 
 
 
-    setTimeout(()=>{
+if(chapter1Video){
 
 
-        if(chapter1Video){
+chapter1Video.pause();
 
 
-            chapter1Video.currentTime = 0;
+chapter1Video.currentTime = 0;
 
 
-            chapter1Video.play()
-            .then(()=>{
+
+chapter1Video.muted = false;
 
 
-                console.log(
-                    "Chapter I video playing ❤️"
-                );
+chapter1Video.volume = 1;
 
 
-            })
-            .catch(error=>{
+
+chapter1Video.play()
+.then(()=>{
+
+console.log("Chapter I video playing ❤️");
 
 
-                console.log(
-                    "PLAY ERROR:",
-                    error
-                );
+})
+.catch(err=>{
 
 
-            });
+console.log("VIDEO PLAY ERROR:",err);
 
 
-        }
+});
 
 
-    },1000);
+}
 
 
 };
