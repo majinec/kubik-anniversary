@@ -4294,3 +4294,13 @@ grid-template-columns:1fr;
 
 
 }
+#chapter1VideoScene video {
+
+    width:100%;
+    height:100vh;
+
+    object-fit:cover;
+
+    display:block;
+
+}
