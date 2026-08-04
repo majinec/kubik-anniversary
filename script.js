@@ -233,3 +233,19 @@ console.log("Game system loaded 🎮");
 updateChapters();
 
 };
+const cursor = document.querySelector(".custom-cursor");
+
+console.log("Cursor:", cursor);
+
+
+document.addEventListener("mousemove", function(e){
+
+    if(cursor){
+
+        cursor.style.left = e.clientX + "px";
+
+        cursor.style.top = e.clientY + "px";
+
+    }
+
+});
