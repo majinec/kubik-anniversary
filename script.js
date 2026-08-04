@@ -467,14 +467,19 @@ if(chapter1Card){
 // =================================
 
 
+// =================================
+// CHAPTER I VIDEO START
+// =================================
+
+
 if(chapter1StartButton){
 
 
-    chapter1StartButton.onclick = async ()=>{
+    chapter1StartButton.onclick = ()=>{
 
 
         console.log(
-            "GO DOWN THE PATH CLICKED"
+            "Opening Chapter I video scene"
         );
 
 
@@ -484,59 +489,65 @@ if(chapter1StartButton){
 
 
 
-        if(!chapter1Video){
+        if(chapter1Video){
 
 
-            console.log(
-                "VIDEO ELEMENT NOT FOUND ❌"
-            );
+            chapter1Video.pause();
 
 
-            return;
+            chapter1Video.currentTime = 0;
+
+
+            chapter1Video.muted = true;
+
+
+
+            chapter1Video.play()
+            .then(()=>{
+
+
+                console.log(
+                    "Chapter I video playing 🎬"
+                );
+
+
+
+                // po spuštění povolíme zvuk
+
+
+                setTimeout(()=>{
+
+
+                    chapter1Video.muted = false;
+
+
+                },500);
+
+
+
+            })
+
+
+            .catch(error=>{
+
+
+                console.log(
+                    "Video error:",
+                    error
+                );
+
+
+            });
+
 
 
         }
-
-
-
-        chapter1Video.pause();
-
-
-        chapter1Video.currentTime = 0;
-
-
-
-        try{
-
-
-            await chapter1Video.play();
-
-
-
-            console.log(
-                "CHAPTER I VIDEO PLAYING ❤️"
-            );
-
-
-
-        }catch(error){
-
-
-            console.log(
-                "CHAPTER VIDEO ERROR:",
-                error
-            );
-
-
-        }
-
 
 
     };
 
 
 }
-
 
 
 
