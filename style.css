@@ -1867,20 +1867,23 @@ background:#000;
 }
 
 
+
+#gtaLoadingScene * {
+
+font-family:"Pricedown", sans-serif;
+
+}
+
+
+
 .gta-loading {
 
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 height:100%;
-
 width:100%;
-
 text-align:center;
 
 }
@@ -1890,20 +1893,14 @@ text-align:center;
 .gta-loading h1 {
 
 
-font-family:"Pricedown";
-
 font-size:92px;
-
 letter-spacing:8px;
-
 margin:0;
-
 color:white;
 
 text-shadow:
 
 0 0 5px rgba(255,255,255,.15);
-
 
 }
 
@@ -1915,14 +1912,12 @@ text-shadow:
 
 
 margin-top:40px;
-
 font-size:70px;
-
 letter-spacing:15px;
 
-font-weight:300;
-
 }
+
+
 
 
 
@@ -1932,9 +1927,7 @@ font-weight:300;
 content:"";
 
 animation:
-
 loadingDots 1.5s infinite;
-
 
 }
 
@@ -1946,15 +1939,12 @@ loadingDots 1.5s infinite;
 
 
 margin-top:60px;
-
 font-size:45px;
-
 letter-spacing:15px;
 
-font-weight:300;
-
-
 }
+
+
 
 
 
@@ -1962,11 +1952,8 @@ font-weight:300;
 
 
 margin-top:35px;
-
 font-size:30px;
-
 font-style:italic;
-
 color:#ccc;
 
 }
@@ -1994,7 +1981,6 @@ border:2px solid white;
 cursor:pointer;
 
 transition:.4s;
-
 
 }
 
@@ -2032,7 +2018,6 @@ content:"..";
 100%{
 content:"...";
 }
-
 
 }
 /* ========================= */
