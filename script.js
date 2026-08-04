@@ -223,7 +223,7 @@ openScene(gtaLoadingScene);
 /* ========================= */
 
 
-missionStartButton.onclick=()=>{
+missionStartButton.onclick = async ()=>{
 
 
 console.log("Starting GTA Video");
@@ -236,53 +236,44 @@ openScene(gtaVideoScene);
 if(gtaVideo){
 
 
-gtaVideo.currentTime = 0;
-
-gtaVideo.muted = false;
-
-gtaVideo.volume = 1;
+    gtaVideo.pause();
 
 
-gtaVideo.play()
-.then(()=>{
-
-console.log("GTA VIDEO + SOUND PLAYING 🎵");
+    gtaVideo.currentTime = 0;
 
 
-})
-.catch(err=>{
+    gtaVideo.muted = false;
 
 
-console.log(err);
+    gtaVideo.volume = 1;
 
 
-});
+
+    try {
 
 
-}
+        await gtaVideo.play();
 
 
-console.log("GTA VIDEO + SOUND PLAYING 🎵");
+        console.log("GTA VIDEO + SOUND PLAYING 🎵");
 
 
-})
-.catch(err=>{
+    }
 
 
-console.log(err);
+    catch(err){
 
 
-});
+        console.log("VIDEO ERROR:", err);
 
+
+    }
 
 
 }
-
 
 
 };
-
-
 
 
 
