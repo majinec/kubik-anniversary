@@ -447,15 +447,16 @@ if(chapter1Card){
 
 
 // =================================
-// START CHAPTER VIDEO
+// START CHAPTER I VIDEO
 // =================================
 
 
 if(chapter1StartButton){
 
+    chapter1StartButton.onclick = async ()=>{
 
-    chapter1StartButton.onclick = ()=>{
 
+        console.log("Starting Chapter I video");
 
         openScene(chapter1VideoScene);
 
@@ -464,48 +465,49 @@ if(chapter1StartButton){
         if(chapter1Video){
 
 
+            chapter1Video.pause();
+
             chapter1Video.currentTime = 0;
 
 
+            // důležité pro Safari
             chapter1Video.muted = false;
-
-
             chapter1Video.volume = 1;
 
 
 
-            chapter1Video.play()
+            try {
 
-            .then(()=>{
+
+                await chapter1Video.play();
 
 
                 console.log(
-                    "Chapter I video started with sound ❤️"
+                    "Chapter I video playing ❤️"
                 );
 
 
-            })
-
-
-            .catch(error=>{
+            } catch(error){
 
 
                 console.log(
-                    "Video error:",
+                    "Video failed:",
                     error
                 );
 
 
-            });
+                // fallback
+                chapter1Video.muted = true;
+                await chapter1Video.play();
 
+
+            }
 
 
         }
 
 
-
     };
-
 
 }
 
