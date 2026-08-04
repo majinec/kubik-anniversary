@@ -380,43 +380,31 @@ window.onload=()=>{
 
 
 };
+
+
 // =================================
 // CHAPTER I SYSTEM
 // =================================
 
 
-const chapter1Card = document.querySelector(
-    '[data-chapter="chapter1"]'
-);
+const chapter1Card = document.querySelector('[data-chapter="chapter1"]');
 
-const chapter1IntroScene = document.getElementById(
-    "chapter1IntroScene"
-);
+const chapter1IntroScene = document.getElementById("chapter1IntroScene");
 
-const chapter1VideoScene = document.getElementById(
-    "chapter1VideoScene"
-);
+const chapter1VideoScene = document.getElementById("chapter1VideoScene");
 
-const chapter1StartButton = document.getElementById(
-    "chapter1StartButton"
-);
+const chapter1StartButton = document.getElementById("chapter1StartButton");
 
-const chapter1Video = document.getElementById(
-    "chapter1Video"
-);
+const chapter1Video = document.getElementById("chapter1Video");
 
-const achievementScene = document.getElementById(
-    "achievementScene"
-);
+const achievementScene = document.getElementById("achievementScene");
 
-const returnStoryButton = document.getElementById(
-    "returnStoryButton"
-);
+const returnStoryButton = document.getElementById("returnStoryButton");
 
 
 
 
-// OTEVŘENÍ CHAPTER I
+// OPEN CHAPTER I
 
 if(chapter1Card){
 
@@ -433,18 +421,14 @@ if(chapter1Card){
 
 
 
-// SPUŠTĚNÍ VIDEA
+// START CHAPTER VIDEO
 
 if(chapter1StartButton){
 
     chapter1StartButton.onclick = ()=>{
 
 
-        console.log("GO DOWN THE PATH clicked");
-
-
-        openScene(chapter1VideoScene);
-
+        console.log("Starting Chapter I video");
 
 
         if(chapter1Video){
@@ -457,19 +441,24 @@ if(chapter1StartButton){
             
             .then(()=>{
 
-                console.log(
-                    "Chapter I video started ❤️"
-                );
+
+                console.log("Chapter I video playing");
+
+
+                openScene(chapter1VideoScene);
+
 
             })
 
 
             .catch(error=>{
 
+
                 console.log(
-                    "Video error:",
+                    "Chapter video error:",
                     error
                 );
+
 
             });
 
@@ -485,15 +474,16 @@ if(chapter1StartButton){
 
 
 
-// PO SKONČENÍ VIDEA
+// VIDEO END
 
 if(chapter1Video){
+
 
     chapter1Video.onended = ()=>{
 
 
         console.log(
-            "Chapter I completed"
+            "Chapter I finished"
         );
 
 
@@ -510,13 +500,15 @@ if(chapter1Video){
 
     };
 
+
 }
 
 
 
 
 
-// ZPĚT NA MENU
+
+// RETURN BUTTON
 
 if(returnStoryButton){
 
