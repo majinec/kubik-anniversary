@@ -440,7 +440,6 @@ preload="auto">
 
 
 
-
 <!-- CHAPTER SELECT -->
 
 <section class="scene" id="chapterSelectScene">
@@ -455,15 +454,22 @@ preload="auto">
 
 <h1>CHOOSE YOUR STORY</h1>
 
+
 <div class="progress-text">
+
 STORY PROGRESS
+
 <br>
+
 <span id="storyProgress">
 01 / 06
 </span>
+
+
 </div>
 
 </div>
+
 
 
 
@@ -474,25 +480,31 @@ STORY PROGRESS
 
 <div class="chapter-card unlocked" data-chapter="chapter1">
 
+
 <div class="lock">
 ✓
 </div>
+
 
 <h2>
 CHAPTER I
 </h2>
 
+
 <h3>
 THE BEGINNING
 </h3>
+
 
 <p>
 FIRST ENCOUNTER
 </p>
 
+
 <span class="status">
 AVAILABLE
 </span>
+
 
 </div>
 
@@ -502,25 +514,31 @@ AVAILABLE
 
 <div class="chapter-card locked" data-chapter="chapter2">
 
+
 <div class="lock">
 🔒
 </div>
+
 
 <h2>
 CHAPTER II
 </h2>
 
+
 <h3>
 THE MOMENT EVERYTHING CHANGED
 </h3>
+
 
 <p>
 PLAYER 2 FOUND
 </p>
 
+
 <span class="status">
 LOCKED
 </span>
+
 
 </div>
 
@@ -530,25 +548,31 @@ LOCKED
 
 <div class="chapter-card locked" data-chapter="chapter3">
 
+
 <div class="lock">
 🔒
 </div>
+
 
 <h2>
 CHAPTER III
 </h2>
 
+
 <h3>
 OUR JOURNEY
 </h3>
+
 
 <p>
 MEMORIES WAITING
 </p>
 
+
 <span class="status">
 LOCKED
 </span>
+
 
 </div>
 
@@ -558,25 +582,31 @@ LOCKED
 
 <div class="chapter-card locked" data-chapter="gtaRadio">
 
+
 <div class="lock">
 🔒
 </div>
+
 
 <h2>
 GTA RADIO
 </h2>
 
+
 <h3>
 ROAD TO THE FUTURE
 </h3>
+
 
 <p>
 DRIVING SCHOOL
 </p>
 
+
 <span class="status">
 LOCKED
 </span>
+
 
 </div>
 
@@ -586,25 +616,31 @@ LOCKED
 
 <div class="chapter-card locked" data-chapter="chapter4">
 
+
 <div class="lock">
 🔒
 </div>
+
 
 <h2>
 CHAPTER IV
 </h2>
 
+
 <h3>
 PLAYER 2
 </h3>
+
 
 <p>
 COMPANION PROFILE
 </p>
 
+
 <span class="status">
 LOCKED
 </span>
+
 
 </div>
 
@@ -614,27 +650,34 @@ LOCKED
 
 <div class="chapter-card locked" data-chapter="chapter5">
 
+
 <div class="lock">
 🔒
 </div>
+
 
 <h2>
 CHAPTER V
 </h2>
 
+
 <h3>
 OUR FUTURE
 </h3>
+
 
 <p>
 TAHITI 🌴
 </p>
 
+
 <span class="status">
 LOCKED
 </span>
 
+
 </div>
+
 
 
 
@@ -646,8 +689,169 @@ LOCKED
 
 </section>
 
+
+
+
+
+<!-- CHAPTER I INTRO -->
+
+
+<section class="scene" id="chapter1IntroScene">
+
+
+<div class="rdr-intro">
+
+
+<div class="chapter-number">
+
+CHAPTER I
+
 </div>
 
+
+
+<h1>
+THE BEGINNING
+</h1>
+
+
+
+<div class="quote-box">
+
+
+<p>
+
+"The bravest path is the least obvious,<br>
+and also the gentlest."
+
+</p>
+
+
+
+<span>
+— Rains Fall
+</span>
+
+
+
+</div>
+
+
+
+
+<button id="chapter1StartButton">
+
+GO DOWN THE PATH
+
+</button>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- CHAPTER I VIDEO -->
+
+
+<section class="scene" id="chapter1VideoScene">
+
+
+
+<video 
+id="chapter1Video"
+playsinline
+preload="auto">
+
+
+<source src="chapteronevideo.mp4" type="video/mp4">
+
+
+</video>
+
+
+
+<div class="chapter-video-overlay"></div>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ACHIEVEMENT -->
+
+
+<section class="scene" id="achievementScene">
+
+
+
+<div class="achievement-screen">
+
+
+
+<div class="trophy">
+
+🏆
+
+</div>
+
+
+
+
+<h1>
+
+ACHIEVEMENT UNLOCKED
+
+</h1>
+
+
+
+
+<h2>
+
+PLAYER 2 FOUND
+
+</h2>
+
+
+
+
+<p>
+
+The journey begins with two.
+
+</p>
+
+
+
+
+
+<button id="returnStoryButton">
+
+RETURN TO STORY
+
+</button>
+
+
+
+
+</div>
+
+
+
+</section>
+</div>
 
 <script src="script.js"></script>
 
