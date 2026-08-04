@@ -4253,3 +4253,44 @@ grid-template-columns:1fr;
 
 
 }
+/* ========================= */
+/* CHAPTER I VIDEO */
+/* ========================= */
+
+
+#chapter1VideoScene{
+
+    background:black;
+
+}
+
+
+#chapter1Video{
+
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+
+}
+
+
+
+.chapter-video-overlay{
+
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.1);
+
+
+}
