@@ -18,16 +18,24 @@ const bootProgress = document.getElementById("bootProgress");
 
 
 
+/* ========================= */
+/* SCENE SYSTEM */
+/* ========================= */
+
+
 function openScene(scene){
 
-    document.querySelectorAll(".scene")
-    .forEach(s=>{
+    document.querySelectorAll(".scene").forEach(s=>{
+
         s.classList.remove("active");
+
     });
 
 
     if(scene){
+
         scene.classList.add("active");
+
     }
 
 }
@@ -35,87 +43,132 @@ function openScene(scene){
 
 
 
+
+/* ========================= */
+/* START */
+/* ========================= */
+
+
 if(startButton){
 
-startButton.onclick=()=>{
+    startButton.onclick = ()=>{
 
-    openScene(saveScene);
+        openScene(saveScene);
 
-};
+    };
 
 }
 
+
+
+
+
+/* ========================= */
+/* SAVE -> BOOT */
+/* ========================= */
 
 
 if(continueButton){
 
-continueButton.onclick=()=>{
+    continueButton.onclick = ()=>{
 
-    openScene(bootScene);
 
-    startBoot();
+        openScene(bootScene);
 
-};
+
+        startBoot();
+
+
+    };
 
 }
+
 
 
 
 
 function startBoot(){
 
+
     if(bootProgress){
 
-        bootProgress.style.width="100%";
+        bootProgress.style.width="0";
+
+
+        setTimeout(()=>{
+
+            bootProgress.style.width="100%";
+
+        },100);
 
     }
+
 
 
     setTimeout(()=>{
 
+
         openScene(gtaLoadingScene);
 
+
     },15000);
+
 
 }
 
 
+
+
+
+
+
+/* ========================= */
+/* GTA VIDEO */
+/* ========================= */
 
 
 if(missionStartButton){
 
-missionStartButton.onclick=()=>{
+
+    missionStartButton.onclick=()=>{
 
 
-    openScene(gtaVideoScene);
+        openScene(gtaVideoScene);
 
 
-    if(gtaVideo){
 
-        gtaVideo.currentTime=0;
-
-        gtaVideo.play();
-
-    }
+        if(gtaVideo){
 
 
-};
+            gtaVideo.currentTime=0;
+
+
+            gtaVideo.play();
+
+
+        }
+
+
+    };
 
 
 }
+
+
 
 
 
 
 if(gtaVideo){
 
-gtaVideo.onended=()=>{
+
+    gtaVideo.onended=()=>{
 
 
-    openChapterSelect();
+        openChapterSelect();
 
 
-};
+    };
 
 
 }
@@ -123,14 +176,24 @@ gtaVideo.onended=()=>{
 
 
 
+
+
+
+
+/* ========================= */
+/* CHAPTER SYSTEM */
+/* ========================= */
+
+
+
 const chapters=[
 
-"chapter1",
-"chapter2",
-"chapter3",
-"gtaRadio",
-"chapter4",
-"chapter5"
+    "chapter1",
+    "chapter2",
+    "chapter3",
+    "gtaRadio",
+    "chapter4",
+    "chapter5"
 
 ];
 
@@ -143,13 +206,19 @@ localStorage.getItem("chapterProgress") || "chapter1";
 
 
 
+
 function openChapterSelect(){
+
 
     openScene(chapterSelectScene);
 
+
     updateChapters();
 
+
 }
+
+
 
 
 
@@ -158,94 +227,156 @@ function openChapterSelect(){
 function updateChapters(){
 
 
-const cards=document.querySelectorAll(".chapter-card");
+
+    const cards=document.querySelectorAll(".chapter-card");
 
 
-let index =
-chapters.indexOf(unlockedChapter);
-
-
-
-cards.forEach(card=>{
-
-
-let id=card.dataset.chapter;
-
-
-let cardIndex=chapters.indexOf(id);
+    let index = chapters.indexOf(unlockedChapter);
 
 
 
-if(cardIndex<=index){
+    cards.forEach(card=>{
 
-card.classList.remove("locked");
-card.classList.add("unlocked");
 
-card.querySelector(".lock").innerHTML="✓";
-card.querySelector(".status").innerHTML="AVAILABLE";
+        let id = card.dataset.chapter;
+
+
+        let cardIndex = chapters.indexOf(id);
+
+
+
+        if(cardIndex <= index){
+
+
+
+            card.classList.remove("locked");
+
+            card.classList.add("unlocked");
+
+
+            let lock = card.querySelector(".lock");
+
+            let status = card.querySelector(".status");
+
+
+
+            if(lock){
+
+                lock.innerHTML="✓";
+
+            }
+
+
+
+            if(status){
+
+                status.innerHTML="AVAILABLE";
+
+            }
+
+
+
+
+        }else{
+
+
+
+            card.classList.remove("unlocked");
+
+            card.classList.add("locked");
+
+
+
+            let lock = card.querySelector(".lock");
+
+            let status = card.querySelector(".status");
+
+
+
+            if(lock){
+
+                lock.innerHTML="🔒";
+
+            }
+
+
+
+            if(status){
+
+                status.innerHTML="LOCKED";
+
+            }
+
+
+
+        }
+
+
+    });
+
 
 
 }
 
-else{
-
-
-card.classList.remove("unlocked");
-card.classList.add("locked");
-
-card.querySelector(".lock").innerHTML="🔒";
-card.querySelector(".status").innerHTML="LOCKED";
-
-
-}
-
-
-
-});
-
-
-
-}
-
-
-
-const cursor=document.querySelector(".custom-cursor");
-
-
-document.addEventListener("mousemove",(e)=>{
-
-if(cursor){
-
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
-
-}
-
-});
 
 
 
 
-window.onload=()=>{
 
-console.log("Game system loaded 🎮");
 
-updateChapters();
 
-};
+
+/* ========================= */
+/* CUSTOM CURSOR */
+/* ========================= */
+
+
+
 const cursor = document.querySelector(".custom-cursor");
+
+
 
 console.log("Cursor:", cursor);
 
 
-document.addEventListener("mousemove", function(e){
+
+
+document.addEventListener("mousemove",(e)=>{
+
 
     if(cursor){
 
+
         cursor.style.left = e.clientX + "px";
+
 
         cursor.style.top = e.clientY + "px";
 
+
     }
 
+
 });
+
+
+
+
+
+
+
+
+/* ========================= */
+/* LOAD */
+/* ========================= */
+
+
+window.onload=()=>{
+
+
+    console.log("Game system loaded 🎮");
+
+
+    updateChapters();
+
+
+};
