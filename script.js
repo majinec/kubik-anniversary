@@ -364,3 +364,17 @@ console.log("Game system loaded 🎮");
 
 
 };
+/* ========================= */
+/* CUSTOM CURSOR */
+/* ========================= */
+
+const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove", (e) => {
+
+    if (!cursor) return;
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+});
