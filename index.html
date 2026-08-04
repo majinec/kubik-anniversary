@@ -441,61 +441,58 @@ preload="auto">
 
 
 
-<!-- RDR2 CHAPTER -->
+<!-- CHAPTER SELECT -->
+
+<section class="scene" id="chapterSelectScene">
 
 
-<section class="scene" id="chapterScene">
+<div class="journal-container">
 
 
-<div class="chapter-container">
+<div class="journal-header">
 
+<p>JOURNAL</p>
 
+<h1>CHOOSE YOUR STORY</h1>
 
-<h1 class="chapter-main-title rdr-font">
+<div class="progress-text">
+STORY PROGRESS
+<br>
+<span id="storyProgress">
+01 / 06
+</span>
+</div>
 
-CHOOSE YOUR PATH
-
-</h1>
-
-
-
-
-
-<div class="chapter-cards">
-
-
-
-
-
-<div class="chapter-card">
+</div>
 
 
 
-<h2 class="rdr-font">
 
+<div class="chapter-grid">
+
+
+
+<div class="chapter-card unlocked" data-chapter="chapter1">
+
+<div class="lock">
+✓
+</div>
+
+<h2>
 CHAPTER I
-
 </h2>
 
-
-
-
 <h3>
-
-MÁJINKA
-
+THE BEGINNING
 </h3>
 
-
-
-
 <p>
-
-THE HEART OF THE STORY
-
+FIRST ENCOUNTER
 </p>
 
-
+<span class="status">
+AVAILABLE
+</span>
 
 </div>
 
@@ -503,37 +500,55 @@ THE HEART OF THE STORY
 
 
 
+<div class="chapter-card locked" data-chapter="chapter2">
 
+<div class="lock">
+🔒
+</div>
 
-<div class="chapter-card">
-
-
-
-<h2 class="rdr-font">
-
+<h2>
 CHAPTER II
-
 </h2>
 
-
-
-
 <h3>
-
-KUBÍK
-
+THE MOMENT EVERYTHING CHANGED
 </h3>
 
-
-
-
 <p>
-
-THE RIDER
-
+PLAYER 2 FOUND
 </p>
 
+<span class="status">
+LOCKED
+</span>
 
+</div>
+
+
+
+
+
+<div class="chapter-card locked" data-chapter="chapter3">
+
+<div class="lock">
+🔒
+</div>
+
+<h2>
+CHAPTER III
+</h2>
+
+<h3>
+OUR JOURNEY
+</h3>
+
+<p>
+MEMORIES WAITING
+</p>
+
+<span class="status">
+LOCKED
+</span>
 
 </div>
 
@@ -541,42 +556,89 @@ THE RIDER
 
 
 
+<div class="chapter-card locked" data-chapter="gtaRadio">
+
+<div class="lock">
+🔒
+</div>
+
+<h2>
+GTA RADIO
+</h2>
+
+<h3>
+ROAD TO THE FUTURE
+</h3>
+
+<p>
+DRIVING SCHOOL
+</p>
+
+<span class="status">
+LOCKED
+</span>
+
 </div>
 
 
 
 
+
+<div class="chapter-card locked" data-chapter="chapter4">
+
+<div class="lock">
+🔒
+</div>
+
+<h2>
+CHAPTER IV
+</h2>
+
+<h3>
+PLAYER 2
+</h3>
+
+<p>
+COMPANION PROFILE
+</p>
+
+<span class="status">
+LOCKED
+</span>
+
 </div>
 
 
-</section>
 
 
 
+<div class="chapter-card locked" data-chapter="chapter5">
 
+<div class="lock">
+🔒
+</div>
 
+<h2>
+CHAPTER V
+</h2>
 
-<!-- FUTURE -->
-
-
-<section class="scene" id="futureScene">
-
-
-<div class="future-container">
-
-
-<h1 class="rdr-font">
-
+<h3>
 OUR FUTURE
-
-</h1>
-
+</h3>
 
 <p>
-
-A NEW ADVENTURE AWAITS...
-
+TAHITI 🌴
 </p>
+
+<span class="status">
+LOCKED
+</span>
+
+</div>
+
+
+
+</div>
 
 
 </div>
@@ -584,13 +646,7 @@ A NEW ADVENTURE AWAITS...
 
 </section>
 
-
-
-
-
 </div>
-
-
 
 
 <script src="script.js"></script>
