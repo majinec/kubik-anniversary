@@ -3276,4 +3276,16 @@ to {
 
 }
 
+/* ========================= */
+/* GTA ALL TEXT FONT */
+/* ========================= */
 
+
+#gtaLoadingScene .gta-loading-title,
+#gtaLoadingScene .lamar-name,
+#gtaLoadingScene .quote,
+#gtaLoadingScene #missionStartButton {
+
+    font-family:"Pricedown", sans-serif;
+
+}
