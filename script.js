@@ -474,7 +474,6 @@ if(chapter1StartButton){
 }
 
 
-
 // VIDEO END
 
 if(chapter1Video){
