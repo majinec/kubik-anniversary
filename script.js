@@ -385,24 +385,38 @@ window.onload=()=>{
 // =================================
 
 
-const chapter1Card = document.querySelector('[data-chapter="chapter1"]');
+const chapter1Card = document.querySelector(
+    '[data-chapter="chapter1"]'
+);
 
-const chapter1IntroScene = document.getElementById("chapter1IntroScene");
+const chapter1IntroScene = document.getElementById(
+    "chapter1IntroScene"
+);
 
-const chapter1VideoScene = document.getElementById("chapter1VideoScene");
+const chapter1VideoScene = document.getElementById(
+    "chapter1VideoScene"
+);
 
-const chapter1StartButton = document.getElementById("chapter1StartButton");
+const chapter1StartButton = document.getElementById(
+    "chapter1StartButton"
+);
 
-const chapter1Video = document.getElementById("chapter1Video");
+const chapter1Video = document.getElementById(
+    "chapter1Video"
+);
 
-const achievementScene = document.getElementById("achievementScene");
+const achievementScene = document.getElementById(
+    "achievementScene"
+);
 
-const returnStoryButton = document.getElementById("returnStoryButton");
+const returnStoryButton = document.getElementById(
+    "returnStoryButton"
+);
 
 
 
 
-// kliknutí na Chapter I
+// OPEN CHAPTER I
 
 if(chapter1Card){
 
@@ -419,91 +433,74 @@ if(chapter1Card){
 
 
 
-// kontrola videa
 
-if(chapter1Video){
-
-
-    console.log("Video element found ✅");
-
-
-
-    chapter1Video.addEventListener("loadeddata",()=>{
-
-        console.log("Chapter I video loaded ✅");
-
-    });
-
-
-
-    chapter1Video.addEventListener("canplay",()=>{
-
-        console.log("Chapter I video ready ✅");
-
-    });
-
-
-
-    chapter1Video.addEventListener("error",()=>{
-
-        console.log(
-            "VIDEO ERROR:",
-            chapter1Video.error
-        );
-
-    });
-
-
-}
-
-
-
-
-
-// start videa
+// START VIDEO
 
 if(chapter1StartButton){
 
-chapter1StartButton.onclick = ()=>{
+
+    chapter1StartButton.onclick = ()=>{
 
 
-console.log("GO DOWN THE PATH clicked");
+        console.log("GO DOWN THE PATH clicked");
 
 
-openScene(chapter1VideoScene);
+        openScene(chapter1VideoScene);
 
 
-if(chapter1Video){
 
-chapter1Video.currentTime = 0;
+        if(chapter1Video){
 
-chapter1Video.muted = true;
 
-chapter1Video.play()
-.then(()=>{
+            chapter1Video.currentTime = 0;
 
-console.log("VIDEO STARTED");
 
-})
-.catch(error=>{
+            // důležité pro zvuk
+            chapter1Video.muted = false;
 
-console.log("VIDEO ERROR:", error);
+            chapter1Video.volume = 1;
 
-});
+
+
+            chapter1Video.play()
+
+            .then(()=>{
+
+
+                console.log(
+                    "Chapter I video started ❤️"
+                );
+
+
+            })
+
+            .catch(error=>{
+
+
+                console.log(
+                    "VIDEO PLAY ERROR:",
+                    error
+                );
+
+
+            });
+
+
+
+        }
+
+
+
+    };
 
 
 }
 
 
-};
-
-}
 
 
 
-
-
-// konec videa
+// VIDEO END
 
 if(chapter1Video){
 
@@ -522,7 +519,9 @@ if(chapter1Video){
         );
 
 
-        openScene(achievementScene);
+        openScene(
+            achievementScene
+        );
 
 
     };
@@ -534,7 +533,7 @@ if(chapter1Video){
 
 
 
-// návrat
+// RETURN
 
 if(returnStoryButton){
 
@@ -542,7 +541,9 @@ if(returnStoryButton){
     returnStoryButton.onclick = ()=>{
 
 
-        openScene(chapterSelectScene);
+        openScene(
+            chapterSelectScene
+        );
 
 
         updateChapters();
