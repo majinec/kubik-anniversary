@@ -385,58 +385,73 @@ window.onload=()=>{
 // =================================
 
 
-const chapter1Card = document.querySelector(
-    '[data-chapter="chapter1"]'
-);
+const chapter1Card = document.querySelector('[data-chapter="chapter1"]');
 
+const chapter1IntroScene = document.getElementById("chapter1IntroScene");
 
-const chapter1IntroScene = document.getElementById(
-    "chapter1IntroScene"
-);
+const chapter1VideoScene = document.getElementById("chapter1VideoScene");
 
+const chapter1StartButton = document.getElementById("chapter1StartButton");
 
-const chapter1VideoScene = document.getElementById(
-    "chapter1VideoScene"
-);
+const chapter1Video = document.getElementById("chapter1Video");
 
+const achievementScene = document.getElementById("achievementScene");
 
-const chapter1StartButton = document.getElementById(
-    "chapter1StartButton"
-);
-
-
-const chapter1Video = document.getElementById(
-    "chapter1Video"
-);
-
-
-const achievementScene = document.getElementById(
-    "achievementScene"
-);
-
-
-const returnStoryButton = document.getElementById(
-    "returnStoryButton"
-);
+const returnStoryButton = document.getElementById("returnStoryButton");
 
 
 
 
-// =================================
-// OPEN CHAPTER I
-// =================================
-
+// kliknutí na Chapter I
 
 if(chapter1Card){
 
-
     chapter1Card.onclick = ()=>{
 
+        console.log("Opening Chapter I");
 
         openScene(chapter1IntroScene);
 
-
     };
+
+}
+
+
+
+
+// kontrola videa
+
+if(chapter1Video){
+
+
+    console.log("Video element found ✅");
+
+
+
+    chapter1Video.addEventListener("loadeddata",()=>{
+
+        console.log("Chapter I video loaded ✅");
+
+    });
+
+
+
+    chapter1Video.addEventListener("canplay",()=>{
+
+        console.log("Chapter I video ready ✅");
+
+    });
+
+
+
+    chapter1Video.addEventListener("error",()=>{
+
+        console.log(
+            "VIDEO ERROR:",
+            chapter1Video.error
+        );
+
+    });
 
 
 }
@@ -445,18 +460,17 @@ if(chapter1Card){
 
 
 
-
-// =================================
-// START CHAPTER I VIDEO
-// =================================
-
+// start videa
 
 if(chapter1StartButton){
 
-    chapter1StartButton.onclick = async ()=>{
+
+    chapter1StartButton.onclick = ()=>{
 
 
-        console.log("Starting Chapter I video");
+        console.log("GO DOWN THE PATH clicked");
+
+
 
         openScene(chapter1VideoScene);
 
@@ -465,40 +479,47 @@ if(chapter1StartButton){
         if(chapter1Video){
 
 
-            chapter1Video.pause();
+            chapter1Video.load();
+
 
             chapter1Video.currentTime = 0;
 
 
-            // důležité pro Safari
             chapter1Video.muted = false;
+
+
             chapter1Video.volume = 1;
 
 
 
-            try {
+            let playPromise = chapter1Video.play();
 
 
-                await chapter1Video.play();
+
+            if(playPromise !== undefined){
 
 
-                console.log(
-                    "Chapter I video playing ❤️"
-                );
+                playPromise.then(()=>{
 
 
-            } catch(error){
+                    console.log(
+                        "Chapter I video playing ❤️"
+                    );
 
 
-                console.log(
-                    "Video failed:",
-                    error
-                );
+                })
 
 
-                // fallback
-                chapter1Video.muted = true;
-                await chapter1Video.play();
+                .catch(error=>{
+
+
+                    console.log(
+                        "PLAY ERROR:",
+                        error
+                    );
+
+
+                });
 
 
             }
@@ -509,17 +530,14 @@ if(chapter1StartButton){
 
     };
 
+
 }
 
 
 
 
 
-
-// =================================
-// AFTER VIDEO FINISH
-// =================================
-
+// konec videa
 
 if(chapter1Video){
 
@@ -532,24 +550,16 @@ if(chapter1Video){
         );
 
 
-
-        openScene(
-            achievementScene
-        );
-
-
-
-        // unlock chapter II
-
         localStorage.setItem(
             "chapterProgress",
             "chapter2"
         );
 
 
+        openScene(achievementScene);
+
 
     };
-
 
 
 }
@@ -558,13 +568,7 @@ if(chapter1Video){
 
 
 
-
-
-
-// =================================
-// RETURN TO STORY SELECT
-// =================================
-
+// návrat
 
 if(returnStoryButton){
 
@@ -572,13 +576,10 @@ if(returnStoryButton){
     returnStoryButton.onclick = ()=>{
 
 
-        openScene(
-            chapterSelectScene
-        );
+        openScene(chapterSelectScene);
 
 
         updateChapters();
-
 
 
     };
