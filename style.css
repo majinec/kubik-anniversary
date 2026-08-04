@@ -1862,15 +1862,17 @@ button {
 
 #gtaLoadingScene {
 
-background:#000;
+    background:#000;
 
 }
 
 
 
-#gtaLoadingScene * {
+#gtaLoadingScene .gta-loading,
+#gtaLoadingScene .gta-loading *,
+#gtaLoadingScene button {
 
-font-family:"Pricedown", sans-serif;
+    font-family:"Pricedown", sans-serif;
 
 }
 
@@ -1878,13 +1880,13 @@ font-family:"Pricedown", sans-serif;
 
 .gta-loading {
 
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-height:100%;
-width:100%;
-text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+    width:100%;
+    text-align:center;
 
 }
 
@@ -1893,14 +1895,19 @@ text-align:center;
 .gta-loading h1 {
 
 
-font-size:92px;
-letter-spacing:8px;
-margin:0;
-color:white;
+    font-size:92px;
 
-text-shadow:
+    letter-spacing:8px;
 
-0 0 5px rgba(255,255,255,.15);
+    margin:0;
+
+    color:white;
+
+
+    text-shadow:
+
+    0 0 5px rgba(255,255,255,.15);
+
 
 }
 
@@ -1911,23 +1918,12 @@ text-shadow:
 .gta-loading-title {
 
 
-margin-top:40px;
-font-size:70px;
-letter-spacing:15px;
+    margin-top:40px;
 
-}
+    font-size:70px;
 
+    letter-spacing:15px;
 
-
-
-
-#loadingDots::after {
-
-
-content:"";
-
-animation:
-loadingDots 1.5s infinite;
 
 }
 
@@ -1938,9 +1934,12 @@ loadingDots 1.5s infinite;
 .gta-loading h2 {
 
 
-margin-top:60px;
-font-size:45px;
-letter-spacing:15px;
+    margin-top:60px;
+
+    font-size:45px;
+
+    letter-spacing:15px;
+
 
 }
 
@@ -1951,10 +1950,14 @@ letter-spacing:15px;
 .gta-loading .quote {
 
 
-margin-top:35px;
-font-size:30px;
-font-style:italic;
-color:#ccc;
+    margin-top:35px;
+
+    font-size:30px;
+
+    font-style:italic;
+
+    color:#ccc;
+
 
 }
 
@@ -1964,23 +1967,24 @@ color:#ccc;
 #gtaLoadingScene #missionStartButton {
 
 
-margin-top:70px;
+    margin-top:70px;
 
-padding:22px 90px;
+    padding:22px 90px;
 
-font-size:22px;
+    font-size:22px;
 
-letter-spacing:8px;
+    letter-spacing:8px;
 
-background:transparent;
+    background:transparent;
 
-color:white;
+    color:white;
 
-border:2px solid white;
+    border:2px solid white;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.4s;
+    transition:.4s;
+
 
 }
 
@@ -1989,12 +1993,12 @@ transition:.4s;
 #gtaLoadingScene #missionStartButton:hover {
 
 
-background:white;
+    background:white;
 
-color:black;
+    color:black;
+
 
 }
-
 
 
 @keyframes loadingDots {
