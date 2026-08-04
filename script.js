@@ -236,13 +236,30 @@ openScene(gtaVideoScene);
 if(gtaVideo){
 
 
-gtaVideo.currentTime=0;
+gtaVideo.currentTime = 0;
 
-gtaVideo.volume=1;
+gtaVideo.muted = false;
+
+gtaVideo.volume = 1;
 
 
 gtaVideo.play()
 .then(()=>{
+
+console.log("GTA VIDEO + SOUND PLAYING 🎵");
+
+
+})
+.catch(err=>{
+
+
+console.log(err);
+
+
+});
+
+
+}
 
 
 console.log("GTA VIDEO + SOUND PLAYING 🎵");
