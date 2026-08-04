@@ -380,3 +380,207 @@ window.onload=()=>{
 
 
 };
+// =================================
+// CHAPTER I SYSTEM
+// =================================
+
+
+const chapter1Card = document.querySelector(
+    '[data-chapter="chapter1"]'
+);
+
+
+const chapter1IntroScene = document.getElementById(
+    "chapter1IntroScene"
+);
+
+
+const chapter1VideoScene = document.getElementById(
+    "chapter1VideoScene"
+);
+
+
+const chapter1StartButton = document.getElementById(
+    "chapter1StartButton"
+);
+
+
+const chapter1Video = document.getElementById(
+    "chapter1Video"
+);
+
+
+const achievementScene = document.getElementById(
+    "achievementScene"
+);
+
+
+const returnStoryButton = document.getElementById(
+    "returnStoryButton"
+);
+
+
+
+
+// =================================
+// OPEN CHAPTER I
+// =================================
+
+
+if(chapter1Card){
+
+
+    chapter1Card.onclick = ()=>{
+
+
+        openScene(chapter1IntroScene);
+
+
+    };
+
+
+}
+
+
+
+
+
+
+// =================================
+// START CHAPTER VIDEO
+// =================================
+
+
+if(chapter1StartButton){
+
+
+    chapter1StartButton.onclick = ()=>{
+
+
+        openScene(chapter1VideoScene);
+
+
+
+        if(chapter1Video){
+
+
+            chapter1Video.currentTime = 0;
+
+
+            chapter1Video.muted = false;
+
+
+            chapter1Video.volume = 1;
+
+
+
+            chapter1Video.play()
+
+            .then(()=>{
+
+
+                console.log(
+                    "Chapter I video started with sound ❤️"
+                );
+
+
+            })
+
+
+            .catch(error=>{
+
+
+                console.log(
+                    "Video error:",
+                    error
+                );
+
+
+            });
+
+
+
+        }
+
+
+
+    };
+
+
+}
+
+
+
+
+
+
+
+// =================================
+// AFTER VIDEO FINISH
+// =================================
+
+
+if(chapter1Video){
+
+
+    chapter1Video.onended = ()=>{
+
+
+        console.log(
+            "Chapter I completed"
+        );
+
+
+
+        openScene(
+            achievementScene
+        );
+
+
+
+        // unlock chapter II
+
+        localStorage.setItem(
+            "chapterProgress",
+            "chapter2"
+        );
+
+
+
+    };
+
+
+
+}
+
+
+
+
+
+
+
+
+// =================================
+// RETURN TO STORY SELECT
+// =================================
+
+
+if(returnStoryButton){
+
+
+    returnStoryButton.onclick = ()=>{
+
+
+        openScene(
+            chapterSelectScene
+        );
+
+
+        updateChapters();
+
+
+
+    };
+
+
+}
