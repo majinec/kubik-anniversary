@@ -101,41 +101,30 @@ body {
 
 .custom-cursor {
 
-
     position:fixed;
 
+    left:0;
+    top:0;
 
     width:22px;
-
-
     height:22px;
-
 
     border-radius:50%;
 
-
     border:2px solid #00c8ff;
-
 
     background:rgba(0,200,255,.15);
 
-
     box-shadow:
-
-
     0 0 15px #00c8ff,
-
-
     0 0 35px #00c8ff;
 
 
     pointer-events:none;
 
-
     transform:translate(-50%,-50%);
 
-
-    z-index:9999;
+    z-index:999999;
 
 
 }
