@@ -4576,135 +4576,129 @@ perspective:1200px;
 
 }
 
-/* COVER */
+/* ================================= */
+/* JOURNAL COVER */
+/* ================================= */
+
 
 .book-cover {
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-background:
-linear-gradient(
-135deg,
-#4b2b16,
-#1b0e06
-);
-
-border:
-4px solid #8b6335;
-
-border-radius:15px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:130px;
-
-transition:1.5s;
-
-z-index:2;
-
-backface-visibility:hidden;
-
-}
+    background:
+    linear-gradient(
+        135deg,
+        #4b2b16,
+        #1b0e06
+    );
 
 
-/* OTEVŘENÍ DENÍKU */
+    border:4px solid #8b6335;
 
-.journal-book.opened .book-cover{
+    border-radius:15px;
 
-transform:rotateY(-180deg);
 
-opacity:0;
+    display:flex;
 
-pointer-events:none;
+    align-items:center;
+
+    justify-content:center;
+
+
+    font-size:130px;
+
+
+    transition:1s ease;
+
+
+    z-index:2;
+
+
+    backface-visibility:hidden;
 
 }
 
 
-/* PAGE */
+
+
+
+/* ================================= */
+/* JOURNAL PAGE */
+/* ================================= */
+
 
 .book-page {
 
 
-position:absolute;
+    position:absolute;
 
-inset:0;
-
-
-background:
-
-linear-gradient(
-135deg,
-#f0dfb8,
-#d8bd8b
-);
+    inset:0;
 
 
-
-padding:60px;
-
-
-box-sizing:border-box;
+    background:#e8d6ad;
 
 
-
-font-family:"ChineseRocks", serif;
-
-
-color:#2b1b0d;
+    padding:45px;
 
 
-font-size:24px;
+    overflow-y:auto;
 
 
-line-height:1.8;
+    font-family:"ChineseRocks", serif;
 
 
-
-overflow:hidden;
-
+    color:#2b1b0d;
 
 
-opacity:0;
+    font-size:20px;
 
 
-transform:
-
-rotateY(-90deg);
+    line-height:1.8;
 
 
-
-transition:1.5s;
-
-
-border-radius:10px;
+    opacity:0;
 
 
-box-shadow:
+    transform:scale(.95);
 
-inset 0 0 40px rgba(0,0,0,.3);
+
+    transition:1s ease;
+
+
+    z-index:1;
+
+
+    border-radius:15px;
 
 
 }
 
 
 
+
+
+
+
+/* ================================= */
+/* OPEN ANIMATION */
+/* ================================= */
 
 
 .journal-book.opened .book-cover {
 
 
-transform:
+    opacity:0;
 
-rotateY(-110deg);
+    transform:scale(.8);
+
+
+    pointer-events:none;
 
 
 }
+
 
 
 
@@ -4712,12 +4706,12 @@ rotateY(-110deg);
 .journal-book.opened .book-page {
 
 
-opacity:1;
+    opacity:1;
+
+    transform:scale(1);
 
 
-transform:
-
-rotateY(0deg);
+    z-index:3;
 
 
 }
