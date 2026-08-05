@@ -1378,26 +1378,37 @@ returnChapter4Button.onclick=()=>{
 
 // UNLOCK CHAPTER V
 
-localStorage.setItem(
-"chapterProgress",
-"chapter5"
+const chapter5Card = document.querySelector(
+'[data-chapter="chapter5"]'
 );
 
 
+if(chapter5Card){
+
+chapter5Card.classList.remove("locked");
+
+chapter5Card.classList.add("unlocked");
+
+
+chapter5Card.querySelector(".lock").innerHTML="✓";
+
+chapter5Card.querySelector(".status").innerHTML="AVAILABLE";
+
+}
+
+
+
+// RETURN
 
 openScene(
 chapterSelectScene
 );
 
 
-
 updateChapters();
 
 
 };
-
-
-}
 // =================================
 // CHAPTER V SYSTEM
 // =================================
@@ -1440,19 +1451,18 @@ document.getElementById(
 
 
 
-
 // OPEN CHAPTER V
 
-
 if(chapter5Card){
-
 
 chapter5Card.onclick=()=>{
 
 
-console.log(
-"Opening Chapter V"
-);
+if(chapter5Card.classList.contains("locked")){
+
+return;
+
+}
 
 
 openScene(
@@ -1468,12 +1478,9 @@ chapter5IntroScene
 
 
 
-
-// START
-
+// START FINAL MISSION
 
 if(chapter5StartButton){
-
 
 chapter5StartButton.onclick=()=>{
 
@@ -1491,12 +1498,9 @@ chapter5FinalScene
 
 
 
-
-// GIFT
-
+// FINAL GIFT
 
 if(finalGift){
-
 
 finalGift.onclick=()=>{
 
@@ -1510,6 +1514,5 @@ finalMessage.classList.add(
 
 
 };
-
 
 }
