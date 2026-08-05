@@ -3602,7 +3602,9 @@ to {
 
 #chapter1StartButton,
 #chapter2StartButton,
-#chapter3StartButton {
+#chapter3StartButton,
+#chapter4StartButton
+{
 
 
     margin-top:70px;
@@ -3889,7 +3891,9 @@ to {
 
 #returnStoryButton,
 #returnStoryButton2,
-#returnStoryButton3 {
+#returnStoryButton3,
+#returnStoryButton4
+{
 
 
     margin-top:60px;
@@ -4529,22 +4533,18 @@ transform:rotate(360deg);
 
 #chapter4JournalScene {
 
-
 background:
-
 radial-gradient(
 circle,
 #2a1c10,
 #000
 );
 
-
 }
 
 
 
 .journal-container {
-
 
 display:flex;
 
@@ -4556,28 +4556,31 @@ justify-content:center;
 
 height:100%;
 
-
 }
 
 
 
+/* BOOK */
 
 .journal-book {
 
+width:900px;
 
-width:650px;
+max-width:90vw;
 
-height:430px;
+height:650px;
 
 position:relative;
 
-perspective:1000px;
-
+perspective:1200px;
 
 }
 
 
 
+
+
+/* COVER */
 
 .book-cover {
 
@@ -4586,6 +4589,7 @@ position:absolute;
 
 inset:0;
 
+
 background:
 
 linear-gradient(
@@ -4593,6 +4597,7 @@ linear-gradient(
 #4b2b16,
 #1b0e06
 );
+
 
 
 border:
@@ -4610,7 +4615,9 @@ align-items:center;
 justify-content:center;
 
 
-font-size:130px;
+
+font-size:140px;
+
 
 
 transition:1.5s;
@@ -4619,11 +4626,18 @@ transition:1.5s;
 z-index:2;
 
 
+box-shadow:
+
+0 0 50px rgba(0,0,0,.8);
+
+
 }
 
 
 
 
+
+/* PAGE */
 
 .book-page {
 
@@ -4632,13 +4646,22 @@ position:absolute;
 
 inset:0;
 
-background:#e8d6ad;
+
+background:
+
+linear-gradient(
+135deg,
+#f0dfb8,
+#d8bd8b
+);
 
 
-padding:45px;
+
+padding:60px;
 
 
-overflow:auto;
+box-sizing:border-box;
+
 
 
 font-family:"ChineseRocks", serif;
@@ -4647,32 +4670,49 @@ font-family:"ChineseRocks", serif;
 color:#2b1b0d;
 
 
-font-size:20px;
+font-size:24px;
 
 
-line-height:1.7;
+line-height:1.8;
+
+
+
+overflow:hidden;
+
 
 
 opacity:0;
 
 
-transform:rotateY(-90deg);
+transform:
+
+rotateY(-90deg);
+
 
 
 transition:1.5s;
 
 
+border-radius:10px;
+
+
+box-shadow:
+
+inset 0 0 40px rgba(0,0,0,.3);
+
+
 }
 
 
 
 
-.journal-book.opened .book-cover{
+
+.journal-book.opened .book-cover {
 
 
 transform:
 
-rotateY(-100deg);
+rotateY(-110deg);
 
 
 }
@@ -4680,51 +4720,70 @@ rotateY(-100deg);
 
 
 
-.journal-book.opened .book-page{
+.journal-book.opened .book-page {
 
 
 opacity:1;
 
-transform:rotateY(0deg);
+
+transform:
+
+rotateY(0deg);
 
 
 }
 
 
 
+
+
+/* RETURN BUTTON */
 
 
 #returnChapter4Button {
 
 
-margin-top:40px;
+margin-top:35px;
 
 
-padding:18px 60px;
+padding:
+
+18px 60px;
+
 
 
 background:transparent;
 
 
-border:2px solid #00c8ff;
+
+border:
+
+2px solid #00c8ff;
+
 
 
 color:white;
 
 
+
 font-family:"ChineseRocks";
 
 
-font-size:18px;
+
+font-size:22px;
+
 
 
 letter-spacing:5px;
 
 
+
 cursor:pointer;
 
 
+
 transition:.4s;
+
 
 
 }
@@ -4732,16 +4791,57 @@ transition:.4s;
 
 
 
-#returnChapter4Button:hover{
+
+#returnChapter4Button:hover {
+
 
 
 background:#00c8ff;
 
+
+
 color:black;
+
+
 
 box-shadow:
 
 0 0 35px #00c8ff;
+
+
+
+}
+
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+
+.journal-book{
+
+width:90vw;
+
+height:70vh;
+
+}
+
+
+
+.book-page{
+
+padding:30px;
+
+font-size:16px;
+
+line-height:1.6;
+
+}
+
 
 
 }
