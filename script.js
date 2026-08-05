@@ -1267,3 +1267,126 @@ if(returnRadioButton){
 
 
 }
+// =================================
+// CHAPTER IV SYSTEM
+// =================================
+
+
+const chapter4Card = document.querySelector(
+'[data-chapter="chapter4"]'
+);
+
+
+const chapter4IntroScene =
+document.getElementById(
+"chapter4IntroScene"
+);
+
+
+const chapter4JournalScene =
+document.getElementById(
+"chapter4JournalScene"
+);
+
+
+const chapter4StartButton =
+document.getElementById(
+"chapter4StartButton"
+);
+
+
+const journalBook =
+document.getElementById(
+"journalBook"
+);
+
+
+const returnChapter4Button =
+document.getElementById(
+"returnChapter4Button"
+);
+
+
+
+
+// OPEN CHAPTER IV
+
+
+if(chapter4Card){
+
+chapter4Card.onclick=()=>{
+
+
+console.log("Opening Chapter IV");
+
+
+openScene(chapter4IntroScene);
+
+
+};
+
+
+}
+
+
+
+
+
+// OPEN JOURNAL
+
+
+if(chapter4StartButton){
+
+
+chapter4StartButton.onclick=()=>{
+
+
+openScene(
+chapter4JournalScene
+);
+
+
+
+setTimeout(()=>{
+
+
+journalBook.classList.add(
+"opened"
+);
+
+
+},500);
+
+
+
+};
+
+
+
+}
+
+
+
+
+
+// RETURN
+
+
+if(returnChapter4Button){
+
+
+returnChapter4Button.onclick=()=>{
+
+
+openScene(
+chapterSelectScene
+);
+
+
+updateChapters();
+
+
+};
+
+
+}
