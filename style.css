@@ -4052,57 +4052,75 @@ to {
 }
 
 /* =================================
-   GTA RADIO FINAL POLISH
+   GTA RADIO LAYOUT FIX
 ================================= */
+
+
+#gtaRadioScene{
+    overflow:hidden;
+}
+
 
 
 #gtaRadioScene .gta-radio{
 
-    transform:scale(0.88) !important;
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%) scale(0.85);
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
 
 }
 
 
-
-/* GTA FONT */
-
-#gtaRadioScene h1,
-#gtaRadioScene h2,
-#gtaRadioScene h3,
-#gtaRadioScene button,
-#gtaRadioScene p,
-#gtaRadioScene span{
-
-    font-family: "Arial Black", Impact, sans-serif;
-
-    letter-spacing:1px;
-
-}
 
 
 
 /* HEADER */
 
+#gtaRadioScene .gta-radio > h1{
 
-#gtaRadioScene h1{
+    font-family:Impact, "Arial Black", sans-serif;
 
-    font-size:55px !important;
+    font-size:55px;
 
-    text-transform:uppercase;
+    margin:0;
 
-    margin-bottom:10px !important;
+}
+
+
+
+#gtaRadioScene .gta-radio > h2{
+
+    font-family:Impact, "Arial Black", sans-serif;
+
+    font-size:30px;
+
+    margin:5px;
 
 }
 
 
 
-#gtaRadioScene h2{
+#gtaRadioScene .gta-radio > p{
 
-    font-size:30px !important;
-
-    text-transform:uppercase;
+    margin:5px 0 25px;
 
 }
+
 
 
 
@@ -4110,21 +4128,51 @@ to {
 /* VINYLS */
 
 
-#gtaRadioScene .record{
+#gtaRadioScene .vinyl-container{
 
-    width:150px !important;
+    display:flex;
 
-    height:150px !important;
+    flex-direction:row;
 
-    font-size:60px;
+    justify-content:center;
+
+    align-items:center;
+
+    gap:50px;
 
 }
 
 
 
-#gtaRadioScene .vinyl-container{
 
-    gap:55px !important;
+
+#gtaRadioScene .vinyl{
+
+    text-align:center;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+#gtaRadioScene .record{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:55px;
 
 }
 
@@ -4134,14 +4182,19 @@ to {
 
 #gtaRadioScene .vinyl h3{
 
-    font-size:18px !important;
+    margin-top:10px;
+
+    font-size:17px;
 
 }
 
 
+
+
+
 #gtaRadioScene .vinyl span{
 
-    font-size:14px !important;
+    font-size:13px;
 
 }
 
@@ -4154,7 +4207,7 @@ to {
 
 #gtaRadioScene .driving-achievement{
 
-    margin-top:25px;
+    margin-top:20px;
 
 }
 
@@ -4162,7 +4215,7 @@ to {
 
 #gtaRadioScene .driving-achievement h2{
 
-    font-size:28px !important;
+    font-size:24px;
 
 }
 
@@ -4170,7 +4223,17 @@ to {
 
 #gtaRadioScene .driving-achievement h1{
 
-    font-size:38px !important;
+    font-size:34px;
+
+    margin:5px;
+
+}
+
+
+
+#gtaRadioScene .driving-achievement p{
+
+    font-size:15px;
 
 }
 
@@ -4183,9 +4246,9 @@ to {
 
 #gtaRadioScene .radio-unlocked{
 
-    font-size:28px !important;
+    font-size:25px;
 
-    line-height:1.2;
+    margin:15px;
 
 }
 
@@ -4193,7 +4256,7 @@ to {
 
 
 
-/* GTA BUTTON */
+/* BUTTON */
 
 
 #gtaRadioScene #returnRadioButton{
@@ -4201,33 +4264,19 @@ to {
 
     font-family:Impact, "Arial Black", sans-serif;
 
-
     background:#111;
-
 
     color:white;
 
-
     border:2px solid white;
 
+    padding:12px 45px;
 
-    padding:15px 55px;
-
-
-    font-size:20px;
-
-
-    letter-spacing:2px;
-
-
-    text-transform:uppercase;
-
+    font-size:18px;
 
     cursor:pointer;
 
-
-    transition:0.3s;
-
+    text-transform:uppercase;
 
 }
 
@@ -4235,18 +4284,11 @@ to {
 
 #gtaRadioScene #returnRadioButton:hover{
 
-
     background:white;
-
 
     color:black;
 
-
-    transform:scale(1.05);
-
-
 }
-
 
 
 
@@ -4256,10 +4298,12 @@ to {
 
 #gtaRadioScene .gta-radio{
 
+    transform:translate(-50%, -50%) scale(0.75);
 
-    transform:scale(0.78) !important;
+}
 
 
+}
 }
 
 
