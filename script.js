@@ -1406,3 +1406,39 @@ updateChapters();
 
 
 }
+// =================================
+// CHAPTER IV SYSTEM
+// =================================
+
+
+const chapter4Card = document.querySelector(
+    '[data-chapter="chapter4"]'
+);
+
+
+const chapter4IntroScene = document.getElementById(
+    "chapter4IntroScene"
+);
+
+
+
+if(chapter4Card){
+
+
+    chapter4Card.onclick = ()=>{
+
+
+        console.log(
+            "Opening Chapter IV"
+        );
+
+
+        openScene(
+            chapter4IntroScene
+        );
+
+
+    };
+
+
+}
