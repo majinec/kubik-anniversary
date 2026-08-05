@@ -12,6 +12,10 @@ const gtaLoadingScene = document.getElementById("gtaLoadingScene");
 const gtaVideoScene = document.getElementById("gtaVideoScene");
 const chapterSelectScene = document.getElementById("chapterSelectScene");
 
+const thankYouScene = document.getElementById(
+"thankYouScene"
+);
+
 
 const gtaVideo = document.getElementById("gtaVideo");
 const bootProgress = document.getElementById("bootProgress");
@@ -1498,7 +1502,7 @@ chapter5FinalScene
 
 
 
-// FINAL GIFT
+// GIFT
 
 if(finalGift){
 
@@ -1511,6 +1515,19 @@ finalGift.style.display="none";
 finalMessage.classList.add(
 "show"
 );
+
+
+
+setTimeout(()=>{
+
+
+openScene(
+thankYouScene
+);
+
+
+},4000);
+
 
 
 };
