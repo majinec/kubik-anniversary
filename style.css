@@ -4051,78 +4051,68 @@ to {
 
 }
 /* =================================
-   GTA RADIO CHAPTER - COMPACT MODE
+   GTA RADIO - COMPACT VERSION
 ================================= */
 
 
-#gtaRadioScene .gta-radio-container{
+#gtaRadioScene{
 
-    transform: scale(0.75);
-    transform-origin: center;
+    overflow:hidden;
 
-    width: 100%;
-    max-height: 90vh;
+}
+
+
+
+.gta-radio{
+
+    width:100%;
+
+    height:90vh;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
-}
+    transform:scale(0.75);
 
-
-
-
-/* TITLE */
-
-#gtaRadioScene h1{
-
-    font-size: 42px !important;
-
-    margin-bottom:15px;
+    transform-origin:center center;
 
 }
 
 
 
-#gtaRadioScene h2{
-
-    font-size:24px !important;
-
-}
+/* HEADER */
 
 
+.gta-radio h1{
 
-/* VINYL AREA */
+    font-size:42px;
 
-#gtaRadioScene .vinyl-container{
-
-    gap:35px !important;
-
-    margin:20px 0 !important;
+    margin:0 0 5px;
 
 }
 
 
 
-#gtaRadioScene .vinyl{
+.gta-radio h2{
 
-    width:150px !important;
-    height:150px !important;
+    font-size:26px;
+
+    margin:5px 0;
 
 }
 
 
 
+.gta-radio p{
 
-/* SONG NAMES */
+    font-size:15px;
 
-
-#gtaRadioScene .song-title{
-
-    font-size:16px !important;
-
-    margin-top:10px;
+    margin:5px 0 20px;
 
 }
 
@@ -4130,42 +4120,177 @@ to {
 
 
 
-/* DRIVING SCHOOL ACHIEVEMENT */
+/* VINYLS */
 
 
-#gtaRadioScene .driving-achievement{
+.vinyl-container{
 
-    transform:scale(0.85);
+    display:flex;
 
-    margin-top:20px;
+    justify-content:center;
 
-}
+    align-items:center;
 
+    gap:45px;
 
-
-#gtaRadioScene .driving-achievement h2{
-
-    font-size:28px !important;
-
-}
-
-
-#gtaRadioScene .driving-achievement p{
-
-    font-size:16px !important;
+    margin:15px 0;
 
 }
 
 
 
-/* RETURN BUTTON */
+.vinyl{
+
+    text-align:center;
+
+    cursor:pointer;
+
+}
 
 
-#gtaRadioScene #returnRadioButton{
 
-    margin-top:20px;
+.record{
 
-    padding:12px 35px;
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:55px;
+
+    margin:auto;
+
+    transition:0.3s;
+
+}
+
+
+
+.vinyl:hover .record{
+
+    transform:scale(1.1);
+
+}
+
+
+
+.vinyl.playing .record{
+
+    animation:spin 3s linear infinite;
+
+}
+
+
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+
+.vinyl h3{
+
+    font-size:16px;
+
+    margin:8px 0 2px;
+
+}
+
+
+
+.vinyl span{
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* DRIVING ACHIEVEMENT */
+
+
+.driving-achievement{
+
+    margin-top:15px;
+
+    text-align:center;
+
+}
+
+
+
+.driving-achievement h2{
+
+    font-size:22px;
+
+}
+
+
+
+.driving-achievement h1{
+
+    font-size:30px;
+
+    margin:5px;
+
+}
+
+
+
+.driving-achievement p{
+
+    font-size:15px;
+
+    line-height:1.4;
+
+}
+
+
+
+
+
+/* GTA UNLOCK TEXT */
+
+
+.radio-unlocked{
+
+    margin:15px 0 !important;
+
+    font-size:22px !important;
+
+    text-align:center;
+
+}
+
+
+
+
+
+/* BUTTON */
+
+
+#returnRadioButton{
+
+    padding:12px 45px;
 
     font-size:16px;
 
@@ -4175,16 +4300,17 @@ to {
 
 
 
-/* MOBILE / SMALL SCREEN */
-
-@media(max-height:800px){
+/* MENŠÍ OBRAZOVKY */
 
 
-#gtaRadioScene .gta-radio-container{
+@media(max-height:850px){
 
-    transform:scale(0.65);
 
-}
+    .gta-radio{
+
+        transform:scale(0.65);
+
+    }
 
 
 }
