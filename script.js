@@ -1245,6 +1245,7 @@ if(returnRadioButton){
     };
 
 }
+
 // =================================
 // CHAPTER IV SYSTEM
 // =================================
@@ -1254,33 +1255,23 @@ const chapter4Card = document.querySelector(
 '[data-chapter="chapter4"]'
 );
 
-
-const chapter4IntroScene =
-document.getElementById(
+const chapter4IntroScene = document.getElementById(
 "chapter4IntroScene"
 );
 
-
-const chapter4JournalScene =
-document.getElementById(
+const chapter4JournalScene = document.getElementById(
 "chapter4JournalScene"
 );
 
-
-const chapter4StartButton =
-document.getElementById(
+const chapter4StartButton = document.getElementById(
 "chapter4StartButton"
 );
 
-
-const journalBook =
-document.getElementById(
+const journalBook = document.getElementById(
 "journalBook"
 );
 
-
-const returnChapter4Button =
-document.getElementById(
+const returnChapter4Button = document.getElementById(
 "returnChapter4Button"
 );
 
@@ -1289,16 +1280,21 @@ document.getElementById(
 
 // OPEN CHAPTER IV
 
-
 if(chapter4Card){
 
-chapter4Card.onclick=()=>{
+chapter4Card.onclick = ()=>{
 
 
-console.log("Opening Chapter IV");
+if(
+chapter4Card.classList.contains("locked")
+){
+return;
+}
 
 
-openScene(chapter4IntroScene);
+openScene(
+chapter4IntroScene
+);
 
 
 };
@@ -1312,11 +1308,10 @@ openScene(chapter4IntroScene);
 
 // OPEN JOURNAL
 
-
 if(chapter4StartButton){
 
 
-chapter4StartButton.onclick=()=>{
+chapter4StartButton.onclick = ()=>{
 
 
 openScene(
@@ -1328,9 +1323,13 @@ chapter4JournalScene
 setTimeout(()=>{
 
 
+if(journalBook){
+
 journalBook.classList.add(
 "opened"
 );
+
+}
 
 
 },500);
@@ -1340,23 +1339,25 @@ journalBook.classList.add(
 };
 
 
-
 }
 
-// =================================
-// CHAPTER IV COMPLETE -> UNLOCK V
-// =================================
 
+
+
+
+// COMPLETE CHAPTER IV
 
 if(returnChapter4Button){
 
-returnChapter4Button.onclick=()=>{
+
+returnChapter4Button.onclick = ()=>{
 
 
-console.log("Chapter IV completed 🏆");
+console.log(
+"Chapter IV completed"
+);
 
 
-// unlock Chapter V
 
 localStorage.setItem(
 "chapterProgress",
@@ -1382,70 +1383,31 @@ updateChapters();
 
 
 
-// RETURN
-
-if(returnChapter4Button){
-
-returnChapter4Button.onclick=()=>{
 
 
-// UNLOCK CHAPTER V
+
+// =================================
+// CHAPTER V SYSTEM
+// =================================
+
+
 
 const chapter5Card = document.querySelector(
 '[data-chapter="chapter5"]'
 );
 
 
-if(chapter5Card){
 
-chapter5Card.classList.remove("locked");
-
-chapter5Card.classList.add("unlocked");
-
-
-chapter5Card.querySelector(".lock").innerHTML="✓";
-
-chapter5Card.querySelector(".status").innerHTML="AVAILABLE";
-
-
-}
-
-
-
-
-openScene(
-chapterSelectScene
-);
-
-
-updateChapters();
-
-
-};
-
-
-}
-// =================================
-// CHAPTER V SYSTEM
-// =================================
-
-
-const chapter5Card =
-document.querySelector(
-'[data-chapter="chapter5"]'
-);
-
-
-const chapter5IntroScene =
-document.getElementById(
+const chapter5IntroScene = document.getElementById(
 "chapter5IntroScene"
 );
 
 
-const chapter5FinalScene =
-document.getElementById(
+
+const chapter5FinalScene = document.getElementById(
 "chapter5FinalScene"
 );
+
 
 
 const chapter5StartButton =
@@ -1454,10 +1416,12 @@ document.getElementById(
 );
 
 
+
 const finalGift =
 document.getElementById(
 "finalGift"
 );
+
 
 
 const finalMessage =
@@ -1467,18 +1431,36 @@ document.getElementById(
 
 
 
+
+
+
 // OPEN CHAPTER V
+
 
 if(chapter5Card){
 
-chapter5Card.onclick=()=>{
+
+chapter5Card.onclick = ()=>{
 
 
-if(chapter5Card.classList.contains("locked")){
+if(
+chapter5Card.classList.contains("locked")
+){
+
+console.log(
+"Chapter V locked"
+);
 
 return;
 
 }
+
+
+
+console.log(
+"Opening Chapter V"
+);
+
 
 
 openScene(
@@ -1486,6 +1468,7 @@ chapter5IntroScene
 );
 
 
+
 };
 
 
@@ -1494,11 +1477,15 @@ chapter5IntroScene
 
 
 
-// START FINAL MISSION
+
+
+// START TAHITI
+
 
 if(chapter5StartButton){
 
-chapter5StartButton.onclick=()=>{
+
+chapter5StartButton.onclick = ()=>{
 
 
 openScene(
@@ -1506,6 +1493,7 @@ chapter5FinalScene
 );
 
 
+
 };
 
 
@@ -1514,20 +1502,27 @@ chapter5FinalScene
 
 
 
-// GIFT
+
+
+// FINAL GIFT
+
 
 if(finalGift){
 
-finalGift.onclick=()=>{
+
+finalGift.onclick = ()=>{
 
 
 finalGift.style.display="none";
 
 
+if(finalMessage){
+
 finalMessage.classList.add(
 "show"
 );
 
+}
 
 
 setTimeout(()=>{
@@ -1543,5 +1538,6 @@ thankYouScene
 
 
 };
+
 
 }
