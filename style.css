@@ -5086,3 +5086,171 @@ display:block;
 
 
 }
+/* ================================= */
+/* THANK YOU SCREEN */
+/* ================================= */
+
+
+#thankYouScene{
+
+background:
+
+radial-gradient(
+circle,
+#24150c,
+#000
+);
+
+}
+
+
+
+.thankyou-container{
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+font-family:"ChineseRocks";
+
+color:white;
+
+animation:chapterFade 2s ease;
+
+}
+
+
+
+.platinum{
+
+font-size:120px;
+
+filter:
+
+drop-shadow(
+0 0 30px gold
+);
+
+animation:trophyGlow 2s infinite alternate;
+
+}
+
+
+
+@keyframes trophyGlow{
+
+from{
+
+transform:scale(1);
+
+}
+
+
+to{
+
+transform:scale(1.1);
+
+}
+
+}
+
+
+
+.thankyou-container h1{
+
+font-size:55px;
+
+letter-spacing:5px;
+
+color:#00c8ff;
+
+}
+
+
+
+.thankyou-container h2{
+
+font-size:30px;
+
+letter-spacing:4px;
+
+}
+
+
+
+.thank-text{
+
+max-width:600px;
+
+font-size:22px;
+
+line-height:1.7;
+
+color:#ddd;
+
+}
+
+
+
+.final-stats{
+
+margin-top:40px;
+
+padding:30px;
+
+border:
+
+1px solid #00c8ff;
+
+
+box-shadow:
+
+0 0 30px rgba(0,200,255,.3);
+
+}
+
+
+
+.final-stats p{
+
+margin:20px;
+
+font-size:20px;
+
+}
+
+
+
+.final-stats strong{
+
+color:#00c8ff;
+
+}
+
+
+
+.thankyou-container h3{
+
+font-size:50px;
+
+margin-top:50px;
+
+}
+
+
+
+.continue-text{
+
+font-size:25px;
+
+color:#aaa;
+
+}
