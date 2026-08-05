@@ -3642,7 +3642,8 @@ to {
 
 
 
-#chapter1StartButton:hover {
+#chapter1StartButton:hover,
+#chapter2StartButton:hover {
 
 
     background:#d8bc87;
