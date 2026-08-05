@@ -3600,7 +3600,8 @@ to {
 /* GO DOWN THE PATH BUTTON */
 
 
-#chapter1StartButton {
+#chapter1StartButton,
+#chapter2StartButton {
 
 
     margin-top:70px;
