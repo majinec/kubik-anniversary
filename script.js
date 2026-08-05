@@ -637,3 +637,183 @@ if(returnStoryButton){
     };
 
 }
+// =================================
+// CHAPTER II SYSTEM
+// =================================
+
+
+const chapter2Card = document.querySelector(
+    '[data-chapter="chapter2"]'
+);
+
+
+const chapter2IntroScene = document.getElementById(
+    "chapter2IntroScene"
+);
+
+
+const chapter2VideoScene = document.getElementById(
+    "chapter2VideoScene"
+);
+
+
+const chapter2StartButton = document.getElementById(
+    "chapter2StartButton"
+);
+
+
+const chapter2Video = document.getElementById(
+    "chapter2Video"
+);
+
+
+
+
+// =================================
+// OPEN CHAPTER II
+// =================================
+
+
+if(chapter2Card){
+
+
+    chapter2Card.onclick = ()=>{
+
+
+        console.log(
+            "Opening Chapter II"
+        );
+
+
+        openScene(
+            chapter2IntroScene
+        );
+
+
+    };
+
+
+}
+
+
+
+
+
+// =================================
+// START CHAPTER II VIDEO
+// =================================
+
+
+if(chapter2StartButton){
+
+
+    chapter2StartButton.onclick = ()=>{
+
+
+        console.log(
+            "Opening Chapter II video scene"
+        );
+
+
+        openScene(
+            chapter2VideoScene
+        );
+
+
+
+        if(chapter2Video){
+
+
+            chapter2Video.pause();
+
+
+            chapter2Video.currentTime = 0;
+
+
+            chapter2Video.muted = true;
+
+
+
+            chapter2Video.play()
+
+            .then(()=>{
+
+
+                console.log(
+                    "Chapter II video playing 🎬"
+                );
+
+
+
+                setTimeout(()=>{
+
+
+                    chapter2Video.muted = false;
+
+
+                },500);
+
+
+
+            })
+
+
+            .catch(error=>{
+
+
+                console.log(
+                    "Chapter II video error:",
+                    error
+                );
+
+
+            });
+
+
+
+        }
+
+
+    };
+
+
+}
+
+
+
+
+
+
+// =================================
+// CHAPTER II VIDEO FINISHED
+// =================================
+
+
+if(chapter2Video){
+
+
+    chapter2Video.onended = ()=>{
+
+
+        console.log(
+            "Chapter II completed 🏆"
+        );
+
+
+
+        localStorage.setItem(
+            "chapterProgress",
+            "chapter3"
+        );
+
+
+
+        openScene(
+            achievementScene
+        );
+
+
+    };
+
+
+}
