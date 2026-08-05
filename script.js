@@ -817,3 +817,217 @@ if(chapter2Video){
 
 
 }
+// =================================
+// CHAPTER III SYSTEM
+// =================================
+
+
+const chapter3Card = document.querySelector(
+    '[data-chapter="chapter3"]'
+);
+
+
+const chapter3IntroScene = document.getElementById(
+    "chapter3IntroScene"
+);
+
+
+const chapter3VideoScene = document.getElementById(
+    "chapter3VideoScene"
+);
+
+
+const chapter3StartButton = document.getElementById(
+    "chapter3StartButton"
+);
+
+
+const chapter3Video = document.getElementById(
+    "chapter3Video"
+);
+
+
+const chapter3AchievementScene = document.getElementById(
+    "chapter3AchievementScene"
+);
+
+
+const returnStoryButton3 = document.getElementById(
+    "returnStoryButton3"
+);
+
+
+
+
+
+// OPEN CHAPTER III
+
+
+if(chapter3Card){
+
+
+    chapter3Card.onclick = ()=>{
+
+
+        console.log(
+            "Opening Chapter III"
+        );
+
+
+        openScene(
+            chapter3IntroScene
+        );
+
+
+    };
+
+
+}
+
+
+
+
+
+
+// START CHAPTER III VIDEO
+
+
+if(chapter3StartButton){
+
+
+    chapter3StartButton.onclick = ()=>{
+
+
+        console.log(
+            "Opening Chapter III video"
+        );
+
+
+        openScene(
+            chapter3VideoScene
+        );
+
+
+
+        if(chapter3Video){
+
+
+            chapter3Video.pause();
+
+
+            chapter3Video.currentTime = 0;
+
+
+            chapter3Video.muted = true;
+
+
+
+            chapter3Video.play()
+
+            .then(()=>{
+
+
+                console.log(
+                    "Chapter III video playing 🎬"
+                );
+
+
+
+                setTimeout(()=>{
+
+
+                    chapter3Video.muted = false;
+
+
+                },500);
+
+
+
+            })
+
+
+            .catch(error=>{
+
+
+                console.log(
+                    "Chapter III video error:",
+                    error
+                );
+
+
+            });
+
+
+
+        }
+
+
+    };
+
+
+}
+
+
+
+
+
+
+
+// CHAPTER III FINISHED
+
+
+if(chapter3Video){
+
+
+    chapter3Video.onended = ()=>{
+
+
+        console.log(
+            "Chapter III completed 🏆"
+        );
+
+
+
+        localStorage.setItem(
+            "chapterProgress",
+            "chapter4"
+        );
+
+
+
+        openScene(
+            chapter3AchievementScene
+        );
+
+
+    };
+
+
+}
+
+
+
+
+
+
+// RETURN STORY
+
+
+if(returnStoryButton3){
+
+
+    returnStoryButton3.onclick = ()=>{
+
+
+        openScene(
+            chapterSelectScene
+        );
+
+
+        updateChapters();
+
+
+    };
+
+
+}
