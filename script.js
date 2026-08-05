@@ -1376,7 +1376,6 @@ journalBook.classList.add(
 
 if(returnChapter4Button){
 
-
 returnChapter4Button.onclick=()=>{
 
 
@@ -1398,11 +1397,11 @@ chapter5Card.querySelector(".lock").innerHTML="✓";
 
 chapter5Card.querySelector(".status").innerHTML="AVAILABLE";
 
+
 }
 
 
 
-// RETURN
 
 openScene(
 chapterSelectScene
@@ -1413,6 +1412,9 @@ updateChapters();
 
 
 };
+
+
+}
 // =================================
 // CHAPTER V SYSTEM
 // =================================
