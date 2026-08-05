@@ -656,7 +656,14 @@ const chapter2VideoScene = document.getElementById(
     "chapter2VideoScene"
 );
 
+const chapter2AchievementScene = document.getElementById(
+    "chapter2AchievementScene"
+);
 
+
+const returnStoryButton2 = document.getElementById(
+    "returnStoryButton2"
+);
 const chapter2StartButton = document.getElementById(
     "chapter2StartButton"
 );
@@ -800,17 +807,33 @@ if(chapter2Video){
         );
 
 
-
         localStorage.setItem(
             "chapterProgress",
             "chapter3"
         );
 
 
+        openScene(
+            chapter2AchievementScene
+        );
+
+
+    };
+
+
+}
+if(returnStoryButton2){
+
+
+    returnStoryButton2.onclick = ()=>{
+
 
         openScene(
-            achievementScene
+            chapterSelectScene
         );
+
+
+        updateChapters();
 
 
     };
