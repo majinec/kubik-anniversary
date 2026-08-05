@@ -1391,23 +1391,22 @@ updateChapters();
 // =================================
 
 
-
-const chapter5Card = document.querySelector(
+const chapter5Card =
+document.querySelector(
 '[data-chapter="chapter5"]'
 );
 
 
-
-const chapter5IntroScene = document.getElementById(
+const chapter5IntroScene =
+document.getElementById(
 "chapter5IntroScene"
 );
 
 
-
-const chapter5FinalScene = document.getElementById(
+const chapter5FinalScene =
+document.getElementById(
 "chapter5FinalScene"
 );
-
 
 
 const chapter5StartButton =
@@ -1416,12 +1415,10 @@ document.getElementById(
 );
 
 
-
 const finalGift =
 document.getElementById(
 "finalGift"
 );
-
 
 
 const finalMessage =
@@ -1432,29 +1429,13 @@ document.getElementById(
 
 
 
-
-
 // OPEN CHAPTER V
 
 
 if(chapter5Card){
 
 
-chapter5Card.onclick = ()=>{
-
-
-if(
-chapter5Card.classList.contains("locked")
-){
-
-console.log(
-"Chapter V locked"
-);
-
-return;
-
-}
-
+chapter5Card.onclick=()=>{
 
 
 console.log(
@@ -1462,11 +1443,9 @@ console.log(
 );
 
 
-
 openScene(
 chapter5IntroScene
 );
-
 
 
 };
@@ -1478,14 +1457,13 @@ chapter5IntroScene
 
 
 
-
-// START TAHITI
+// START
 
 
 if(chapter5StartButton){
 
 
-chapter5StartButton.onclick = ()=>{
+chapter5StartButton.onclick=()=>{
 
 
 openScene(
@@ -1493,7 +1471,6 @@ chapter5FinalScene
 );
 
 
-
 };
 
 
@@ -1503,38 +1480,21 @@ chapter5FinalScene
 
 
 
-
-// FINAL GIFT
+// GIFT
 
 
 if(finalGift){
 
 
-finalGift.onclick = ()=>{
+finalGift.onclick=()=>{
 
 
 finalGift.style.display="none";
 
 
-if(finalMessage){
-
 finalMessage.classList.add(
 "show"
 );
-
-}
-
-
-setTimeout(()=>{
-
-
-openScene(
-thankYouScene
-);
-
-
-},4000);
-
 
 
 };
