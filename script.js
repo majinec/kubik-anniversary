@@ -1228,20 +1228,36 @@ vinyls.forEach(vinyl=>{
 
 if(returnRadioButton){
 
-
-    returnRadioButton.onclick = ()=>{
-
-
-        if(currentAudio){
+returnRadioButton.onclick=()=>{
 
 
-            currentAudio.pause();
+if(currentAudio){
 
-            currentAudio.currentTime=0;
+currentAudio.pause();
+
+currentAudio.currentTime=0;
+
+}
 
 
-        }
+localStorage.setItem(
+"chapterProgress",
+"chapter4"
+);
 
+
+openScene(
+chapterSelectScene
+);
+
+
+updateChapters();
+
+
+};
+
+
+}
 
         if(currentVinyl){
 
