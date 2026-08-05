@@ -4584,11 +4584,9 @@ perspective:1200px;
 
 .book-cover {
 
-
 position:absolute;
 
 inset:0;
-
 
 background:
 
@@ -4597,7 +4595,6 @@ linear-gradient(
 #4b2b16,
 #1b0e06
 );
-
 
 
 border:
@@ -4615,9 +4612,7 @@ align-items:center;
 justify-content:center;
 
 
-
-font-size:140px;
-
+font-size:130px;
 
 
 transition:1.5s;
@@ -4625,14 +4620,19 @@ transition:1.5s;
 
 z-index:2;
 
-
-box-shadow:
-
-0 0 50px rgba(0,0,0,.8);
-
+backface-visibility:hidden;
 
 }
 
+.journal-book.opened .book-cover{
+
+transform:
+
+rotateY(-180deg);
+
+opacity:0;
+
+}
 
 
 
