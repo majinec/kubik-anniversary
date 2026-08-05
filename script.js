@@ -1032,32 +1032,39 @@ if(chapter3Video){
 
 }
 
+// RETURN FROM CHAPTER IV
+
+if(returnChapter4Button){
+
+returnChapter4Button.onclick=()=>{
+
+
+// UNLOCK CHAPTER V
+
+localStorage.setItem(
+"chapterProgress",
+"chapter5"
+);
 
 
 
+openScene(
+chapterSelectScene
+);
 
 
-// RETURN STORY
+updateChapters();
 
 
-if(returnStoryButton3){
-
-
-    returnStoryButton3.onclick = ()=>{
-
-
-        openScene(
-            chapterSelectScene
-        );
-
-
-        updateChapters();
-
-
-    };
+};
 
 
 }
+
+
+
+
+
 // =================================
 // GTA RADIO SYSTEM
 // =================================
