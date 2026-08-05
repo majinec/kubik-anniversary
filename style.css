@@ -4050,36 +4050,32 @@ to {
     display:block;
 
 }
+
 /* =================================
-   GTA RADIO - COMPACT VERSION
+   GTA RADIO FINAL POLISH
 ================================= */
 
 
-#gtaRadioScene{
+#gtaRadioScene .gta-radio{
 
-    overflow:hidden;
+    transform:scale(0.88) !important;
 
 }
 
 
 
-.gta-radio{
+/* GTA FONT */
 
-    width:100%;
+#gtaRadioScene h1,
+#gtaRadioScene h2,
+#gtaRadioScene h3,
+#gtaRadioScene button,
+#gtaRadioScene p,
+#gtaRadioScene span{
 
-    height:90vh;
+    font-family: "Arial Black", Impact, sans-serif;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transform:scale(0.75);
-
-    transform-origin:center center;
+    letter-spacing:1px;
 
 }
 
@@ -4088,34 +4084,25 @@ to {
 /* HEADER */
 
 
-.gta-radio h1{
+#gtaRadioScene h1{
 
-    font-size:42px;
+    font-size:55px !important;
 
-    margin:0 0 5px;
+    text-transform:uppercase;
 
-}
-
-
-
-.gta-radio h2{
-
-    font-size:26px;
-
-    margin:5px 0;
+    margin-bottom:10px !important;
 
 }
 
 
 
-.gta-radio p{
+#gtaRadioScene h2{
 
-    font-size:15px;
+    font-size:30px !important;
 
-    margin:5px 0 20px;
+    text-transform:uppercase;
 
 }
-
 
 
 
@@ -4123,197 +4110,157 @@ to {
 /* VINYLS */
 
 
-.vinyl-container{
+#gtaRadioScene .record{
 
-    display:flex;
+    width:150px !important;
 
-    justify-content:center;
+    height:150px !important;
 
-    align-items:center;
-
-    gap:45px;
-
-    margin:15px 0;
+    font-size:60px;
 
 }
 
 
 
-.vinyl{
+#gtaRadioScene .vinyl-container{
 
-    text-align:center;
-
-    cursor:pointer;
+    gap:55px !important;
 
 }
 
 
 
-.record{
 
-    width:130px;
 
-    height:130px;
+#gtaRadioScene .vinyl h3{
 
-    border-radius:50%;
+    font-size:18px !important;
+
+}
+
+
+#gtaRadioScene .vinyl span{
+
+    font-size:14px !important;
+
+}
+
+
+
+
+
+/* ACHIEVEMENT */
+
+
+#gtaRadioScene .driving-achievement{
+
+    margin-top:25px;
+
+}
+
+
+
+#gtaRadioScene .driving-achievement h2{
+
+    font-size:28px !important;
+
+}
+
+
+
+#gtaRadioScene .driving-achievement h1{
+
+    font-size:38px !important;
+
+}
+
+
+
+
+
+/* UNLOCK TEXT */
+
+
+#gtaRadioScene .radio-unlocked{
+
+    font-size:28px !important;
+
+    line-height:1.2;
+
+}
+
+
+
+
+
+/* GTA BUTTON */
+
+
+#gtaRadioScene #returnRadioButton{
+
+
+    font-family:Impact, "Arial Black", sans-serif;
+
 
     background:#111;
 
-    display:flex;
 
-    align-items:center;
+    color:white;
 
-    justify-content:center;
 
-    font-size:55px;
+    border:2px solid white;
 
-    margin:auto;
+
+    padding:15px 55px;
+
+
+    font-size:20px;
+
+
+    letter-spacing:2px;
+
+
+    text-transform:uppercase;
+
+
+    cursor:pointer;
+
 
     transition:0.3s;
 
-}
-
-
-
-.vinyl:hover .record{
-
-    transform:scale(1.1);
 
 }
 
 
 
-.vinyl.playing .record{
+#gtaRadioScene #returnRadioButton:hover{
 
-    animation:spin 3s linear infinite;
+
+    background:white;
+
+
+    color:black;
+
+
+    transform:scale(1.05);
+
 
 }
 
 
 
-@keyframes spin{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-
-.vinyl h3{
-
-    font-size:16px;
-
-    margin:8px 0 2px;
-
-}
-
-
-
-.vinyl span{
-
-    font-size:12px;
-
-}
-
-
-
-
-
-/* DRIVING ACHIEVEMENT */
-
-
-.driving-achievement{
-
-    margin-top:15px;
-
-    text-align:center;
-
-}
-
-
-
-.driving-achievement h2{
-
-    font-size:22px;
-
-}
-
-
-
-.driving-achievement h1{
-
-    font-size:30px;
-
-    margin:5px;
-
-}
-
-
-
-.driving-achievement p{
-
-    font-size:15px;
-
-    line-height:1.4;
-
-}
-
-
-
-
-
-/* GTA UNLOCK TEXT */
-
-
-.radio-unlocked{
-
-    margin:15px 0 !important;
-
-    font-size:22px !important;
-
-    text-align:center;
-
-}
-
-
-
-
-
-/* BUTTON */
-
-
-#returnRadioButton{
-
-    padding:12px 45px;
-
-    font-size:16px;
-
-}
-
-
-
-
-
-/* MENŠÍ OBRAZOVKY */
 
 
 @media(max-height:850px){
 
 
-    .gta-radio{
+#gtaRadioScene .gta-radio{
 
-        transform:scale(0.65);
 
-    }
+    transform:scale(0.78) !important;
 
 
 }
-#gtaRadioScene{
-    border:5px solid red !important;
+
+
 }
