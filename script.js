@@ -1389,3 +1389,118 @@ updateChapters();
 
 
 }
+// =================================
+// CHAPTER V SYSTEM
+// =================================
+
+
+const chapter5Card =
+document.querySelector(
+'[data-chapter="chapter5"]'
+);
+
+
+const chapter5IntroScene =
+document.getElementById(
+"chapter5IntroScene"
+);
+
+
+const chapter5FinalScene =
+document.getElementById(
+"chapter5FinalScene"
+);
+
+
+const chapter5StartButton =
+document.getElementById(
+"chapter5StartButton"
+);
+
+
+const finalGift =
+document.getElementById(
+"finalGift"
+);
+
+
+const finalMessage =
+document.getElementById(
+"finalMessage"
+);
+
+
+
+
+// OPEN CHAPTER V
+
+
+if(chapter5Card){
+
+
+chapter5Card.onclick=()=>{
+
+
+console.log(
+"Opening Chapter V"
+);
+
+
+openScene(
+chapter5IntroScene
+);
+
+
+};
+
+
+}
+
+
+
+
+
+// START
+
+
+if(chapter5StartButton){
+
+
+chapter5StartButton.onclick=()=>{
+
+
+openScene(
+chapter5FinalScene
+);
+
+
+};
+
+
+}
+
+
+
+
+
+// GIFT
+
+
+if(finalGift){
+
+
+finalGift.onclick=()=>{
+
+
+finalGift.style.display="none";
+
+
+finalMessage.classList.add(
+"show"
+);
+
+
+};
+
+
+}
