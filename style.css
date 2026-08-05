@@ -3147,120 +3147,103 @@ to {
 
 }
 /* ========================= */
-/* STORY SELECT */
+/* STORY SELECT FINAL */
 /* ========================= */
 
 
 #chapterSelectScene {
 
+    background:
 
-background:
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.9)
+    ),
 
-linear-gradient(
-rgba(0,0,0,.65),
-rgba(0,0,0,.9)
-),
-
-radial-gradient(
-circle,
-#3a2918,
-#000
-);
-
+    radial-gradient(
+        circle,
+        #3a2918,
+        #000
+    );
 
 }
 
 
 
 
-.journal-container{
+.journal-container {
 
+    width:95%;
+    max-width:1200px;
 
-width:90%;
+    height:100vh;
 
-max-width:1200px;
+    display:flex;
 
-text-align:center;
+    flex-direction:column;
 
+    justify-content:center;
 
-}
+    align-items:center;
 
-
-
-
-.journal-header p{
-
-
-color:#b99b68;
-
-letter-spacing:8px;
-
-font-size:14px;
-
+    text-align:center;
 
 }
 
 
 
 
-.journal-header h1{
+.journal-header p {
 
+    color:#b99b68;
 
-font-family:"ChineseRocks",serif;
+    letter-spacing:6px;
 
-font-size:75px;
+    font-size:12px;
 
-letter-spacing:8px;
-
-color:#d8bc87;
-
-margin:20px;
-
+    margin:0;
 
 }
 
 
 
 
-.progress-text{
+.journal-header h1 {
 
+    font-family:"ChineseRocks",serif;
 
-margin-bottom:40px;
+    font-size:55px;
 
-color:#aaa;
+    letter-spacing:8px;
 
-letter-spacing:5px;
+    color:#d8bc87;
 
-
-}
-
-
-
-#storyProgress{
-
-
-font-size:35px;
-
-color:#d8bc87;
-
+    margin:10px 0 20px;
 
 }
 
 
 
 
+.progress-text {
 
-.chapter-grid{
+    color:#aaa;
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
 
 
-display:grid;
 
-grid-template-columns:
+#storyProgress {
 
-repeat(3,1fr);
+    font-size:25px;
 
-gap:30px;
-
+    color:#d8bc87;
 
 }
 
@@ -3268,34 +3251,16 @@ gap:30px;
 
 
 
-.chapter-card{
+.chapter-grid {
 
 
-min-height:260px;
+    width:100%;
 
-padding:35px;
+    display:grid;
 
+    grid-template-columns:repeat(3,1fr);
 
-background:
-
-rgba(0,0,0,.65);
-
-
-border:
-
-1px solid rgba(216,188,135,.35);
-
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-
-transition:.5s;
+    gap:20px;
 
 
 }
@@ -3304,40 +3269,34 @@ transition:.5s;
 
 
 
-.chapter-card h2{
+.chapter-card {
 
 
-font-family:"ChineseRocks";
+    height:190px;
 
-color:#d8bc87;
-
-font-size:35px;
+    padding:20px;
 
 
-}
+    background:
+
+    rgba(0,0,0,.65);
 
 
+    border:
+
+    1px solid rgba(216,188,135,.35);
 
 
-.chapter-card h3{
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
 
-font-size:22px;
-
-letter-spacing:3px;
-
-
-}
-
-
-
-
-.chapter-card p{
-
-
-color:#aaa;
-
-letter-spacing:3px;
+    transition:.4s;
 
 
 }
@@ -3345,39 +3304,15 @@ letter-spacing:3px;
 
 
 
-
-.lock{
-
-
-font-size:30px;
-
-margin-bottom:15px;
+.chapter-card:hover {
 
 
-}
+    transform:translateY(-8px);
 
 
+    box-shadow:
 
-
-
-.chapter-card.unlocked{
-
-
-cursor:pointer;
-
-
-}
-
-
-
-.chapter-card.unlocked:hover{
-
-
-transform:translateY(-10px);
-
-box-shadow:
-
-0 0 35px rgba(216,188,135,.3);
+    0 0 30px rgba(216,188,135,.3);
 
 
 }
@@ -3385,13 +3320,16 @@ box-shadow:
 
 
 
+.chapter-card h2 {
 
-.chapter-card.locked{
 
+    font-family:"ChineseRocks";
 
-opacity:.45;
+    font-size:28px;
 
-filter:grayscale(1);
+    color:#d8bc87;
+
+    margin:5px;
 
 
 }
@@ -3399,14 +3337,33 @@ filter:grayscale(1);
 
 
 
-.status{
+.chapter-card h3 {
 
 
-margin-top:20px;
+    font-size:15px;
 
-letter-spacing:5px;
+    letter-spacing:2px;
 
-color:#d8bc87;
+    color:white;
+
+    margin:5px;
+
+
+}
+
+
+
+
+.chapter-card p {
+
+
+    color:#999;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    margin:5px;
 
 
 }
@@ -3415,26 +3372,45 @@ color:#d8bc87;
 
 
 
-.chapter-card.completed{
+.lock {
 
 
-border:
+    font-size:22px;
 
-1px solid #00c8ff;
+    margin-bottom:5px;
+
+
+}
+
+
+
+
+.status {
+
+
+    margin-top:10px;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#d8bc87;
 
 
 }
 
 
 
-.chapter-card.completed .status{
+
+.chapter-card.locked {
 
 
-color:#00c8ff;
+    opacity:.45;
+
+    filter:grayscale(1);
 
 
 }
-
 
 
 
@@ -3442,11 +3418,9 @@ color:#00c8ff;
 @media(max-width:900px){
 
 
-.chapter-grid{
+.chapter-grid {
 
-
-grid-template-columns:1fr;
-
+    grid-template-columns:1fr;
 
 }
 
@@ -4069,124 +4043,5 @@ grid-template-columns:1fr;
     object-fit:cover;
 
     display:block;
-
-}
-/* ========================= */
-/* FINAL CHAPTER SELECT FIX */
-/* ========================= */
-
-
-.journal-container{
-
-    width:95%;
-    max-width:1400px;
-
-    height:100vh;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-}
-
-
-
-.journal-header h1{
-
-    font-family:"ChineseRocks",serif;
-
-    font-size:55px;
-
-    letter-spacing:7px;
-
-    margin:0 0 15px;
-
-}
-
-
-
-.chapter-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-
-    width:100%;
-
-}
-
-
-
-
-.chapter-card{
-
-    min-height:180px;
-
-    padding:20px;
-
-}
-
-
-
-.chapter-card h2{
-
-    font-size:28px;
-
-    margin:5px;
-
-}
-
-
-
-.chapter-card h3{
-
-    font-size:16px;
-
-    letter-spacing:2px;
-
-}
-
-
-
-.chapter-card p{
-
-    font-size:12px;
-
-    margin:8px;
-
-}
-
-
-
-.lock{
-
-    font-size:22px;
-
-}
-
-
-
-.status{
-
-    margin-top:8px;
-
-    font-size:12px;
-
-}
-
-
-
-@media(max-width:900px){
-
-.chapter-grid{
-
-    grid-template-columns:1fr;
-
-}
-
 
 }
