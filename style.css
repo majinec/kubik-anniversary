@@ -4051,9 +4051,10 @@ to {
 
 }
 
-/* =================================
-   GTA RADIO
-================================= */
+/* ================================= */
+/* GTA RADIO ORIGINAL STYLE */
+/* ================================= */
+
 
 #gtaRadioScene{
 
@@ -4063,248 +4064,421 @@ to {
 
 }
 
-.gta-radio{
+
+#gtaRadioScene .gta-radio{
+
 
     width:100%;
+
     height:100%;
 
+
     display:flex;
+
     flex-direction:column;
 
+
     justify-content:center;
+
     align-items:center;
+
 
     text-align:center;
 
-    padding:25px;
+
+    transform:scale(.85);
 
 }
 
-/* HEADER */
 
-.gta-radio h1{
 
-    font-family:"Pricedown",sans-serif;
+/* TITLE */
 
-    font-size:58px;
+
+#gtaRadioScene .gta-radio > h1{
+
+
+    font-family:"Pricedown", sans-serif;
+
+    font-size:75px;
+
+    letter-spacing:8px;
 
     margin:0;
 
-    letter-spacing:3px;
 
 }
 
-.gta-radio h2{
 
-    font-family:"Pricedown",sans-serif;
 
-    font-size:30px;
+#gtaRadioScene .gta-radio > h2{
 
-    margin:6px 0;
 
-    letter-spacing:2px;
+    font-family:"Pricedown", sans-serif;
 
-}
+    font-size:42px;
 
-.gta-radio > p{
+    letter-spacing:5px;
 
-    color:#cfcfcf;
+    margin:5px 0;
 
-    letter-spacing:3px;
-
-    margin-bottom:25px;
-
-    font-size:15px;
 
 }
 
-/* VINYLS */
 
-.vinyl-container{
 
-    display:flex;
+#gtaRadioScene .gta-radio > p{
 
-    justify-content:center;
-
-    align-items:center;
-
-    gap:40px;
-
-    margin-bottom:25px;
-
-    flex-wrap:wrap;
-
-}
-
-.vinyl{
-
-    width:170px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.vinyl:hover{
-
-    transform:scale(1.05);
-
-}
-
-.record{
-
-    width:120px;
-
-    height:120px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle,#666 0%,#222 45%,#000 80%);
-
-    border:5px solid #444;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:44px;
-
-    box-shadow:0 0 20px rgba(255,255,255,.12);
-
-}
-
-.playing .record{
-
-    animation:spin 2s linear infinite;
-
-}
-
-.vinyl h3{
-
-    margin-top:14px;
-
-    font-size:18px;
-
-    color:white;
-
-    letter-spacing:2px;
-
-}
-
-.vinyl span{
 
     color:#aaa;
-
-    font-size:13px;
-
-    letter-spacing:2px;
-
-}
-
-/* ACHIEVEMENT */
-
-.driving-achievement{
-
-    margin-top:20px;
-
-    max-width:700px;
-
-}
-
-.driving-achievement h2{
-
-    font-family:"Pricedown",sans-serif;
-
-    font-size:24px;
-
-    margin:0;
-
-}
-
-.driving-achievement h1{
-
-    font-family:"Pricedown",sans-serif;
-
-    font-size:38px;
-
-    margin:8px 0;
-
-}
-
-.driving-achievement p{
-
-    font-size:16px;
-
-    line-height:1.6;
-
-    color:#ddd;
-
-}
-
-.radio-unlocked{
-
-    margin:20px 0;
-
-    font-family:"Pricedown",sans-serif;
-
-    font-size:26px;
-
-}
-
-/* BUTTON */
-
-#returnRadioButton{
-
-    margin-top:10px;
-
-    padding:18px 65px;
-
-    background:transparent;
-
-    border:1px solid #b36cff;
-
-    border-radius:50px;
-
-    color:white;
 
     letter-spacing:5px;
 
     font-size:14px;
 
-    cursor:none;
+    margin-bottom:35px;
 
-    transition:.35s;
 
 }
+
+
+
+
+
+/* VINYLS */
+
+
+.vinyl-container{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    gap:60px;
+
+
+}
+
+
+
+.vinyl{
+
+
+    width:190px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+
+}
+
+
+
+.vinyl:hover{
+
+
+    transform:translateY(-10px) scale(1.05);
+
+
+}
+
+
+
+.record{
+
+
+    width:150px;
+
+    height:150px;
+
+
+    border-radius:50%;
+
+
+    margin:auto;
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        #555,
+
+        #111 45%,
+
+        #000 70%
+
+    );
+
+
+    border:
+
+    3px solid #333;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:55px;
+
+
+    box-shadow:
+
+    0 0 25px rgba(255,255,255,.15);
+
+
+}
+
+
+
+
+.vinyl h3{
+
+
+    margin-top:15px;
+
+
+    font-family:"Pricedown",sans-serif;
+
+
+    font-size:22px;
+
+
+    letter-spacing:3px;
+
+
+}
+
+
+
+
+.vinyl span{
+
+
+    color:#aaa;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+
+}
+
+
+
+
+.vinyl.playing .record{
+
+
+    animation:spinVinyl 3s linear infinite;
+
+
+}
+
+
+
+
+@keyframes spinVinyl{
+
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+/* ACHIEVEMENT */
+
+
+.driving-achievement{
+
+
+    margin-top:35px;
+
+}
+
+
+
+.driving-achievement h2{
+
+
+    font-family:"Pricedown",sans-serif;
+
+
+    font-size:32px;
+
+
+    letter-spacing:5px;
+
+
+    margin:0;
+
+
+}
+
+
+
+.driving-achievement h1{
+
+
+    font-family:"Pricedown",sans-serif;
+
+
+    font-size:55px;
+
+
+    letter-spacing:8px;
+
+
+    margin:10px;
+
+
+}
+
+
+
+.driving-achievement p{
+
+
+    color:#ddd;
+
+
+    font-size:18px;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+
+/* UNLOCK */
+
+
+.radio-unlocked{
+
+
+    font-family:"Pricedown",sans-serif;
+
+
+    font-size:38px;
+
+
+    letter-spacing:8px;
+
+
+    margin:25px 0;
+
+
+}
+
+
+
+
+
+/* BUTTON */
+
+
+#returnRadioButton{
+
+
+    margin-top:15px;
+
+
+    padding:18px 70px;
+
+
+    background:transparent;
+
+
+    border:2px solid #00c8ff;
+
+
+    color:white;
+
+
+    font-family:"Pricedown",sans-serif;
+
+
+    font-size:22px;
+
+
+    letter-spacing:5px;
+
+
+    cursor:none;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
 
 #returnRadioButton:hover{
 
-    background:#b36cff;
+
+    background:#00c8ff;
+
 
     color:black;
 
-    box-shadow:0 0 30px #b36cff;
+
+    box-shadow:
+
+    0 0 35px #00c8ff;
+
 
 }
 
-@keyframes spin{
 
-    from{
 
-        transform:rotate(0deg);
 
-    }
 
-    to{
 
-        transform:rotate(360deg);
+/* COMPACT MODE */
 
-    }
+
+@media(max-height:900px){
+
+
+#gtaRadioScene .gta-radio{
+
+
+    transform:scale(.72);
+
+
+}
+
 
 }
