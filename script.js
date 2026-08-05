@@ -1032,38 +1032,6 @@ if(chapter3Video){
 
 }
 
-// RETURN FROM CHAPTER IV
-
-if(returnChapter4Button){
-
-returnChapter4Button.onclick=()=>{
-
-
-// UNLOCK CHAPTER V
-
-localStorage.setItem(
-"chapterProgress",
-"chapter5"
-);
-
-
-
-openScene(
-chapterSelectScene
-);
-
-
-updateChapters();
-
-
-};
-
-
-}
-
-
-
-
 
 // =================================
 // GTA RADIO SYSTEM
@@ -1375,7 +1343,42 @@ journalBook.classList.add(
 
 }
 
+// =================================
+// CHAPTER IV COMPLETE -> UNLOCK V
+// =================================
 
+
+if(returnChapter4Button){
+
+returnChapter4Button.onclick=()=>{
+
+
+console.log("Chapter IV completed 🏆");
+
+
+// unlock Chapter V
+
+localStorage.setItem(
+"chapterProgress",
+"chapter5"
+);
+
+
+
+openScene(
+chapterSelectScene
+);
+
+
+
+updateChapters();
+
+
+
+};
+
+
+}
 
 
 
