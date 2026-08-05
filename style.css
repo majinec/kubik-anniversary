@@ -2159,239 +2159,6 @@ content:"...";
 
 
 
-
-
-
-
-
-/* ========================= */
-/* RDR2 CHAPTER SELECT */
-/* ========================= */
-
-
-#chapterSelectScene {
-
-
-    background:
-
-    linear-gradient(
-
-        rgba(0,0,0,.45),
-
-        rgba(0,0,0,.85)
-
-    ),
-
-    radial-gradient(
-
-        circle,
-
-        #3a2918,
-
-        #000
-
-    );
-
-
-}
-
-
-
-
-
-.chapter-container {
-
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-.chapter-container h1 {
-
-
-    font-family:"ChineseRocks", serif;
-
-    font-size:95px;
-
-    letter-spacing:10px;
-
-    color:#d8bc87;
-
-
-    text-transform:uppercase;
-
-
-    text-shadow:
-
-
-    0 0 8px rgba(220,180,100,.25);
-
-
-    margin:0;
-
-
-}
-
-
-
-
-
-
-
-.chapter-cards {
-
-
-    display:flex;
-
-    gap:60px;
-
-    margin-top:70px;
-
-
-}
-
-
-
-
-
-
-
-.chapter-card {
-
-
-    width:300px;
-
-    min-height:350px;
-
-
-    padding:45px 30px;
-
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    background:
-
-    rgba(0,0,0,.55);
-
-
-    border:
-
-    1px solid rgba(220,190,130,.35);
-
-
-    transition:.5s;
-
-
-}
-
-
-
-
-
-.chapter-card:hover {
-
-
-    transform:translateY(-15px);
-
-
-    box-shadow:
-
-
-    0 0 35px rgba(220,190,130,.2);
-
-
-}
-
-
-
-
-
-.chapter-card h2 {
-
-
-    font-family:"ChineseRocks", serif;
-
-
-    font-size:45px;
-
-
-    color:#e2c28b;
-
-
-    margin:0 0 30px;
-
-
-}
-
-
-
-
-
-
-
-.chapter-card h3 {
-
-
-    font-size:32px;
-
-
-    letter-spacing:5px;
-
-
-    margin:0;
-
-
-    color:white;
-
-
-}
-
-
-
-
-
-.chapter-card p {
-
-
-    margin-top:20px;
-
-
-    color:#aaa;
-
-
-    letter-spacing:3px;
-
-
-}
-
-
-
-
-
-
-
-
-
 /* ========================= */
 /* FUTURE SCREEN */
 /* ========================= */
@@ -4302,5 +4069,124 @@ grid-template-columns:1fr;
     object-fit:cover;
 
     display:block;
+
+}
+/* ========================= */
+/* FINAL CHAPTER SELECT FIX */
+/* ========================= */
+
+
+.journal-container{
+
+    width:95%;
+    max-width:1400px;
+
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+.journal-header h1{
+
+    font-family:"ChineseRocks",serif;
+
+    font-size:55px;
+
+    letter-spacing:7px;
+
+    margin:0 0 15px;
+
+}
+
+
+
+.chapter-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    width:100%;
+
+}
+
+
+
+
+.chapter-card{
+
+    min-height:180px;
+
+    padding:20px;
+
+}
+
+
+
+.chapter-card h2{
+
+    font-size:28px;
+
+    margin:5px;
+
+}
+
+
+
+.chapter-card h3{
+
+    font-size:16px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+.chapter-card p{
+
+    font-size:12px;
+
+    margin:8px;
+
+}
+
+
+
+.lock{
+
+    font-size:22px;
+
+}
+
+
+
+.status{
+
+    margin-top:8px;
+
+    font-size:12px;
+
+}
+
+
+
+@media(max-width:900px){
+
+.chapter-grid{
+
+    grid-template-columns:1fr;
+
+}
+
 
 }
