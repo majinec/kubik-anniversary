@@ -1228,39 +1228,19 @@ vinyls.forEach(vinyl=>{
 
 if(returnRadioButton){
 
-returnRadioButton.onclick=()=>{
+    returnRadioButton.onclick=()=>{
 
 
-if(currentAudio){
+        if(currentAudio){
 
-currentAudio.pause();
+            currentAudio.pause();
 
-currentAudio.currentTime=0;
+            currentAudio.currentTime=0;
 
-}
+        }
 
-
-localStorage.setItem(
-"chapterProgress",
-"chapter4"
-);
-
-
-openScene(
-chapterSelectScene
-);
-
-
-updateChapters();
-
-
-};
-
-
-}
 
         if(currentVinyl){
-
 
             currentVinyl.classList.remove(
                 "playing"
@@ -1268,6 +1248,11 @@ updateChapters();
 
         }
 
+
+        localStorage.setItem(
+            "chapterProgress",
+            "chapter4"
+        );
 
 
         openScene(
@@ -1278,9 +1263,7 @@ updateChapters();
         updateChapters();
 
 
-
     };
-
 
 }
 // =================================
