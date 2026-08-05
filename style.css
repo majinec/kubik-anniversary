@@ -3887,7 +3887,9 @@ to {
 
 
 
-#returnStoryButton {
+#returnStoryButton,
+#returnStoryButton2,
+#returnStoryButton3 {
 
 
     margin-top:60px;
