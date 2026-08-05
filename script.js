@@ -1370,16 +1370,25 @@ journalBook.classList.add(
 
 // RETURN
 
-
 if(returnChapter4Button){
 
 
 returnChapter4Button.onclick=()=>{
 
 
+// UNLOCK CHAPTER V
+
+localStorage.setItem(
+"chapterProgress",
+"chapter5"
+);
+
+
+
 openScene(
 chapterSelectScene
 );
+
 
 
 updateChapters();
