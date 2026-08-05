@@ -1013,7 +1013,7 @@ if(chapter3Video){
 
         localStorage.setItem(
             "chapterProgress",
-            "chapter4"
+            "gtaRadio"
         );
 
 
@@ -1048,6 +1048,219 @@ if(returnStoryButton3){
 
 
         updateChapters();
+
+
+    };
+
+
+}
+// =================================
+// GTA RADIO SYSTEM
+// =================================
+
+
+const gtaRadioCard = document.querySelector(
+    '[data-chapter="gtaRadio"]'
+);
+
+
+const gtaRadioScene = document.getElementById(
+    "gtaRadioScene"
+);
+
+
+const returnRadioButton = document.getElementById(
+    "returnRadioButton"
+);
+
+
+
+
+// OPEN GTA RADIO
+
+
+if(gtaRadioCard){
+
+
+    gtaRadioCard.onclick = ()=>{
+
+
+        console.log(
+            "Opening GTA Radio 📻"
+        );
+
+
+        openScene(
+            gtaRadioScene
+        );
+
+
+    };
+
+
+}
+
+
+
+
+
+// =================================
+// VINYL PLAYER
+// =================================
+
+
+const vinyls = document.querySelectorAll(
+    ".vinyl"
+);
+
+
+let currentAudio = null;
+let currentVinyl = null;
+
+
+
+vinyls.forEach(vinyl=>{
+
+
+    vinyl.onclick = ()=>{
+
+
+        let audioId =
+        vinyl.dataset.audio;
+
+
+
+        let audio =
+        document.getElementById(audioId);
+
+
+
+        // kliknutí na stejnou písničku = stop
+
+
+        if(currentAudio === audio){
+
+
+            audio.pause();
+
+            audio.currentTime = 0;
+
+
+            vinyl.classList.remove(
+                "playing"
+            );
+
+
+            currentAudio=null;
+
+            currentVinyl=null;
+
+
+            return;
+
+
+        }
+
+
+
+
+        // vypnutí předchozí
+
+
+        if(currentAudio){
+
+
+            currentAudio.pause();
+
+            currentAudio.currentTime=0;
+
+
+        }
+
+
+        if(currentVinyl){
+
+
+            currentVinyl.classList.remove(
+                "playing"
+            );
+
+
+        }
+
+
+
+
+
+        // spuštění nové
+
+
+        audio.play();
+
+
+
+        vinyl.classList.add(
+            "playing"
+        );
+
+
+
+        currentAudio=audio;
+
+        currentVinyl=vinyl;
+
+
+
+    };
+
+
+});
+
+
+
+
+
+
+// =================================
+// RETURN TO STORY
+// =================================
+
+
+if(returnRadioButton){
+
+
+    returnRadioButton.onclick = ()=>{
+
+
+        if(currentAudio){
+
+
+            currentAudio.pause();
+
+            currentAudio.currentTime=0;
+
+
+        }
+
+
+        if(currentVinyl){
+
+
+            currentVinyl.classList.remove(
+                "playing"
+            );
+
+        }
+
+
+
+        openScene(
+            chapterSelectScene
+        );
+
+
+        updateChapters();
+
 
 
     };
