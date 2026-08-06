@@ -1030,6 +1030,18 @@ if(chapter3Video){
     };
 
 
+if(returnStoryButton3){
+
+    returnStoryButton3.onclick = ()=>{
+
+        openScene(
+            chapterSelectScene
+        );
+
+        updateChapters();
+
+    };
+
 }
 
 
