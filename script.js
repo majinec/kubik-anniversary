@@ -1,9 +1,18 @@
+web
 console.log("Májinka & Kubík Anniversary Edition 🎮❤️");
+
+
+/* =====================================================
+   GLOBAL ELEMENTS
+===================================================== */
 
 
 const startButton = document.getElementById("startButton");
 const continueButton = document.getElementById("continueButton");
 const missionStartButton = document.getElementById("missionStartButton");
+
+
+const scenes = document.querySelectorAll(".scene");
 
 
 const saveScene = document.getElementById("saveScene");
@@ -12,35 +21,34 @@ const gtaLoadingScene = document.getElementById("gtaLoadingScene");
 const gtaVideoScene = document.getElementById("gtaVideoScene");
 const chapterSelectScene = document.getElementById("chapterSelectScene");
 
-const thankYouScene = document.getElementById(
-"thankYouScene"
-);
-
 
 const gtaVideo = document.getElementById("gtaVideo");
 const bootProgress = document.getElementById("bootProgress");
 
 
 
-/* ========================= */
-/* SCENE SYSTEM */
-/* ========================= */
+/* =====================================================
+   SCENE SYSTEM
+===================================================== */
 
 
 function openScene(scene){
 
-    document.querySelectorAll(".scene").forEach(s=>{
+    if(!scene){
+        console.warn("Scene not found");
+        return;
+    }
 
-        s.classList.remove("active");
+
+    scenes.forEach(currentScene=>{
+
+        currentScene.classList.remove("active");
 
     });
 
 
-    if(scene){
+    scene.classList.add("active");
 
-        scene.classList.add("active");
-
-    }
 
 }
 
@@ -48,18 +56,19 @@ function openScene(scene){
 
 
 
-/* ========================= */
-/* START */
-/* ========================= */
+
+/* =====================================================
+   START GAME
+===================================================== */
 
 
 if(startButton){
 
-    startButton.onclick = ()=>{
+    startButton.addEventListener("click",()=>{
 
         openScene(saveScene);
 
-    };
+    });
 
 }
 
@@ -67,14 +76,16 @@ if(startButton){
 
 
 
-/* ========================= */
-/* SAVE -> BOOT */
-/* ========================= */
+
+
+/* =====================================================
+   SAVE / CONTINUE SYSTEM
+===================================================== */
 
 
 if(continueButton){
 
-    continueButton.onclick = ()=>{
+    continueButton.addEventListener("click",()=>{
 
 
         openScene(bootScene);
@@ -83,9 +94,11 @@ if(continueButton){
         startBoot();
 
 
-    };
+    });
 
 }
+
+
 
 
 
@@ -96,14 +109,17 @@ function startBoot(){
 
     if(bootProgress){
 
-        bootProgress.style.width="0";
+
+        bootProgress.style.width="0%";
 
 
         setTimeout(()=>{
 
             bootProgress.style.width="100%";
 
+
         },100);
+
 
     }
 
@@ -113,6 +129,7 @@ function startBoot(){
 
 
         openScene(gtaLoadingScene);
+
 
 
     },15000);
@@ -126,15 +143,16 @@ function startBoot(){
 
 
 
-/* ========================= */
-/* GTA VIDEO */
-/* ========================= */
+
+/* =====================================================
+   GTA INTRO VIDEO
+===================================================== */
 
 
 if(missionStartButton){
 
 
-    missionStartButton.onclick=()=>{
+    missionStartButton.addEventListener("click",()=>{
 
 
         openScene(gtaVideoScene);
@@ -147,17 +165,24 @@ if(missionStartButton){
             gtaVideo.currentTime=0;
 
 
-            gtaVideo.play();
+            gtaVideo.play()
+            .catch(error=>{
+
+                console.log(
+                    "GTA video error:",
+                    error
+                );
+
+            });
 
 
         }
 
 
-    };
+    });
 
 
 }
-
 
 
 
@@ -166,13 +191,21 @@ if(missionStartButton){
 if(gtaVideo){
 
 
-    gtaVideo.onended=()=>{
+    gtaVideo.addEventListener(
+        "ended",
+        ()=>{
 
 
-        openChapterSelect();
+            console.log(
+                "GTA Intro finished 🎬"
+            );
 
 
-    };
+            openChapterSelect();
+
+
+        }
+    );
 
 
 }
@@ -184,10 +217,9 @@ if(gtaVideo){
 
 
 
-/* ========================= */
-/* CHAPTER SYSTEM */
-/* ========================= */
-
+/* =====================================================
+   CHAPTER DATABASE
+===================================================== */
 
 
 const chapters=[
@@ -204,17 +236,171 @@ const chapters=[
 
 
 let unlockedChapter =
-localStorage.getItem("chapterProgress") || "chapter1";
+localStorage.getItem(
+    "chapterProgress"
+) || "chapter1";
 
 
 
 
+
+
+
+
+
+/* =====================================================
+   CHAPTER SELECT
+===================================================== */
 
 
 function openChapterSelect(){
 
 
-    openScene(chapterSelectScene);
+    openScene(
+        chapterSelectScene
+    );
+
+
+    updateChapters();
+
+
+}
+
+
+
+
+
+
+function updateChapters(){
+
+
+    const cards =
+    document.querySelectorAll(
+        ".chapter-card"
+    );
+
+
+    const unlockedIndex =
+    chapters.indexOf(
+        unlockedChapter
+    );
+
+
+
+    cards.forEach(card=>{
+
+
+        const id =
+        card.dataset.chapter;
+
+
+
+        const cardIndex =
+        chapters.indexOf(id);
+
+
+
+        const lock =
+        card.querySelector(
+            ".lock"
+        );
+
+
+        const status =
+        card.querySelector(
+            ".status"
+        );
+
+
+
+
+        if(cardIndex <= unlockedIndex){
+
+
+            card.classList.remove(
+                "locked"
+            );
+
+
+            card.classList.add(
+                "unlocked"
+            );
+
+
+            if(lock){
+
+                lock.textContent="✓";
+
+            }
+
+
+            if(status){
+
+                status.textContent="AVAILABLE";
+
+            }
+
+
+
+        }else{
+
+
+            card.classList.remove(
+                "unlocked"
+            );
+
+
+            card.classList.add(
+                "locked"
+            );
+
+
+
+            if(lock){
+
+                lock.textContent="🔒";
+
+            }
+
+
+            if(status){
+
+                status.textContent="LOCKED";
+
+            }
+
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   PROGRESS SYSTEM
+===================================================== */
+
+
+function unlockChapter(chapter){
+
+
+    localStorage.setItem(
+        "chapterProgress",
+        chapter
+    );
+
+
+    unlockedChapter = chapter;
 
 
     updateChapters();
@@ -228,96 +414,100 @@ function openChapterSelect(){
 
 
 
-function updateChapters(){
+/* =====================================================
+   CUSTOM CURSOR
+===================================================== */
+
+
+const cursor =
+document.querySelector(
+    ".custom-cursor"
+);
 
 
 
-    const cards=document.querySelectorAll(".chapter-card");
+document.addEventListener(
+    "mousemove",
+    (event)=>{
 
 
-    let index = chapters.indexOf(unlockedChapter);
+        if(cursor){
 
 
-
-    cards.forEach(card=>{
-
-
-        let id = card.dataset.chapter;
+            cursor.style.left =
+            event.clientX + "px";
 
 
-        let cardIndex = chapters.indexOf(id);
-
-
-
-        if(cardIndex <= index){
-
-
-
-            card.classList.remove("locked");
-
-            card.classList.add("unlocked");
-
-
-            let lock = card.querySelector(".lock");
-
-            let status = card.querySelector(".status");
-
-
-
-            if(lock){
-
-                lock.innerHTML="✓";
-
-            }
-
-
-
-            if(status){
-
-                status.innerHTML="AVAILABLE";
-
-            }
-
-
-
-
-        }else{
-
-
-
-            card.classList.remove("unlocked");
-
-            card.classList.add("locked");
-
-
-
-            let lock = card.querySelector(".lock");
-
-            let status = card.querySelector(".status");
-
-
-
-            if(lock){
-
-                lock.innerHTML="🔒";
-
-            }
-
-
-
-            if(status){
-
-                status.innerHTML="LOCKED";
-
-            }
-
+            cursor.style.top =
+            event.clientY + "px";
 
 
         }
 
 
-    });
+    }
 
+);
+
+
+
+
+
+
+
+
+/* =====================================================
+   VIDEO PLAYER HELPER
+===================================================== */
+
+
+function playVideo(video){
+
+
+    if(!video){
+        return;
+    }
+
+
+
+    video.pause();
+
+
+    video.currentTime=0;
+
+
+    video.muted=true;
+
+
+
+    video.play()
+
+    .then(()=>{
+
+
+        setTimeout(()=>{
+
+
+            video.muted=false;
+
+
+        },500);
+
+
+
+    })
+
+
+    .catch(error=>{
+
+
+        console.log(
+            "Video play error:",
+            error
+        );
+
+
+    });
 
 
 }
@@ -328,33 +518,497 @@ function updateChapters(){
 
 
 
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
 
 
-/* ========================= */
-/* CUSTOM CURSOR */
-/* ========================= */
+window.addEventListener(
+    "load",
+    ()=>{
+
+
+        console.log(
+            "Game system loaded 🎮"
+        );
+
+
+        updateChapters();
+
+
+    }
+);
+/* =====================================================
+   CHAPTER I SYSTEM
+===================================================== */
+
+
+const chapter1Card =
+document.querySelector(
+    '[data-chapter="chapter1"]'
+);
+
+
+const chapter1IntroScene =
+document.getElementById(
+    "chapter1IntroScene"
+);
+
+
+const chapter1VideoScene =
+document.getElementById(
+    "chapter1VideoScene"
+);
+
+
+const chapter1StartButton =
+document.getElementById(
+    "chapter1StartButton"
+);
+
+
+const chapter1Video =
+document.getElementById(
+    "chapter1Video"
+);
+
+
+const achievementScene =
+document.getElementById(
+    "achievementScene"
+);
+
+
+const returnStoryButton =
+document.getElementById(
+    "returnStoryButton"
+);
 
 
 
-const cursor = document.querySelector(".custom-cursor");
+
+
+if(chapter1Card){
+
+    chapter1Card.addEventListener(
+        "click",
+        ()=>{
+
+
+            if(
+                chapter1Card.classList.contains(
+                    "locked"
+                )
+            ){
+                return;
+            }
+
+
+            openScene(
+                chapter1IntroScene
+            );
+
+
+        }
+    );
+
+}
 
 
 
-console.log("Cursor:", cursor);
+
+
+if(chapter1StartButton){
+
+
+    chapter1StartButton.addEventListener(
+        "click",
+        ()=>{
+
+
+            openScene(
+                chapter1VideoScene
+            );
+
+
+            playVideo(
+                chapter1Video
+            );
+
+
+        }
+    );
+
+
+}
 
 
 
 
-document.addEventListener("mousemove",(e)=>{
+if(chapter1Video){
 
 
-    if(cursor){
+    chapter1Video.addEventListener(
+        "ended",
+        ()=>{
 
 
-        cursor.style.left = e.clientX + "px";
+            console.log(
+                "Chapter I completed 🏆"
+            );
 
 
-        cursor.style.top = e.clientY + "px";
+            unlockChapter(
+                "chapter2"
+            );
+
+
+            openScene(
+                achievementScene
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CHAPTER II SYSTEM
+===================================================== */
+
+
+const chapter2Card =
+document.querySelector(
+    '[data-chapter="chapter2"]'
+);
+
+
+const chapter2IntroScene =
+document.getElementById(
+    "chapter2IntroScene"
+);
+
+
+const chapter2VideoScene =
+document.getElementById(
+    "chapter2VideoScene"
+);
+
+
+const chapter2StartButton =
+document.getElementById(
+    "chapter2StartButton"
+);
+
+
+const chapter2Video =
+document.getElementById(
+    "chapter2Video"
+);
+
+
+const chapter2AchievementScene =
+document.getElementById(
+    "chapter2AchievementScene"
+);
+
+
+const returnStoryButton2 =
+document.getElementById(
+    "returnStoryButton2"
+);
+
+
+
+
+
+
+
+if(chapter2Card){
+
+
+    chapter2Card.addEventListener(
+        "click",
+        ()=>{
+
+
+            if(
+                chapter2Card.classList.contains(
+                    "locked"
+                )
+            ){
+                return;
+            }
+
+
+            openScene(
+                chapter2IntroScene
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+if(chapter2StartButton){
+
+
+    chapter2StartButton.addEventListener(
+        "click",
+        ()=>{
+
+
+            openScene(
+                chapter2VideoScene
+            );
+
+
+            playVideo(
+                chapter2Video
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+if(chapter2Video){
+
+
+    chapter2Video.addEventListener(
+        "ended",
+        ()=>{
+
+
+            console.log(
+                "Chapter II completed 🏆"
+            );
+
+
+            unlockChapter(
+                "chapter3"
+            );
+
+
+            openScene(
+                chapter2AchievementScene
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CHAPTER III SYSTEM
+===================================================== */
+
+
+const chapter3Card =
+document.querySelector(
+    '[data-chapter="chapter3"]'
+);
+
+
+const chapter3IntroScene =
+document.getElementById(
+    "chapter3IntroScene"
+);
+
+
+const chapter3VideoScene =
+document.getElementById(
+    "chapter3VideoScene"
+);
+
+
+const chapter3StartButton =
+document.getElementById(
+    "chapter3StartButton"
+);
+
+
+const chapter3Video =
+document.getElementById(
+    "chapter3Video"
+);
+
+
+const chapter3AchievementScene =
+document.getElementById(
+    "chapter3AchievementScene"
+);
+
+
+const returnStoryButton3 =
+document.getElementById(
+    "returnStoryButton3"
+);
+
+
+
+
+
+
+
+if(chapter3Card){
+
+
+    chapter3Card.addEventListener(
+        "click",
+        ()=>{
+
+
+            if(
+                chapter3Card.classList.contains(
+                    "locked"
+                )
+            ){
+                return;
+            }
+
+
+            openScene(
+                chapter3IntroScene
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+
+if(chapter3StartButton){
+
+
+    chapter3StartButton.addEventListener(
+        "click",
+        ()=>{
+
+
+            openScene(
+                chapter3VideoScene
+            );
+
+
+            playVideo(
+                chapter3Video
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+
+if(chapter3Video){
+
+
+    chapter3Video.addEventListener(
+        "ended",
+        ()=>{
+
+
+            console.log(
+                "Chapter III completed 🏆"
+            );
+
+
+            unlockChapter(
+                "gtaRadio"
+            );
+
+
+            openScene(
+                chapter3AchievementScene
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RETURN BUTTONS
+===================================================== */
+
+
+[
+    returnStoryButton,
+    returnStoryButton2,
+    returnStoryButton3
+
+].forEach(button=>{
+
+
+    if(button){
+
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+
+                openScene(
+                    chapterSelectScene
+                );
+
+
+                updateChapters();
+
+
+            }
+        );
 
 
     }
@@ -369,724 +1023,59 @@ document.addEventListener("mousemove",(e)=>{
 
 
 
-/* ========================= */
-/* LOAD */
-/* ========================= */
 
+/* =====================================================
+   GTA RADIO SYSTEM
+===================================================== */
 
-window.onload=()=>{
 
-
-    console.log("Game system loaded 🎮");
-
-
-    updateChapters();
-
-
-};
-
-
-// =================================
-// CHAPTER I SYSTEM
-// =================================
-
-
-const chapter1Card = document.querySelector(
-    '[data-chapter="chapter1"]'
-);
-
-const chapter1IntroScene = document.getElementById(
-    "chapter1IntroScene"
-);
-
-const chapter1VideoScene = document.getElementById(
-    "chapter1VideoScene"
-);
-
-const chapter1StartButton = document.getElementById(
-    "chapter1StartButton"
-);
-
-const chapter1Video = document.getElementById(
-    "chapter1Video"
-);
-
-const achievementScene = document.getElementById(
-    "achievementScene"
-);
-
-const returnStoryButton = document.getElementById(
-    "returnStoryButton"
-);
-
-
-
-// DEBUG
-
-console.log(
-    "Chapter button:",
-    chapter1StartButton
-);
-
-console.log(
-    "Chapter video:",
-    chapter1Video
-);
-
-
-
-
-// =================================
-// OPEN CHAPTER I
-// =================================
-
-
-if(chapter1Card){
-
-
-    chapter1Card.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter I"
-        );
-
-
-        openScene(
-            chapter1IntroScene
-        );
-
-
-    };
-
-
-}
-
-
-
-
-
-// =================================
-// START CHAPTER I VIDEO
-// =================================
-
-
-// =================================
-// CHAPTER I VIDEO START
-// =================================
-
-
-if(chapter1StartButton){
-
-
-    chapter1StartButton.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter I video scene"
-        );
-
-
-        openScene(
-            chapter1VideoScene
-        );
-
-
-
-        if(chapter1Video){
-
-
-            chapter1Video.pause();
-
-
-            chapter1Video.currentTime = 0;
-
-
-            chapter1Video.muted = true;
-
-
-
-            chapter1Video.play()
-            .then(()=>{
-
-
-                console.log(
-                    "Chapter I video playing 🎬"
-                );
-
-
-
-                // po spuštění povolíme zvuk
-
-
-                setTimeout(()=>{
-
-
-                    chapter1Video.muted = false;
-
-
-                },500);
-
-
-
-            })
-
-
-            .catch(error=>{
-
-
-                console.log(
-                    "Video error:",
-                    error
-                );
-
-
-            });
-
-
-
-        }
-
-
-    };
-
-
-}
-
-
-
-
-// =================================
-// VIDEO FINISHED
-// =================================
-
-
-if(chapter1Video){
-
-
-    chapter1Video.onended = ()=>{
-
-
-        console.log(
-            "Chapter I completed 🏆"
-        );
-
-
-
-        localStorage.setItem(
-            "chapterProgress",
-            "chapter2"
-        );
-
-
-
-        openScene(
-            achievementScene
-        );
-
-
-    };
-
-
-}
-
-
-
-
-
-// =================================
-// RETURN TO STORY
-// =================================
-
-
-if(returnStoryButton){
-
-
-    returnStoryButton.onclick = ()=>{
-
-
-        openScene(
-            chapterSelectScene
-        );
-
-
-        updateChapters();
-
-
-    };
-
-
-}
-
-
-
-
-
-
-// RETURN BUTTON
-
-if(returnStoryButton){
-
-    returnStoryButton.onclick = ()=>{
-
-
-        openScene(
-            chapterSelectScene
-        );
-
-
-        updateChapters();
-
-
-    };
-
-}
-// =================================
-// CHAPTER II SYSTEM
-// =================================
-
-
-const chapter2Card = document.querySelector(
-    '[data-chapter="chapter2"]'
-);
-
-
-const chapter2IntroScene = document.getElementById(
-    "chapter2IntroScene"
-);
-
-
-const chapter2VideoScene = document.getElementById(
-    "chapter2VideoScene"
-);
-
-const chapter2AchievementScene = document.getElementById(
-    "chapter2AchievementScene"
-);
-
-
-const returnStoryButton2 = document.getElementById(
-    "returnStoryButton2"
-);
-const chapter2StartButton = document.getElementById(
-    "chapter2StartButton"
-);
-
-
-const chapter2Video = document.getElementById(
-    "chapter2Video"
-);
-
-
-
-
-// =================================
-// OPEN CHAPTER II
-// =================================
-
-
-if(chapter2Card){
-
-
-    chapter2Card.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter II"
-        );
-
-
-        openScene(
-            chapter2IntroScene
-        );
-
-
-    };
-
-
-}
-
-
-
-
-
-// =================================
-// START CHAPTER II VIDEO
-// =================================
-
-
-if(chapter2StartButton){
-
-
-    chapter2StartButton.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter II video scene"
-        );
-
-
-        openScene(
-            chapter2VideoScene
-        );
-
-
-
-        if(chapter2Video){
-
-
-            chapter2Video.pause();
-
-
-            chapter2Video.currentTime = 0;
-
-
-            chapter2Video.muted = true;
-
-
-
-            chapter2Video.play()
-
-            .then(()=>{
-
-
-                console.log(
-                    "Chapter II video playing 🎬"
-                );
-
-
-
-                setTimeout(()=>{
-
-
-                    chapter2Video.muted = false;
-
-
-                },500);
-
-
-
-            })
-
-
-            .catch(error=>{
-
-
-                console.log(
-                    "Chapter II video error:",
-                    error
-                );
-
-
-            });
-
-
-
-        }
-
-
-    };
-
-
-}
-
-
-
-
-
-
-// =================================
-// CHAPTER II VIDEO FINISHED
-// =================================
-
-
-if(chapter2Video){
-
-
-    chapter2Video.onended = ()=>{
-
-
-        console.log(
-            "Chapter II completed 🏆"
-        );
-
-
-        localStorage.setItem(
-            "chapterProgress",
-            "chapter3"
-        );
-
-
-        openScene(
-            chapter2AchievementScene
-        );
-
-
-    };
-
-
-}
-if(returnStoryButton2){
-
-
-    returnStoryButton2.onclick = ()=>{
-
-
-        openScene(
-            chapterSelectScene
-        );
-
-
-        updateChapters();
-
-
-    };
-
-
-}
-// =================================
-// CHAPTER III SYSTEM
-// =================================
-
-
-const chapter3Card = document.querySelector(
-    '[data-chapter="chapter3"]'
-);
-
-
-const chapter3IntroScene = document.getElementById(
-    "chapter3IntroScene"
-);
-
-
-const chapter3VideoScene = document.getElementById(
-    "chapter3VideoScene"
-);
-
-
-const chapter3StartButton = document.getElementById(
-    "chapter3StartButton"
-);
-
-
-const chapter3Video = document.getElementById(
-    "chapter3Video"
-);
-
-
-const chapter3AchievementScene = document.getElementById(
-    "chapter3AchievementScene"
-);
-
-
-const returnStoryButton3 = document.getElementById(
-    "returnStoryButton3"
-);
-
-
-
-
-
-// OPEN CHAPTER III
-
-
-if(chapter3Card){
-
-
-    chapter3Card.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter III"
-        );
-
-
-        openScene(
-            chapter3IntroScene
-        );
-
-
-    };
-
-
-}
-
-
-
-
-
-
-// START CHAPTER III VIDEO
-
-
-if(chapter3StartButton){
-
-
-    chapter3StartButton.onclick = ()=>{
-
-
-        console.log(
-            "Opening Chapter III video"
-        );
-
-
-        openScene(
-            chapter3VideoScene
-        );
-
-
-
-        if(chapter3Video){
-
-
-            chapter3Video.pause();
-
-
-            chapter3Video.currentTime = 0;
-
-
-            chapter3Video.muted = true;
-
-
-
-            chapter3Video.play()
-
-            .then(()=>{
-
-
-                console.log(
-                    "Chapter III video playing 🎬"
-                );
-
-
-
-                setTimeout(()=>{
-
-
-                    chapter3Video.muted = false;
-
-
-                },500);
-
-
-
-            })
-
-
-            .catch(error=>{
-
-
-                console.log(
-                    "Chapter III video error:",
-                    error
-                );
-
-
-            });
-
-
-
-        }
-
-
-    };
-
-
-}
-
-
-
-
-
-
-
-// CHAPTER III FINISHED
-
-
-if(chapter3Video){
-
-
-    chapter3Video.onended = ()=>{
-
-
-        console.log(
-            "Chapter III completed 🏆"
-        );
-
-
-
-        localStorage.setItem(
-            "chapterProgress",
-            "gtaRadio"
-        );
-
-
-
-        openScene(
-            chapter3AchievementScene
-        );
-
-
-    };
-
-}
-if(returnStoryButton3){
-
-    returnStoryButton3.onclick = ()=>{
-
-        openScene(
-            chapterSelectScene
-        );
-
-        updateChapters();
-
-    };
-
-}
-
-
-// =================================
-// GTA RADIO SYSTEM
-// =================================
-
-
-const gtaRadioCard = document.querySelector(
+const gtaRadioCard =
+document.querySelector(
     '[data-chapter="gtaRadio"]'
 );
 
 
-const gtaRadioScene = document.getElementById(
+const gtaRadioScene =
+document.getElementById(
     "gtaRadioScene"
 );
 
 
-const returnRadioButton = document.getElementById(
+const returnRadioButton =
+document.getElementById(
     "returnRadioButton"
 );
 
 
 
 
-// OPEN GTA RADIO
-
 
 if(gtaRadioCard){
 
 
-    gtaRadioCard.onclick = ()=>{
+    gtaRadioCard.addEventListener(
+        "click",
+        ()=>{
 
 
-        console.log(
-            "Opening GTA Radio 📻"
-        );
+            if(
+                gtaRadioCard.classList.contains(
+                    "locked"
+                )
+            ){
+
+                return;
+
+            }
 
 
-        openScene(
-            gtaRadioScene
-        );
+            openScene(
+                gtaRadioScene
+            );
 
 
-    };
+        }
+    );
 
 
 }
@@ -1095,114 +1084,126 @@ if(gtaRadioCard){
 
 
 
-// =================================
-// VINYL PLAYER
-// =================================
 
-
-const vinyls = document.querySelectorAll(
+const vinyls =
+document.querySelectorAll(
     ".vinyl"
 );
 
 
+
 let currentAudio = null;
+
 let currentVinyl = null;
+
+
+
 
 
 
 vinyls.forEach(vinyl=>{
 
 
-    vinyl.onclick = ()=>{
+    vinyl.addEventListener(
+        "click",
+        ()=>{
 
 
-        let audioId =
-        vinyl.dataset.audio;
-
-
-
-        let audio =
-        document.getElementById(audioId);
+            const audioId =
+            vinyl.dataset.audio;
 
 
 
-        // kliknutí na stejnou písničku = stop
+            const audio =
+            document.getElementById(
+                audioId
+            );
 
 
-        if(currentAudio === audio){
+
+            if(!audio){
+                return;
+            }
 
 
-            audio.pause();
-
-            audio.currentTime = 0;
 
 
-            vinyl.classList.remove(
+
+            if(currentAudio === audio){
+
+
+                audio.pause();
+
+
+                audio.currentTime=0;
+
+
+                vinyl.classList.remove(
+                    "playing"
+                );
+
+
+                currentAudio=null;
+
+                currentVinyl=null;
+
+
+                return;
+
+
+            }
+
+
+
+
+
+
+            if(currentAudio){
+
+
+                currentAudio.pause();
+
+
+                currentAudio.currentTime=0;
+
+
+            }
+
+
+
+            if(currentVinyl){
+
+
+                currentVinyl.classList.remove(
+                    "playing"
+                );
+
+
+            }
+
+
+
+
+
+
+            audio.play();
+
+
+
+            vinyl.classList.add(
                 "playing"
             );
 
 
-            currentAudio=null;
 
-            currentVinyl=null;
+            currentAudio=audio;
 
+            currentVinyl=vinyl;
 
-            return;
 
 
         }
-
-
-
-
-        // vypnutí předchozí
-
-
-        if(currentAudio){
-
-
-            currentAudio.pause();
-
-            currentAudio.currentTime=0;
-
-
-        }
-
-
-        if(currentVinyl){
-
-
-            currentVinyl.classList.remove(
-                "playing"
-            );
-
-
-        }
-
-
-
-
-
-        // spuštění nové
-
-
-        audio.play();
-
-
-
-        vinyl.classList.add(
-            "playing"
-        );
-
-
-
-        currentAudio=audio;
-
-        currentVinyl=vinyl;
-
-
-
-    };
+    );
 
 
 });
@@ -1212,183 +1213,224 @@ vinyls.forEach(vinyl=>{
 
 
 
-// =================================
-// RETURN TO STORY
-// =================================
-
-
 if(returnRadioButton){
 
-    returnRadioButton.onclick=()=>{
+
+    returnRadioButton.addEventListener(
+        "click",
+        ()=>{
 
 
-        if(currentAudio){
-
-            currentAudio.pause();
-
-            currentAudio.currentTime=0;
-
-        }
+            if(currentAudio){
 
 
-        if(currentVinyl){
+                currentAudio.pause();
 
-            currentVinyl.classList.remove(
-                "playing"
+
+                currentAudio.currentTime=0;
+
+
+            }
+
+
+            if(currentVinyl){
+
+
+                currentVinyl.classList.remove(
+                    "playing"
+                );
+
+
+            }
+
+
+
+            unlockChapter(
+                "chapter4"
             );
 
+
+
+            openScene(
+                chapterSelectScene
+            );
+
+
+            updateChapters();
+
+
+
         }
+    );
 
-
-        localStorage.setItem(
-            "chapterProgress",
-            "chapter4"
-        );
-
-
-        openScene(
-            chapterSelectScene
-        );
-
-
-        updateChapters();
-
-
-    };
 
 }
+/* =====================================================
+   CHAPTER IV SYSTEM
+===================================================== */
 
-// =================================
-// CHAPTER IV SYSTEM
-// =================================
 
-
-const chapter4Card = document.querySelector(
-'[data-chapter="chapter4"]'
-);
-
-const chapter4IntroScene = document.getElementById(
-"chapter4IntroScene"
-);
-
-const chapter4JournalScene = document.getElementById(
-"chapter4JournalScene"
-);
-
-const chapter4StartButton = document.getElementById(
-"chapter4StartButton"
-);
-
-const journalBook = document.getElementById(
-"journalBook"
-);
-
-const returnChapter4Button = document.getElementById(
-"returnChapter4Button"
+const chapter4Card =
+document.querySelector(
+    '[data-chapter="chapter4"]'
 );
 
 
+const chapter4IntroScene =
+document.getElementById(
+    "chapter4IntroScene"
+);
 
 
-// OPEN CHAPTER IV
+const chapter4JournalScene =
+document.getElementById(
+    "chapter4JournalScene"
+);
+
+
+const chapter4StartButton =
+document.getElementById(
+    "chapter4StartButton"
+);
+
+
+const journalBook =
+document.getElementById(
+    "journalBook"
+);
+
+
+const returnChapter4Button =
+document.getElementById(
+    "returnChapter4Button"
+);
+
+
+
+
+
+
+/* OPEN CHAPTER IV */
+
 
 if(chapter4Card){
 
-chapter4Card.onclick = ()=>{
+
+    chapter4Card.addEventListener(
+        "click",
+        ()=>{
 
 
-if(
-chapter4Card.classList.contains("locked")
-){
-return;
+            if(
+                chapter4Card.classList.contains(
+                    "locked"
+                )
+            ){
+                return;
+            }
+
+
+
+            openScene(
+                chapter4IntroScene
+            );
+
+
+
+        }
+    );
+
+
 }
 
 
-openScene(
-chapter4IntroScene
-);
-
-
-};
-
-
-}
 
 
 
 
 
-// OPEN JOURNAL
+/* OPEN JOURNAL */
+
 
 if(chapter4StartButton){
 
 
-chapter4StartButton.onclick = ()=>{
+    chapter4StartButton.addEventListener(
+        "click",
+        ()=>{
 
 
-openScene(
-chapter4JournalScene
-);
+            openScene(
+                chapter4JournalScene
+            );
 
 
 
-setTimeout(()=>{
+            setTimeout(()=>{
 
 
-if(journalBook){
+                if(journalBook){
 
-journalBook.classList.add(
-"opened"
-);
+
+                    journalBook.classList.add(
+                        "opened"
+                    );
+
+
+                }
+
+
+            },500);
+
+
+
+        }
+    );
+
 
 }
 
 
-},500);
-
-
-
-};
-
-
-}
 
 
 
 
 
-// COMPLETE CHAPTER IV
+/* COMPLETE CHAPTER IV */
+
 
 if(returnChapter4Button){
 
 
-returnChapter4Button.onclick = ()=>{
+    returnChapter4Button.addEventListener(
+        "click",
+        ()=>{
 
 
-console.log(
-"Chapter IV completed"
-);
-
-
-
-localStorage.setItem(
-"chapterProgress",
-"chapter5"
-);
+            console.log(
+                "Chapter IV completed 📖"
+            );
 
 
 
-openScene(
-chapterSelectScene
-);
+            unlockChapter(
+                "chapter5"
+            );
 
 
 
-updateChapters();
+            openScene(
+                chapterSelectScene
+            );
 
 
 
-};
+            updateChapters();
+
+
+
+        }
+    );
 
 
 }
@@ -1398,69 +1440,94 @@ updateChapters();
 
 
 
-// =================================
-// CHAPTER V SYSTEM
-// =================================
+
+
+
+/* =====================================================
+   CHAPTER V SYSTEM
+===================================================== */
 
 
 const chapter5Card =
 document.querySelector(
-'[data-chapter="chapter5"]'
+    '[data-chapter="chapter5"]'
 );
+
 
 
 const chapter5IntroScene =
 document.getElementById(
-"chapter5IntroScene"
+    "chapter5IntroScene"
 );
+
 
 
 const chapter5FinalScene =
 document.getElementById(
-"chapter5FinalScene"
+    "chapter5FinalScene"
 );
+
 
 
 const chapter5StartButton =
 document.getElementById(
-"chapter5StartButton"
+    "chapter5StartButton"
 );
+
 
 
 const finalGift =
 document.getElementById(
-"finalGift"
+    "finalGift"
 );
+
 
 
 const finalMessage =
 document.getElementById(
-"finalMessage"
+    "finalMessage"
 );
 
 
 
 
-// OPEN CHAPTER V
+
+
+/* OPEN CHAPTER V */
 
 
 if(chapter5Card){
 
 
-chapter5Card.onclick=()=>{
+    chapter5Card.addEventListener(
+        "click",
+        ()=>{
 
 
-console.log(
-"Opening Chapter V"
-);
+            if(
+                chapter5Card.classList.contains(
+                    "locked"
+                )
+            ){
+                return;
+            }
 
 
-openScene(
-chapter5IntroScene
-);
+
+            console.log(
+                "Opening Chapter V ❤️"
+            );
 
 
-};
+
+            openScene(
+                chapter5IntroScene
+            );
+
+
+
+        }
+    );
 
 
 }
@@ -1469,21 +1536,29 @@ chapter5IntroScene
 
 
 
-// START
+
+
+
+/* START FINAL */
+
 
 
 if(chapter5StartButton){
 
 
-chapter5StartButton.onclick=()=>{
+    chapter5StartButton.addEventListener(
+        "click",
+        ()=>{
 
 
-openScene(
-chapter5FinalScene
-);
+            openScene(
+                chapter5FinalScene
+            );
 
 
-};
+
+        }
+    );
 
 
 }
@@ -1492,24 +1567,105 @@ chapter5FinalScene
 
 
 
-// GIFT
+
+
+/* FINAL GIFT */
 
 
 if(finalGift){
 
 
-finalGift.onclick=()=>{
+    finalGift.addEventListener(
+        "click",
+        ()=>{
 
 
-finalGift.style.display="none";
+            finalGift.style.display =
+            "none";
 
 
-finalMessage.classList.add(
-"show"
-);
+
+            if(finalMessage){
 
 
-};
+                finalMessage.classList.add(
+                    "show"
+                );
+
+
+            }
+
+
+
+            localStorage.setItem(
+                "chapterProgress",
+                "completed"
+            );
+
+
+
+            unlockedChapter =
+            "completed";
+
+
+
+        }
+    );
 
 
 }
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   FINAL STATE CHECK
+===================================================== */
+
+
+function resetGame(){
+
+
+    localStorage.removeItem(
+        "chapterProgress"
+    );
+
+
+    unlockedChapter =
+    "chapter1";
+
+
+
+    location.reload();
+
+
+}
+
+
+
+
+
+
+function getProgress(){
+
+
+    return localStorage.getItem(
+        "chapterProgress"
+    );
+
+
+}
+
+
+
+
+
+
+console.log(
+    "Anniversary Edition Ready ❤️🎮"
+);
